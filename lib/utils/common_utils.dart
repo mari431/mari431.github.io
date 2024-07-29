@@ -13,7 +13,7 @@ class AboutUtils {
   static const String aboutMeDetail2 =
       'I\'m done B.Tech IT, I have a solid foundation in information technology, coupled with hands-on experience in various programming languages and software development tools. During my academic journey, I have developed a keen interest in web development, mobile development, which I have pursued through personal projects.';
 
-  static const String myImageStr = 'images/my_image1.jpg';
+  static const String myImageStr = 'assets/images/my_image1.jpg';
 
   static const List<String> profileLinks = [
     "https://github.com/mari431",
@@ -22,9 +22,9 @@ class AboutUtils {
   ];
 
   static const List<String> profileicons = [
-    "images/github_logo.png",
-    "images/instagram_logo_black.png",
-    "images/linkedin_logo_black.png"
+    "assets/images/github_logo.png",
+    "assets/images/instagram_logo_black.png",
+    "assets/images/linkedin_logo_black.png"
   ];
 
 
