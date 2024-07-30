@@ -4,6 +4,7 @@ import 'package:marimuthu_portfolio/screens/ContactPage.dart';
 import 'package:marimuthu_portfolio/screens/HomePage.dart';
 import 'package:marimuthu_portfolio/screens/aboutPage.dart';
 import 'package:marimuthu_portfolio/screens/projectsPage.dart';
+import 'package:marimuthu_portfolio/utils/common_utils.dart';
 
 import 'package:marimuthu_portfolio/widgets/ThemeToggleButton.dart';
 
@@ -51,9 +52,10 @@ class _HomeMainState extends State<HomeMain> {
                 SizedBox(
                   width: 70,
                   height: 70,
-                  child: Image(
-                      image: AssetImage(
-                          'images/tomjerry_logo.png')),
+                  child: Image.asset(AboutUtils.logoStr),
+                  // child: Image(
+                  //     image: AssetImage(
+                  //         'images/tomjerry_logo.png')),
                 ),
                 // Image.asset('assets/images/tomjerry_logo.png'),
                 Text('Marimuthu Portfolio',),
