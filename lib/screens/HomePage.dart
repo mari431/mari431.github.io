@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:marimuthu_portfolio/constants/appcolors.dart';
 import 'package:marimuthu_portfolio/constants/appfonts.dart';
+import 'package:marimuthu_portfolio/controllers/UrlController.dart';
 import 'package:marimuthu_portfolio/controllers/homeController.dart';
 import 'package:marimuthu_portfolio/screens/aboutPage.dart';
 import 'package:marimuthu_portfolio/utils/common_utils.dart';
+import 'package:marquee_list/marquee_list.dart';
 
 class Homepage extends StatelessWidget {
   const Homepage({super.key});
@@ -47,6 +49,7 @@ class Homepage extends StatelessWidget {
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
+
                             Text(
                               AboutUtils.aboutPosition,
                               style: TextStyle(
@@ -69,9 +72,38 @@ class Homepage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    'Me,',
-                    style: TextStyle(color: Colors.deepPurpleAccent),
+                  // Text(
+                  //   'Me,',
+                  //   style: TextStyle(color: Colors.deepPurpleAccent),
+                  // ),
+                  Container(
+                    width: 415,
+                    padding: EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                        color: Colors.black54,
+                        borderRadius: BorderRadius.all(Radius.circular(10))),
+                    child: Center(
+                      child: Column(
+                        children: [
+                          Text(
+                            AboutUtils.myFName + ' ' + AboutUtils.myLName,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+
+                          Text(
+                            AboutUtils.aboutPosition,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 15,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
                   Container(
                       width: 400,
@@ -84,62 +116,89 @@ class Homepage extends StatelessWidget {
           ],
         ),
 
-        Row(
-          children: [
-            Container(
-              height: 100,
-              width: Get.width,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: AboutUtils.profileicons.length,
-                itemBuilder: (context, index) {
-                  final map = AboutUtils.profileicons[index];
-                  return Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Container(
-                        width: 120,
-                        height: 30,
-                        padding: EdgeInsets.all(5),
-                        decoration: BoxDecoration(
-                            color: index == 0
-                                ? Colors.lightGreen
-                                : index == 1
-                                    ? Colors.orange
-                                    : Colors.blue,
-                            borderRadius: BorderRadius.circular(32),
-                            boxShadow: [
-                              BoxShadow(
-                                  color: Colors.grey.withOpacity(0.1),
-                                  spreadRadius: 1,
-                                  blurRadius: 1,
-                                  offset: Offset(0, 0))
-                            ]),
-                        child: Center(
-                            child: Row(
-                          children: [
-                            Image.asset(map),
-                            Text(index == 0
-                                ? 'Github'
-                                : index == 1
-                                    ? 'Instagram'
-                                    : 'LinkedIn')
-                          ],
-                        )),
-                      ),
-                      SizedBox(
-                        width: 10,
-                      )
-                    ],
-                  );
-                  // return ListTile(
-                  //   title: Text(map),
-                  // );
-                },
-              ),
-            ),
-          ],
-        ),
+        // Row(
+        //   children: [
+        //     Container(
+        //       height: 100,
+        //       width: Get.width,
+        //       child: ListView.builder(
+        //         scrollDirection: Axis.horizontal,
+        //         itemCount: AboutUtils.profileicons.length,
+        //         itemBuilder: (context, index) {
+        //           final map = AboutUtils.profileicons[index];
+        //           return Row(
+        //             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        //             children: [
+        //               InkWell(
+        //                 onTap: (){
+        //                   UrlController.to.openUrl(index);
+        //                 },
+        //                 child: Container(
+        //                   width: 120,
+        //                   height: 30,
+        //                   padding: EdgeInsets.all(5),
+        //                   decoration: BoxDecoration(
+        //                       color: index == 0
+        //                           ? Colors.lightGreen
+        //                           : index == 1
+        //                               ? Colors.orange
+        //                               : Colors.blue,
+        //                       borderRadius: BorderRadius.circular(32),
+        //                       boxShadow: [
+        //                         BoxShadow(
+        //                             color: Colors.grey.withOpacity(0.1),
+        //                             spreadRadius: 1,
+        //                             blurRadius: 1,
+        //                             offset: Offset(0, 0))
+        //                       ]),
+        //                   child: Center(
+        //                       child: Row(
+        //                     children: [
+        //                       Image.asset(map),
+        //                       Text(index == 0
+        //                           ? 'Github'
+        //                           : index == 1
+        //                               ? 'Instagram'
+        //                               : 'LinkedIn')
+        //                     ],
+        //                   )),
+        //                 ),
+        //               ),
+        //               SizedBox(
+        //                 width: 10,
+        //               )
+        //             ],
+        //           );
+        //           // return ListTile(
+        //           //   title: Text(map),
+        //           // );
+        //         },
+        //       ),
+        //     ),
+        //   ],
+        // ),
+
+        // SizedBox(
+        //   width: 280,
+        //   height: 25,
+        //   child: MarqueeList(
+        //     scrollDirection: Axis.horizontal,
+        //     scrollDuration: Duration(seconds: 2),
+        //     children: [
+        //       // Text('alfmaslfk;slgm')
+        //       for (int i = 0; i < AboutUtils.mySkilles.length; i++)
+        //         Row(
+        //           children: [
+        //             Text(AboutUtils.mySkilles[i]
+        //             ),
+        //             Text(','),
+        //             SizedBox(width: 10,)
+        //           ],
+        //         ),
+        //
+        //     ],
+        //   ),
+        // ),
         // AboutPage(),
       ],
     ));

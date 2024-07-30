@@ -38,6 +38,8 @@ dependencies:
 
   # flutter state management.
   get: ^4.6.6
+  url_launcher: ^6.3.0
+  marquee_list: ^1.0.0
 
 dev_dependencies:
   flutter_test:
