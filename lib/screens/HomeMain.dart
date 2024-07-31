@@ -79,6 +79,7 @@ class _HomeMainState extends State<HomeMain> {
                      HomePage(),
 
                     const SizedBox(height: 50),
+                    // ABOUT
                     Container(
                       key: navbarKeys[1],
                       width: screenWidth,
@@ -100,7 +101,7 @@ class _HomeMainState extends State<HomeMain> {
                           const Text(
                             "What I can do",
                             style: TextStyle(
-                              fontSize: AppFonts.caption,
+                              fontSize: AppFonts.aboutFDesk,
                               fontWeight: FontWeight.bold,
                               // color: CustomColor.whitePrimary,
                             ),
@@ -110,58 +111,24 @@ class _HomeMainState extends State<HomeMain> {
                       ),
                     ),
 
-
-                    const SizedBox(height: 50),
-                    Container(
-                      key: navbarKeys[3],
-                      width: screenWidth,
-                      padding: const EdgeInsets.fromLTRB(25, 20, 25, 60),
-                      height: 500,
-                      color: Colors.blue,
-                      child: Text('Projects'),
-                    ),
+                    // const SizedBox(height: 50),
+                    // Container(
+                    //   key: navbarKeys[3],
+                    //   width: screenWidth,
+                    //   padding: const EdgeInsets.fromLTRB(25, 20, 25, 60),
+                    //   height: 500,
+                    //   color: Colors.blue,
+                    //   child: Text('Projects'),
+                    // ),
                     const SizedBox(height: 50),
                     Container(
                       key: navbarKeys[4],
                       width: screenWidth,
-                      padding: const EdgeInsets.fromLTRB(25, 20, 25, 60),
+                      // padding: const EdgeInsets.fromLTRB(25, 20, 25, 60),
                       // height: 500,
-                      color: Colors.red,
-                      child: Text('Contact'),
+                      // color: Colors.red,
+                      child: Center(child: Text("Made by ${AboutUtils.myFName} With ❤️ Flutter 3.22.3")),
                     ),
-
-
-
-
-                    // SKILLS
-                    // Container(
-                    //   key: navbarKeys[1],
-                    //   width: screenWidth,
-                    //   padding: const EdgeInsets.fromLTRB(25, 20, 25, 60),
-                    //   color: CustomColor.bgLight1,
-                    //   child: Column(
-                    //     mainAxisSize: MainAxisSize.min,
-                    //     children: [
-                    //       // title
-                    //       const Text(
-                    //         "What I can do",
-                    //         style: TextStyle(
-                    //           fontSize: 24,
-                    //           fontWeight: FontWeight.bold,
-                    //           // color: CustomColor.whitePrimary,
-                    //         ),
-                    //       ),
-                    //       const SizedBox(height: 50),
-                    //
-                    //       // platforms and skills
-                    //       if (constraints.maxWidth >= kMedDesktopWidth)
-                    //         const SkillsDesktop()
-                    //       else
-                    //         const SkillsMobile(),
-                    //     ],
-                    //
-                    //   ),
-                    // ),
                     const SizedBox(height: 30),
                   ],
                 ),
@@ -174,7 +141,7 @@ class _HomeMainState extends State<HomeMain> {
   }
 
   void scrollToSection(int navIndex) {
-    // if (navIndex == 4) {
+    // if (navIndex == 5) {
     //   // open a blog page
     //   // js.context.callMethod('open', [SnsLinks.blog]);
     //   return;
@@ -189,207 +156,6 @@ class _HomeMainState extends State<HomeMain> {
   }
 
 }
-
-
-
-// class HomeMain extends StatefulWidget {
-//   const HomeMain({super.key});
-//
-//   @override
-//   State<HomeMain> createState() => _HomeMainState();
-// }
-//
-// class _HomeMainState extends State<HomeMain> {
-//   int selectedScreenIndex=0;
-//
-//   int selectedScreen=0;
-//
-//   List<Widget> screens=[];
-//
-//   @override
-//   void initState() {
-//     setState(() {
-//       screens=[
-//         Homepage(),
-//         AboutPage(),
-//         ProjectsPage(),
-//         ContactPage(),
-//       ];
-//     });
-//     super.initState();
-//   }
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       extendBodyBehindAppBar: true,
-//       appBar: AppBar(
-//         backgroundColor: Colors.transparent,
-//         // shadowColor: Colors.grey.shade50,
-//         // bottomOpacity:100,
-//         // elevation: 0.5,
-//         title: Row(
-//           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//           children: [
-//             Row(
-//               children: [
-//                 SizedBox(
-//                   width: 70,
-//                   height: 70,
-//                   child: Image.asset(AboutUtils.logoStr),
-//                   // child: Image(
-//                   //     image: AssetImage(
-//                   //         'images/tomjerry_logo.png')),
-//                 ),
-//                 // Image.asset('assets/images/tomjerry_logo.png'),
-//                 Text('Marimuthu Portfolio',),
-//               ],
-//             ),
-//             bottomNavigation(),
-//             ThemeToggleButton(),
-//           ],
-//         ),
-//       ),
-//       body: Container(
-//         width: Get.width,
-//         height: Get.height,
-//         child: Stack(
-//           children: [
-//             Center(
-//               child: Container(
-//                 margin: EdgeInsets.only(top: 15),
-//                   child:
-//                   screens.isEmpty?Center(child: CircularProgressIndicator(color: Colors.grey,)):
-//                   screens[selectedScreen]
-//               ),
-//             ),
-//             // Center(
-//             //   child: Positioned(
-//             //     top: 0,
-//             //     bottom: 0,
-//             //     left: 0,
-//             //     right: 0,
-//             //     child: Container(
-//             //         margin: EdgeInsets.only(top: 15),
-//             //         child:
-//             //         screens.isEmpty?Center(child: CircularProgressIndicator(color: Colors.grey,)):
-//             //         screens[selectedScreen]
-//             //     ),
-//             //   ),
-//             // )
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-//
-//
-//   Widget bottomNavigation() {
-//     return Material(
-//       color: Colors.transparent,
-//       child: Container(
-//         decoration: BoxDecoration(
-//           borderRadius: BorderRadius.vertical(top: Radius.circular(40)),
-//           // color: Colors.black,
-//           color: Colors.transparent,
-//         ),
-//         height: 30,
-//         child: Row(
-//           mainAxisAlignment: MainAxisAlignment.spaceAround,
-//           crossAxisAlignment: CrossAxisAlignment.center,
-//           children: [
-//             InkWell(
-//               onTap: (){
-//                 setState(() {
-//                   selectedScreen=0;
-//                   // ObservationController.to.selectIndex=0;
-//                 });
-//               },
-//               child: bottomNavigationItem(
-//                   title: "Home".tr,
-//                   index: 0,
-//                   // icon: Icons.send
-//               ),
-//             ),
-//
-//             InkWell(
-//                 onTap: (){
-//                   setState(() {
-//                     selectedScreen=1;
-//                     // ObservationController.to.selectIndex=1;
-//                   });
-//                 },
-//                 child: bottomNavigationItem(
-//                     title: "About".tr,
-//                     index: 1,
-//                     // icon: Icons.person
-//                 )
-//             ),
-//             InkWell(
-//                 onTap: (){
-//                   setState(() {
-//                     selectedScreen=2;
-//                     // ObservationController.to.selectIndex=1;
-//                   });
-//                 },
-//                 child: bottomNavigationItem(
-//                   title: "Projects".tr,
-//                   index: 2,
-//                   // icon: Icons.person
-//                 )
-//             ),
-//             InkWell(
-//                 onTap: (){
-//                   setState(() {
-//                     selectedScreen=3;
-//                     // ObservationController.to.selectIndex=1;
-//                   });
-//                 },
-//                 child: bottomNavigationItem(
-//                   title: "Contact".tr,
-//                   index: 3,
-//                   // icon: Icons.person
-//                 )
-//             ),
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-//
-//   Container bottomNavigationItem({required int index, required String title,
-//     // required IconData icon,
-//   }) {
-//     return Container(
-//       width: 70,
-//       color: selectedScreen==index? Colors.lightGreenAccent:Colors.transparent,
-//       child: Column(
-//         mainAxisAlignment: MainAxisAlignment.center,
-//         children: [
-//           // Icon(
-//           //   icon,
-//           //   color:selectedScreen==index? Colors.white:Colors.grey,),
-//           // SizedBox(height: 2,),
-//           Text("$title",
-//             style: TextStyle(
-//                 fontSize: 10,
-//                 color:selectedScreen==index? Colors.black:Colors.grey,
-//                 fontWeight: FontWeight.bold
-//             ),)
-//         ],
-//       ),
-//     );
-//   }
-//
-//
-//
-//
-//
-// }
-
-
-
-
 
 // class ResponsiveDesignThirdWay extends GetResponsiveView<PortfolioController> {
 //   ResponsiveDesignThirdWay()

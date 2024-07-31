@@ -31,7 +31,6 @@ class AboutPage extends StatelessWidget {
                     if (constraints.maxWidth >= kMinDesktopWidth) {
                       return buildAboutDesktop();
                     }
-
                     // else
                     return buildAboutMobile();
                   },
@@ -48,29 +47,6 @@ class AboutPage extends StatelessWidget {
   Row buildAboutDesktop() {
     return Row(
       children: [
-        // email
-        Expanded(
-          child: Container(
-            width: 500,
-            height: 500,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text('About Me',style: TextStyle(fontSize: AppFonts.caption),),
-                Text(
-                  AboutUtils.aboutMeDetail2,
-                  style: TextStyle(
-                    // color: Colors.white,
-                    fontSize: AppFonts.bodyText,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
-        const SizedBox(width: 50),
         Expanded(
           child: Container(
             width: 500,
@@ -78,6 +54,56 @@ class AboutPage extends StatelessWidget {
             child: Image.asset(AboutUtils.myImage2Str),
           ),
         ),
+        const SizedBox(width: 50),
+        Expanded(
+          child: Container(
+            width: 500,
+            height: 500,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('About Me',style: TextStyle(fontSize: AppFonts.aboutFDesk),),
+                Text(
+                  AboutUtils.aboutMeDetail2,
+                  style: TextStyle(
+                    // color: Colors.white,
+                    fontSize: AppFonts.aboutBodyDesk,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+
+                Expanded(child: SizedBox(
+                  width: 280,
+                  height: 25,
+                  child: MarqueeList(
+                    scrollDirection: Axis.horizontal,
+                    scrollDuration: Duration(seconds: 2),
+                    children: [
+                      for (int i = 0; i < AboutUtils.mySkilles.length; i++)
+                        Row(
+                          children: [
+                            Text(AboutUtils.mySkilles[i]),
+                            Text(','),
+                            SizedBox(
+                              width: 10,
+                            )
+                          ],
+                        ),
+                    ],
+                  ),
+                ),
+                )
+
+
+              ],
+            ),
+          ),
+        ),
+
+
+
+
       ],
     );
   }
@@ -86,199 +112,56 @@ class AboutPage extends StatelessWidget {
     return Column(
       children: [
         Expanded(
-          child: Column(
-            children: [
-              Text('About Me',style: TextStyle(fontSize: AppFonts.caption),),
-              Text(
-          AboutUtils.aboutMeDetail2,
-                style: TextStyle(
-                  // color: Colors.white,
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ],
-          ),
-        ),
-        const SizedBox(height: 15),
-        Expanded(
           child: Container(
             width: 500,
-            height: 500,
+            height: 100,
             child: Image.asset(AboutUtils.myImage2Str),
           ),
         ),
+        const SizedBox(height: 5),
+        Expanded(
+          child: Container(
+            width: 500,
+            height: 300,
+            child: Column(
+              children: [
+                Text('About Me',style: TextStyle(fontSize: AppFonts.aboutFDesk),),
+                Text(
+            AboutUtils.aboutMeDetail2,
+                  style: TextStyle(
+                    // color: Colors.white,
+                    fontSize: AppFonts.aboutFMob,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+        const SizedBox(height: 5),
+        Expanded(child: SizedBox(
+          width: 280,
+          height: 25,
+          child: MarqueeList(
+            scrollDirection: Axis.horizontal,
+            scrollDuration: Duration(seconds: 2),
+            children: [
+              for (int i = 0; i < AboutUtils.mySkilles.length; i++)
+                Row(
+                  children: [
+                    Text(AboutUtils.mySkilles[i]),
+                    Text(','),
+                    SizedBox(
+                      width: 10,
+                    )
+                  ],
+                ),
+            ],
+          ),
+        ),
+        )
+
       ],
     );
   }
 }
-
-// class Homepage extends StatelessWidget {
-//   const Homepage({super.key});
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return SingleChildScrollView(
-//         child: Column(
-//       children: [
-//
-//         Row(
-//           mainAxisAlignment: MainAxisAlignment.start,crossAxisAlignment: CrossAxisAlignment.start,
-//
-//           children: [
-//             Expanded(
-//               flex: 12,
-//               child: Container(
-//                 width: 400,
-//                 height: 400,
-//                 child: Image.asset(AboutUtils.myImageStr),
-//               ),
-//             ),
-//             Text('adlkjsf')
-//           ],
-//         ),
-//
-//
-//         Row(
-//           // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//           children: [
-//             Expanded(
-//               flex: 12,
-//               child: Center(
-//                   child: Container(
-//                     width: 415,
-//                     padding: EdgeInsets.all(8),
-//                     decoration: BoxDecoration(
-//                         // color: Colors.black54,
-//                         borderRadius: BorderRadius.all(Radius.circular(10))),
-//                     child: Center(
-//                       child: Column(
-//                         children: [
-//                           Text(
-//                             AboutUtils.myFName + ' ' + AboutUtils.myLName,
-//                             style: TextStyle(
-//                               // color: Colors.white,
-//                               fontSize: 20,
-//                               fontWeight: FontWeight.bold,
-//                             ),
-//                           ),
-//
-//                           SizedBox(
-//                             width: 280,
-//                             height: 25,
-//                             child: MarqueeList(
-//                               scrollDirection: Axis.horizontal,
-//                               scrollDuration: Duration(seconds: 2),
-//                               children: [
-//                                 // Text('alfmaslfk;slgm')
-//                                 for (int i = 0; i < AboutUtils.mySkilles.length; i++)
-//                                   Row(
-//                                     children: [
-//                                       Text(AboutUtils.mySkilles[i]
-//                                       ),
-//                                       Text(','),
-//                                       SizedBox(width: 10,)
-//                                     ],
-//                                   ),
-//
-//                               ],
-//                             ),
-//                           ),
-//
-//
-//                         ],
-//                       ),
-//                     ),
-//                   )),
-//             ),
-//           ],
-//         ),
-//
-//         // Row(
-//         //   children: [
-//         //     Container(
-//         //       height: 100,
-//         //       width: Get.width,
-//         //       child: ListView.builder(
-//         //         scrollDirection: Axis.horizontal,
-//         //         itemCount: AboutUtils.profileicons.length,
-//         //         itemBuilder: (context, index) {
-//         //           final map = AboutUtils.profileicons[index];
-//         //           return Row(
-//         //             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-//         //             children: [
-//         //               InkWell(
-//         //                 onTap: (){
-//         //                   UrlController.to.openUrl(index);
-//         //                 },
-//         //                 child: Container(
-//         //                   width: 120,
-//         //                   height: 30,
-//         //                   padding: EdgeInsets.all(5),
-//         //                   decoration: BoxDecoration(
-//         //                       color: index == 0
-//         //                           ? Colors.lightGreen
-//         //                           : index == 1
-//         //                               ? Colors.orange
-//         //                               : Colors.blue,
-//         //                       borderRadius: BorderRadius.circular(32),
-//         //                       boxShadow: [
-//         //                         BoxShadow(
-//         //                             color: Colors.grey.withOpacity(0.1),
-//         //                             spreadRadius: 1,
-//         //                             blurRadius: 1,
-//         //                             offset: Offset(0, 0))
-//         //                       ]),
-//         //                   child: Center(
-//         //                       child: Row(
-//         //                     children: [
-//         //                       Image.asset(map),
-//         //                       Text(index == 0
-//         //                           ? 'Github'
-//         //                           : index == 1
-//         //                               ? 'Instagram'
-//         //                               : 'LinkedIn')
-//         //                     ],
-//         //                   )),
-//         //                 ),
-//         //               ),
-//         //               SizedBox(
-//         //                 width: 10,
-//         //               )
-//         //             ],
-//         //           );
-//         //           // return ListTile(
-//         //           //   title: Text(map),
-//         //           // );
-//         //         },
-//         //       ),
-//         //     ),
-//         //   ],
-//         // ),
-//
-//         // SizedBox(
-//         //   width: 280,
-//         //   height: 25,
-//         //   child: MarqueeList(
-//         //     scrollDirection: Axis.horizontal,
-//         //     scrollDuration: Duration(seconds: 2),
-//         //     children: [
-//         //       // Text('alfmaslfk;slgm')
-//         //       for (int i = 0; i < AboutUtils.mySkilles.length; i++)
-//         //         Row(
-//         //           children: [
-//         //             Text(AboutUtils.mySkilles[i]
-//         //             ),
-//         //             Text(','),
-//         //             SizedBox(width: 10,)
-//         //           ],
-//         //         ),
-//         //
-//         //     ],
-//         //   ),
-//         // ),
-//         // AboutPage(),
-//       ],
-//     ));
-//   }
-// }
