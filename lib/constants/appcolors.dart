@@ -11,5 +11,12 @@ class AppColors {
 
   static const Color positionColor = Colors.lightGreenAccent;
 
+  static Color navBarTitleTextColor(bool isDarkMode) {
+    return isDarkMode ?  Colors.lightGreenAccent : Colors.black;
+  }
+
+  static Color navBarBgColor(bool isDarkMode) {
+    return isDarkMode ? const Color(0x3B3B5B5B) : Colors.green;
+  }
 
 }
