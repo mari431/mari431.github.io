@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:marimuthu_portfolio/constants/appcolors.dart';
 import 'package:marimuthu_portfolio/constants/appfonts.dart';
 import 'package:marimuthu_portfolio/constants/size.dart';
+import 'package:marimuthu_portfolio/controllers/ThemeController.dart';
 import 'package:marimuthu_portfolio/controllers/UrlController.dart';
 import 'package:marimuthu_portfolio/controllers/homeController.dart';
 import 'package:marimuthu_portfolio/screens/aboutPage.dart';
@@ -10,22 +11,27 @@ import 'package:marimuthu_portfolio/utils/common_utils.dart';
 import 'package:marquee_list/marquee_list.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+   HomePage({super.key});
+
+  final ThemeController _themeFindController = Get.find<ThemeController>();
 
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Container(
         padding: const EdgeInsets.fromLTRB(25, 20, 25, 60),
+        color: AppColors.homeBgColor(_themeFindController.isDarkMode.value),
         child: SingleChildScrollView(
           child: Column(
             children: [
               const SizedBox(height: 5),
-              ConstrainedBox(
-                constraints: const BoxConstraints(
-                  maxWidth: 700,
-                  maxHeight: 500,
-                ),
+              Container(
+                width: Get.width,
+                height: 500,
+                // constraints: const BoxConstraints(
+                //   maxWidth: 700,
+                //   maxHeight: 500,
+                // ),
                 child: LayoutBuilder(
                   builder: (context, constraints) {
                     if (constraints.maxWidth >= kMinDesktopWidth) {
@@ -37,7 +43,7 @@ class HomePage extends StatelessWidget {
                   },
                 ),
               ),
-              const SizedBox(height: 15),
+              // const SizedBox(height: 15),
             ],
           ),
         ),

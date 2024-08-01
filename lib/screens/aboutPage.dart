@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:marimuthu_portfolio/constants/appcolors.dart';
 import 'package:marimuthu_portfolio/constants/appfonts.dart';
 import 'package:marimuthu_portfolio/constants/size.dart';
+import 'package:marimuthu_portfolio/controllers/ThemeController.dart';
 import 'package:marimuthu_portfolio/controllers/UrlController.dart';
 import 'package:marimuthu_portfolio/controllers/homeController.dart';
 import 'package:marimuthu_portfolio/screens/aboutPage.dart';
@@ -10,22 +11,27 @@ import 'package:marimuthu_portfolio/utils/common_utils.dart';
 import 'package:marquee_list/marquee_list.dart';
 
 class AboutPage extends StatelessWidget {
-  const AboutPage({super.key});
+   AboutPage({super.key});
+
+  final ThemeController _themeFindController = Get.find<ThemeController>();
 
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Container(
         padding: const EdgeInsets.fromLTRB(25, 20, 25, 60),
+        color: AppColors.aboutBgColor(_themeFindController.isDarkMode.value),
         child: SingleChildScrollView(
           child: Column(
             children: [
               const SizedBox(height: 5),
-              ConstrainedBox(
-                constraints: const BoxConstraints(
-                  maxWidth: 700,
-                  maxHeight: 500,
-                ),
+              Container(
+                width: Get.width,
+                height: 500,
+                // constraints: const BoxConstraints(
+                //   maxWidth: 700,
+                //   maxHeight: 500,
+                // ),
                 child: LayoutBuilder(
                   builder: (context, constraints) {
                     if (constraints.maxWidth >= kMinDesktopWidth) {
@@ -36,7 +42,7 @@ class AboutPage extends StatelessWidget {
                   },
                 ),
               ),
-              const SizedBox(height: 15),
+              // const SizedBox(height: 15),
             ],
           ),
         ),
@@ -47,20 +53,13 @@ class AboutPage extends StatelessWidget {
   Row buildAboutDesktop() {
     return Row(
       children: [
-        Expanded(
-          child: Container(
-            width: 500,
-            height: 500,
-            child: Image.asset(AboutUtils.myImage2Str),
-          ),
-        ),
-        const SizedBox(width: 50),
+
         Expanded(
           child: Container(
             width: 500,
             height: 500,
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text('About Me',style: TextStyle(fontSize: AppFonts.aboutFDesk),),
@@ -73,34 +72,41 @@ class AboutPage extends StatelessWidget {
                   ),
                 ),
 
-                Expanded(child: SizedBox(
-                  width: 280,
-                  height: 25,
-                  child: MarqueeList(
-                    scrollDirection: Axis.horizontal,
-                    scrollDuration: Duration(seconds: 2),
-                    children: [
-                      for (int i = 0; i < AboutUtils.mySkilles.length; i++)
-                        Row(
-                          children: [
-                            Text(AboutUtils.mySkilles[i]),
-                            Text(','),
-                            SizedBox(
-                              width: 10,
-                            )
-                          ],
-                        ),
-                    ],
-                  ),
-                ),
-                )
+                // Expanded(child: SizedBox(
+                //   width: 280,
+                //   height: 25,
+                //   child: MarqueeList(
+                //     scrollDirection: Axis.horizontal,
+                //     scrollDuration: Duration(seconds: 2),
+                //     children: [
+                //       for (int i = 0; i < AboutUtils.mySkilles.length; i++)
+                //         Row(
+                //           children: [
+                //             Text(AboutUtils.mySkilles[i]),
+                //             Text(','),
+                //             SizedBox(
+                //               width: 10,
+                //             )
+                //           ],
+                //         ),
+                //     ],
+                //   ),
+                // ),
+                // )
 
 
               ],
             ),
           ),
         ),
-
+        const SizedBox(width: 50),
+        Expanded(
+          child: Container(
+            width: 500,
+            height: 500,
+            child: Image.asset(AboutUtils.myImage2Str),
+          ),
+        ),
 
 
 
@@ -114,15 +120,15 @@ class AboutPage extends StatelessWidget {
         Expanded(
           child: Container(
             width: 500,
-            height: 100,
+            height: 500,
             child: Image.asset(AboutUtils.myImage2Str),
           ),
         ),
-        const SizedBox(height: 5),
+        const SizedBox(height: 15),
         Expanded(
           child: Container(
             width: 500,
-            height: 300,
+            height: 500,
             child: Column(
               children: [
                 Text('About Me',style: TextStyle(fontSize: AppFonts.aboutFDesk),),
@@ -138,28 +144,28 @@ class AboutPage extends StatelessWidget {
             ),
           ),
         ),
-        const SizedBox(height: 5),
-        Expanded(child: SizedBox(
-          width: 280,
-          height: 25,
-          child: MarqueeList(
-            scrollDirection: Axis.horizontal,
-            scrollDuration: Duration(seconds: 2),
-            children: [
-              for (int i = 0; i < AboutUtils.mySkilles.length; i++)
-                Row(
-                  children: [
-                    Text(AboutUtils.mySkilles[i]),
-                    Text(','),
-                    SizedBox(
-                      width: 10,
-                    )
-                  ],
-                ),
-            ],
-          ),
-        ),
-        )
+        // const SizedBox(height: 5),
+        // Expanded(child: SizedBox(
+        //   width: 280,
+        //   height: 25,
+        //   child: MarqueeList(
+        //     scrollDirection: Axis.horizontal,
+        //     scrollDuration: Duration(seconds: 2),
+        //     children: [
+        //       for (int i = 0; i < AboutUtils.mySkilles.length; i++)
+        //         Row(
+        //           children: [
+        //             Text(AboutUtils.mySkilles[i]),
+        //             Text(','),
+        //             SizedBox(
+        //               width: 10,
+        //             )
+        //           ],
+        //         ),
+        //     ],
+        //   ),
+        // ),
+        // )
 
       ],
     );

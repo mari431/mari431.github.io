@@ -1,17 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:marimuthu_portfolio/constants/appcolors.dart';
+import 'package:marimuthu_portfolio/constants/appfonts.dart';
 import 'package:marimuthu_portfolio/constants/size.dart';
+import 'package:marimuthu_portfolio/controllers/ThemeController.dart';
 import 'package:marimuthu_portfolio/utils/common_utils.dart';
 
 import '../constants/skill_items.dart';
 
 class SkillsPage extends StatelessWidget {
-  const SkillsPage({super.key});
+   SkillsPage({super.key});
+
+  final ThemeController _themeFindController = Get.find<ThemeController>();
 
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Container(
         padding: const EdgeInsets.fromLTRB(25, 20, 25, 60),
+        // color: AppColors.skillBgColor(_themeFindController.isDarkMode.value),
         child: SingleChildScrollView(
           child: Column(
             children: [
@@ -26,7 +33,6 @@ class SkillsPage extends StatelessWidget {
                     if (constraints.maxWidth >= kMinDesktopWidth) {
                       return buildSkillDesktop();
                     }
-
                     // else
                     return buildSkillMobile();
                   },
@@ -40,65 +46,90 @@ class SkillsPage extends StatelessWidget {
     );
   }
 
-  Row buildSkillDesktop() {
-    return Row(
+  Column buildSkillDesktop() {
+    return Column(
       children: [
-        // platforms
-        ConstrainedBox(
-          constraints: const BoxConstraints(
-            maxWidth: 450,
-          ),
-          child: Wrap(
-            spacing: 5.0,
-            runSpacing: 5.0,
-            children: [
-              for (int i = 0; i < platformItems.length; i++)
-                Container(
-                  width: 200,
-                  decoration: BoxDecoration(
-                    // color: CustomColor.bgLight2,
-                    borderRadius: BorderRadius.circular(5),
-                  ),
-                  child: ListTile(
-                    contentPadding: const EdgeInsets.symmetric(
-                      horizontal: 20.0,
-                      vertical: 10.0,
-                    ),
-                    leading: Image.asset(
-                      platformItems[i]["img"],
-                      width: 26.0,
-                    ),
-                    title: Text(platformItems[i]["title"]),
-                  ),
-                )
-            ],
+        const Text(
+          "What I can do",
+          style: TextStyle(
+            fontSize: AppFonts.aboutFDesk,
+            fontWeight: FontWeight.bold,
+            // color: CustomColor.whitePrimary,
           ),
         ),
-        const SizedBox(width: 50),
-        // skills
-        Flexible(
-          child: ConstrainedBox(
-            constraints: const BoxConstraints(
-              maxWidth: 500,
+        Row(
+          children: [
+            // platforms
+            ConstrainedBox(
+              constraints: const BoxConstraints(
+                maxWidth: 450,
+              ),
+              child: Wrap(
+                spacing: 5.0,
+                runSpacing: 5.0,
+                children: [
+                  for (int i = 0; i < platformItems.length; i++)
+                    Container(
+                      width: 200,
+                      decoration: BoxDecoration(
+                          color: AppColors.skillBgColor(_themeFindController.isDarkMode.value),
+                          borderRadius: BorderRadius.circular(32),
+                          boxShadow: [
+                            BoxShadow(
+                                color: Colors.grey.withOpacity(0.5),
+                                spreadRadius: 1,
+                                blurRadius: 1,
+                                offset: Offset(0, 0)
+                            )
+                          ]
+                      ),
+                      // decoration: BoxDecoration(
+                      //   color: AppColors.skillBgColor(_themeFindController.isDarkMode.value),
+                      //   borderRadius: BorderRadius.circular(5),
+                      // ),
+                      child: ListTile(
+                        contentPadding: const EdgeInsets.symmetric(
+                          horizontal: 20.0,
+                          vertical: 10.0,
+                        ),
+                        leading: Image.asset(
+                          platformItems[i]["img"],
+                          width: 26.0,
+                          color: AppColors.skillIconColor(_themeFindController.isDarkMode.value),
+                        ),
+                        title: Text(platformItems[i]["title"],style: TextStyle(color: AppColors.skillTextColor(_themeFindController.isDarkMode.value)),),
+                      ),
+                    )
+                ],
+              ),
             ),
-            child: Wrap(
-              spacing: 10.0,
-              runSpacing: 10.0,
-              children: [
-                for (int i = 0; i < skillItems.length; i++)
-                  Chip(
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 12.0,
-                      horizontal: 16.0,
-                    ),
-                    // backgroundColor: CustomColor.bgLight2,
-                    label: Text(skillItems[i]["title"]),
-                    avatar: Image.asset(skillItems[i]["img"]),
-                  ),
-              ],
-            ),
-          ),
-        )
+            const SizedBox(width: 50),
+            // skills
+            Flexible(
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(
+                  maxWidth: 500,
+                ),
+                child: Wrap(
+                  spacing: 10.0,
+                  runSpacing: 10.0,
+                  children: [
+                    for (int i = 0; i < skillItems.length; i++)
+                      Chip(
+                        padding: const EdgeInsets.symmetric(
+                          vertical: 12.0,
+                          horizontal: 16.0,
+                        ),
+                        // backgroundColor: CustomColor.bgLight2,
+                        label: Text(skillItems[i]["title"]),
+                        avatar: Image.asset(skillItems[i]["img"]),
+                      ),
+                  ],
+                ),
+              ),
+            )
+          ],
+        ),
       ],
     );
   }
@@ -106,14 +137,29 @@ class SkillsPage extends StatelessWidget {
   Column buildSkillMobile() {
     return Column(
       children: [
-
+        const Text(
+          "What I can do",
+          style: TextStyle(
+            fontSize: AppFonts.aboutFDesk,
+            fontWeight: FontWeight.bold,
+            // color: CustomColor.whitePrimary,
+          ),
+        ),
         for (int i = 0; i < platformItems.length; i++)
           Container(
             margin: const EdgeInsets.only(bottom: 5.0),
             width: double.maxFinite,
             decoration: BoxDecoration(
-              // color: CustomColor.bgLight2,
-              borderRadius: BorderRadius.circular(5.0),
+                color: AppColors.skillBgColor(_themeFindController.isDarkMode.value),
+                borderRadius: BorderRadius.circular(32),
+                boxShadow: [
+                  BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 1,
+                      blurRadius: 1,
+                      offset: Offset(0, 0)
+                  )
+                ]
             ),
             child: ListTile(
               contentPadding: const EdgeInsets.symmetric(
@@ -123,11 +169,12 @@ class SkillsPage extends StatelessWidget {
               leading: Image.asset(
                 platformItems[i]["img"],
                 width: 26.0,
+                color: AppColors.skillIconColor(_themeFindController.isDarkMode.value),
               ),
-              title: Text(platformItems[i]["title"]),
+              title: Text(platformItems[i]["title"],),
             ),
           ),
-        const SizedBox(height: 50),
+        const SizedBox(height: 5),
 
         // skills
         Wrap(

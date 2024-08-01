@@ -18,21 +18,38 @@ class UrlController extends GetxController {
   // }
 
 
-void openUrl(index) async {
-  final String deepLink= index == 0 ? 'https://github.com/mari431' : index == 1 ? 'https://www.instagram.com/marimuthu_flutterdev/' : index == 2 ? 'https://www.linkedin.com/in/marimuthu-k-2015it19/' : 'https://mari431.github.io/FileNotFound';
+// void openUrl(index) async {
+//   final String deepLink= index == 0 ? 'https://github.com/mari431' : index == 1 ? 'https://www.instagram.com/marimuthu_flutterdev/' : index == 2 ? 'https://www.linkedin.com/in/marimuthu-k-2015it19/' : 'https://mari431.github.io/FileNotFound';
+//
+//
+//   // final String deepLink ='https://mari431.github.io/';
+//   // final String deepLink ='http://globetextiles.net/';
+//   final Uri deepLinkUri = Uri.parse(deepLink);
+//   // print('${deepLinkUri}'); // Convert String to Uri object
+//   if (await canLaunchUrl(deepLinkUri)) {
+//     await launchUrl(deepLinkUri);
+//   } else {
+//     // print('2');
+//     Get.snackbar('Error', 'Could not launch the URL');
+//   }
+// }
 
 
-  // final String deepLink ='https://mari431.github.io/';
-  // final String deepLink ='http://globetextiles.net/';
-  final Uri deepLinkUri = Uri.parse(deepLink);
-  // print('${deepLinkUri}'); // Convert String to Uri object
-  if (await canLaunchUrl(deepLinkUri)) {
-    await launchUrl(deepLinkUri);
-  } else {
-    // print('2');
-    Get.snackbar('Error', 'Could not launch the URL');
+  void openUrl(link) async {
+    final String deepLink= link;
+
+
+    // final String deepLink ='https://mari431.github.io/';
+    // final String deepLink ='http://globetextiles.net/';
+    final Uri deepLinkUri = Uri.parse(deepLink);
+    // print('${deepLinkUri}'); // Convert String to Uri object
+    if (await canLaunchUrl(deepLinkUri)) {
+      await launchUrl(deepLinkUri);
+    } else {
+      // print('2');
+      Get.snackbar('Error', 'Could not launch the URL');
+    }
   }
-}
 
 
 

@@ -63,17 +63,3 @@ class ContactUtils {
     "marimuthu.k.it@gmail.com",
   ];
 }
-
-class ProjectUtils {
-  static const List<String> projectbanners = [
-    // "assets/projects/snackbar.png",
-  ];
-
-
-
-  static const List<String> description = [
-    "A very unique dart package to uplift the snackbar experience in flutter. Available at pub.dev now!",
-    "A very unique dart package to uplift the snackbar experience in flutter. Available at pub.dev now!"
-    ];
-
-}

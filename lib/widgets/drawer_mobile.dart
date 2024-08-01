@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:marimuthu_portfolio/constants/appcolors.dart';
 import 'package:marimuthu_portfolio/constants/h_Nav_Item.dart';
+import 'package:marimuthu_portfolio/controllers/ThemeController.dart';
 import 'package:marimuthu_portfolio/widgets/ThemeToggleButton.dart';
 
 
 class DrawerMobile extends StatelessWidget {
-  const DrawerMobile({
+   DrawerMobile({
     super.key,
     required this.onNavItemTap,
   });
   final Function(int) onNavItemTap;
+
+  final ThemeController _themeFindController = Get.find<ThemeController>();
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -47,8 +52,12 @@ class DrawerMobile extends StatelessWidget {
                 onNavItemTap(i);
               },
               leading: Icon(navIcons[i]),
-              title: Text(navTitles[i]),
+              title: Text(navTitles[i],style: TextStyle(color:  AppColors.navBarTitleTextColor(_themeFindController.isDarkMode.value),),),
             ),
+          ElevatedButton(
+              onPressed: (){
+                onNavItemTap(5);
+              }, child: Text('Get in Touch')),
           ThemeToggleButton(),
         ],
       ),

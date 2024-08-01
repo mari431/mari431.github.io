@@ -19,4 +19,55 @@ class AppColors {
     return isDarkMode ? const Color(0x3B3B5B5B) : Colors.green;
   }
 
+  static Color homeBgColor(bool isDarkMode) {
+    return isDarkMode ? Colors.black45 : Colors.white38;
+  }
+
+  static Color homeTextColor(bool isDarkMode) {
+    return isDarkMode ? Colors.white : Colors.black;
+  }
+
+  static Color aboutBgColor(bool isDarkMode) {
+    return isDarkMode ? Colors.black12 : Colors.white38;
+  }
+
+
+  static Color skillTextColor(bool isDarkMode) {
+    return isDarkMode ? Colors.white : Colors.black;
+  }
+
+  static Color skillBgColor(bool isDarkMode) {
+    return isDarkMode ? Colors.black45 : Colors.white38;
+  }
+
+  static Color skillIconColor(bool isDarkMode) {
+    return isDarkMode ? Colors.white : Colors.black;
+  }
+
+  static Color wProjectBgColor(bool isDarkMode) {
+    return isDarkMode ? Colors.black12 : Colors.white38;
+  }
+
+  static Color wProjectAndroidIconColor(bool isDarkMode) {
+    return isDarkMode ? Colors.green : Colors.green;
+  }
+  static Color wProjectIosIconColor(bool isDarkMode) {
+    return isDarkMode ? Colors.white : Colors.white;
+  }
+  static Color wProjectWebIconColor(bool isDarkMode) {
+    return isDarkMode ? Colors.blueAccent : Colors.blueAccent;
+  }
+
+  static Color GetInTouchBGColor(bool isDarkMode) {
+    return isDarkMode ? Colors.black54 : Colors.white38;
+  }
+
+  static Color GetInTouchIconColor(bool isDarkMode) {
+    return isDarkMode ? Colors.white : Colors.black;
+  }
+
+  static Color GetInTouchTextColor(bool isDarkMode) {
+    return isDarkMode ? Colors.white : Colors.black;
+  }
+
 }

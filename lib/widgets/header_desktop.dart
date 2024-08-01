@@ -21,7 +21,7 @@ class HeaderDesktop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 60.0,
+      height: 30.0,
       margin: const EdgeInsets.symmetric(
         vertical: 10.0,
         horizontal: 20.0,
@@ -54,6 +54,11 @@ class HeaderDesktop extends StatelessWidget {
                 ),
               ),
             ),
+
+          ElevatedButton(
+              onPressed: (){
+                onNavMenuTap(5);
+              }, child: Text('Get in Touch')),
 
           ThemeToggleButton(),
         ],
