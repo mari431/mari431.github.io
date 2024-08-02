@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:marimuthu_portfolio/constants/appfonts.dart';
 import 'package:marimuthu_portfolio/constants/size.dart';
 import 'package:marimuthu_portfolio/controllers/UrlController.dart';
+import 'package:marimuthu_portfolio/screens/ContactPage.dart';
 import 'package:marimuthu_portfolio/screens/HomePage.dart';
 import 'package:marimuthu_portfolio/screens/aboutPage.dart';
 import 'package:marimuthu_portfolio/screens/get_In_touch.dart';
@@ -86,99 +87,28 @@ class _HomeMainState extends State<HomeMain> {
                       child: Center(child: SkillsPage()),
                     ),
                     const SizedBox(height: 5),
+
                     /// Work PROJECTS
                       Container(
                         key: navbarKeys[3],
                         width: screenWidth,
                         child: ProjectsSection(
-
                         ),
                       ),
 
-              //       for (int i = 0; i < withMeProjectUtils.length; i++)
-              //       WithMeCardWidget(
-              //   project: withMeProjectUtils[i],
-              // ),
 
                     GetInTouchWithMePage(
                       key: navbarKeys[5],
                     ),
-
-
-         //        Row(
-         //   children: [
-         //     Container(
-         //       height: 100,
-         //       width: Get.width,
-         //       child: ListView.builder(
-         //         scrollDirection: Axis.horizontal,
-         //         itemCount: AboutUtils.profileicons.length,
-         //         itemBuilder: (context, index) {
-         //           final map = AboutUtils.profileicons[index];
-         //           return Row(
-         //             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-         //             children: [
-         //               InkWell(
-         //                 onTap: (){
-         //                   UrlController.to.openUrl(index);
-         //                 },
-         //                 child: Container(
-         //                   width: 120,
-         //                   height: 30,
-         //                   padding: EdgeInsets.all(5),
-         //                   decoration: BoxDecoration(
-         //                       color: index == 0
-         //                           ? Colors.lightGreen
-         //                           : index == 1
-         //                               ? Colors.orange
-         //                               : Colors.blue,
-         //                       borderRadius: BorderRadius.circular(32),
-         //                       boxShadow: [
-         //                         BoxShadow(
-         //                             color: Colors.grey.withOpacity(0.1),
-         //                             spreadRadius: 1,
-         //                             blurRadius: 1,
-         //                             offset: Offset(0, 0))
-         //                       ]),
-         //                   child: Center(
-         //                       child: Row(
-         //                     children: [
-         //                       Image.asset(map),
-         //                       Text(index == 0
-         //                           ? 'Github'
-         //                           : index == 1
-         //                               ? 'Instagram'
-         //                               : 'LinkedIn')
-         //                     ],
-         //                   )),
-         //                 ),
-         //               ),
-         //               SizedBox(
-         //                 width: 10,
-         //               )
-         //             ],
-         //           );
-         //           // return ListTile(
-         //           //   title: Text(map),
-         //           // );
-         //         },
-         //       ),
-         //     ),
-         //   ],
-         // ),
-
 
                     const SizedBox(height: 50),
                     // /// CONTACT
                     Container(
                       key: navbarKeys[4],
                       width: screenWidth,
-                      // padding: const EdgeInsets.fromLTRB(25, 20, 25, 60),
-                      // height: 500,
-                      // color: Colors.red,
-                      child: Center(child: Text("Contact")),
+                      child: ContactScreen(),
                     ),
-                    // const SizedBox(height: 30),
+                    const SizedBox(height: 30),
                     Footer(),
                   ],
                 ),

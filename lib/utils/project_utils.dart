@@ -22,22 +22,22 @@ List<ProjectUtils> workProjectUtils = [
     image: 'images/playstore.png',
     title: 'GTIL-Ahmedabad',
     subtitle:
-    'This is an English learning app for students to learn English through various methods.',
+    'Exceling in sourcing, manufacturing, and trading diverse innovative and sustainable textile products.(https://globetextiles.net/)',
     androidLink:
     'https://play.google.com/store/apps/details?id=globetextiles.net&hl=en',
     // iosLink:
     // "https://apps.apple.com/kr/app/%EC%98%81%EC%96%B4%EB%A8%B8%EB%A6%AC-%EA%B3%B5%EC%9E%91%EC%86%8C/id1507102714",
   ),
-  ProjectUtils(
-    image: 'images/playstore.png',
-    title: 'GTIL-Ahmedabad',
-    subtitle:
-    'This is an English learning app for students to learn English through various methods.',
-    androidLink:
-    'https://play.google.com/store/apps/details?id=globetextiles.net&hl=en',
-    // iosLink:
-    // "https://apps.apple.com/kr/app/%EC%98%81%EC%96%B4%EB%A8%B8%EB%A6%AC-%EA%B3%B5%EC%9E%91%EC%86%8C/id1507102714",
-  ),
+  // ProjectUtils(
+  //   image: 'images/playstore.png',
+  //   title: 'GTIL-Ahmedabad',
+  //   subtitle:
+  //   'Exceling in sourcing, manufacturing, and trading diverse innovative and sustainable textile products.',
+  //   androidLink:
+  //   'https://play.google.com/store/apps/details?id=globetextiles.net&hl=en',
+  //   // iosLink:
+  //   // "https://apps.apple.com/kr/app/%EC%98%81%EC%96%B4%EB%A8%B8%EB%A6%AC-%EA%B3%B5%EC%9E%91%EC%86%8C/id1507102714",
+  // ),
   // ProjectUtils(
   //   image: 'assets/projects/w02.png',
   //   title: 'Online Shop Web App',

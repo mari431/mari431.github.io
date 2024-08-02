@@ -70,4 +70,12 @@ class AppColors {
     return isDarkMode ? Colors.white : Colors.black;
   }
 
+  static Color SendBtnTextColor(bool isDarkMode) {
+    return isDarkMode ? Colors.black : Colors.white;
+  }
+
+  static Color SendBtnBgColor(bool isDarkMode) {
+    return isDarkMode ? Colors.lightGreenAccent : Colors.black;
+  }
+
 }
