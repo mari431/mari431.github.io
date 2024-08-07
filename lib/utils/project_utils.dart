@@ -32,7 +32,8 @@ List<ProjectUtils> workProjectUtils = [
     image: 'images/dowhisle_logo_web.png',
     title: 'DoWhistle',
     subtitle:
-    'Static Website for DoWhistle company.',
+    'Static Website for DoWhistle company.'
+        ' (Dev Team member)',
     webLink: "https://www.dowhistle.com/",
   ),
   // ProjectUtils(
