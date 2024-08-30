@@ -92778,7 +92778,7 @@ s($,"aNC","anB",()=>new A.ahH(A.A(t.N,t.GU)))
 r($,"aQ4","arn",()=>{var q=A.aMA().navigator
 q.toString
 return q})
-r($,"aR7","aAT",()=>A.b([A.auA("https://play.google.com/store/apps/details?id=globetextiles.net&hl=en","images/playstore.png","Exceling in sourcing, manufacturing, and trading diverse innovative and sustainable textile products.(https://globetextiles.net/)","GTIL-Ahmedabad",null),A.auA(null,"images/dowhisle_logo_web.png","Static Website for DoWhistle company. (Dev Team member)","DoWhistle","https://www.dowhistle.com/")],A.aj("u<Le>")))
+r($,"aR7","aAT",()=>A.b([A.auA("https://play.google.com/store/apps/details?id=globetextiles.net&hl=en","assets/images/playstore.png","Exceling in sourcing, manufacturing, and trading diverse innovative and sustainable textile products.(https://globetextiles.net/)","GTIL-Ahmedabad",null),A.auA(null,"assets/images/dowhisle_logo_web.png","Static Website for DoWhistle company. (Dev Team member)","DoWhistle","https://www.dowhistle.com/")],A.aj("u<Le>")))
 r($,"aR_","anM",()=>A.b([A.a9K("","SignIn SignUp","assets/videos/signin_signup_OP.mp4"),A.a9K("","Amount in Words","assets/videos/amountIn_words_OP.mp4"),A.a9K("","3D Animation View","assets/videos/3d_animation_flutter.mp4"),A.a9K("","Slider Animation","assets/videos/Image_animation_flutter.mp4")],A.aj("u<M6>")))
 s($,"aNg","ayO",()=>A.jo("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$",!0,!1))
 s($,"aNK","anD",()=>A.at4())
