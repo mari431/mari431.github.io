@@ -30,7 +30,7 @@ class HomeMain extends StatefulWidget {
 class _HomeMainState extends State<HomeMain> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
   final scrollController = ScrollController();
-  final List<GlobalKey> navbarKeys = List.generate(6, (index) => GlobalKey());
+  final List<GlobalKey> navbarKeys = List.generate(7, (index) => GlobalKey());
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +51,7 @@ class _HomeMainState extends State<HomeMain> {
         body: Column(
           children: [
             /// NAVBAR
-            if (constraints.maxWidth >= kMinDesktopWidth)
+            if (constraints.maxWidth >= kMinDesktopNavbarWidth)
               HeaderDesktop(onNavMenuTap: (int navIndex) {
                 scrollToSection(navIndex);
               })
@@ -97,27 +97,32 @@ class _HomeMainState extends State<HomeMain> {
                         child: ProjectsSection(
                         ),
                       ),
-
-                     // Container(
-                     //     // height: 500,
-                     //     // color:  Colors.red,
-                     //     child: VideoPlayerScreen()),
-
-                    Container(child: SampleWorkSection(),),
-
-
-                    GetInTouchWithMePage(
-                      key: navbarKeys[5],
-                    ),
-
-                    const SizedBox(height: 50),
-                    // /// CONTACT
+                    const SizedBox(height: 30),
                     Container(
                       key: navbarKeys[4],
                       width: screenWidth,
-                      child: ContactScreen(),
+                      child: SampleWorkSection(),),
+                    const SizedBox(height: 30),
+
+                    // GetInTouchWithMePage(
+                    //   key: navbarKeys[6],
+                    // ),
+                    Container(
+                      key: navbarKeys[6],
+                      width: screenWidth,
+                      child: GetInTouchWithMePage(
+                        // key: navbarKeys[6],
+                      ),
                     ),
                     const SizedBox(height: 30),
+                    // /// CONTACT
+                    Container(
+                      key: navbarKeys[5],
+                      width: screenWidth,
+                      child: ContactScreen(),
+                    ),
+
+                    const SizedBox(height: 50),
                     Footer(),
                   ],
                 ),

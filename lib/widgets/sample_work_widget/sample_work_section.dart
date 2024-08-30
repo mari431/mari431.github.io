@@ -31,13 +31,13 @@ class SampleWorkSection extends StatelessWidget {
                   // color: CustomColor.whitePrimary,
                 ),
               ),
-              const SizedBox(height: 50),
+              const SizedBox(height: 10),
               // Work projects cards
               ConstrainedBox(
                 constraints: const BoxConstraints(maxWidth: 900),
                 child: Wrap(
-                  spacing: 25,
-                  runSpacing: 25,
+                  spacing: 15,
+                  runSpacing: 15,
                   children: [
                     for (int i = 0; i < sampleWorkUtils.length; i++)
                       SampleWorkCardWidget(

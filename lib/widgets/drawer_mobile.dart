@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:marimuthu_portfolio/constants/appcolors.dart';
 import 'package:marimuthu_portfolio/constants/h_Nav_Item.dart';
+import 'package:marimuthu_portfolio/controllers/DownloadController.dart';
 import 'package:marimuthu_portfolio/controllers/ThemeController.dart';
 import 'package:marimuthu_portfolio/widgets/ThemeToggleButton.dart';
 
@@ -14,6 +15,7 @@ class DrawerMobile extends StatelessWidget {
   final Function(int) onNavItemTap;
 
   final ThemeController _themeFindController = Get.find<ThemeController>();
+   final DownloadController downloadController = Get.put(DownloadController());
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -54,11 +56,84 @@ class DrawerMobile extends StatelessWidget {
               leading: Icon(navIcons[i]),
               title: Text(navTitles[i],style: TextStyle(color:  AppColors.navBarTitleTextColor(_themeFindController.isDarkMode.value),),),
             ),
-          ElevatedButton(
-              onPressed: (){
-                onNavItemTap(5);
-              }, child: Text('Get in Touch')),
-          ThemeToggleButton(),
+          // ElevatedButton(
+          //     onPressed: (){
+          //       onNavItemTap(5);
+          //     }, child: Text('Get in Touch')),
+
+          // ElevatedButton(
+          //     style: ElevatedButton.styleFrom(
+          //       foregroundColor: Colors.white,
+          //       backgroundColor: Colors.blueGrey,  // Text and icon color
+          //       padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),  // Padding
+          //     ),
+          //     onPressed: (){
+          //       onNavItemTap(6);
+          //     }, child: Text('Get in Touch')),
+
+          Center(
+            child: ElevatedButton.icon(
+              style: ElevatedButton.styleFrom(
+                foregroundColor: Colors.white,
+                backgroundColor: Colors.blueGrey,  // Text and icon color
+                padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),  // Padding
+              ),
+              icon: Icon(Icons.touch_app),  // The icon
+              label: Text('Get in Touch'),     // The text
+              onPressed: () {
+                onNavItemTap(6);
+              },
+            ),
+          ),
+
+          SizedBox(height: 5,),
+
+          Center(
+            child: Obx(() {
+              return downloadController.isDownloading.value
+                  ? CircularProgressIndicator()
+                  : ElevatedButton.icon(
+                onHover: (value) {
+
+                },
+                style: ElevatedButton.styleFrom(
+                  foregroundColor: Colors.white,
+                  backgroundColor: Colors.red,  // Text and icon color
+                  padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),  // Padding
+                ),
+                icon: Icon(Icons.download),  // The icon
+                label: Text('Resume'),     // The text
+                onPressed: () {
+                  downloadController.downloadAssetsFile(
+                    'assets/marimuthuKannayiram.pdf',  // Path to your asset PDF file
+                    'marimuthuKannayiram.pdf',         // Name of the file to save
+                  );
+                },
+              );
+
+              // IconButton(icon: Icon(Icons.download,),
+              //   onPressed: () {
+              //     downloadController.downloadAssetsFile(
+              //       'assets/marimuthuKannayiram.pdf',
+              //       'marimuthuKannayiram.pdf',
+              //     );
+              //   },
+              // );
+            }),
+          ),
+
+          SizedBox(height: 5,),
+          Center(
+            child: Row(mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text('DL Mode'),
+                ThemeToggleButton(),
+              ],
+            ),
+          ),
+
+          SizedBox(height: 5,),
         ],
       ),
     );

@@ -9,6 +9,8 @@ import 'package:marimuthu_portfolio/controllers/ThemeController.dart';
 import 'package:marimuthu_portfolio/controllers/contactController.dart';
 import 'package:marimuthu_portfolio/widgets/custom_widget/custom_textfield.dart';
 
+import '../constants/appfonts.dart';
+
 class ContactScreen extends StatelessWidget {
    ContactScreen({super.key});
 
@@ -95,38 +97,56 @@ class ContactScreen extends StatelessWidget {
     );
   }
 
-  Row buildNameEmailFieldDesktop() {
-    return Row(
-      children: [
-        // name
-        Flexible(
-          child: CustomTextField(
-            controller: Contactcontroller.to.nameController,
-            hintText: "Your name",
-              validator:(val){
-                Contactcontroller.to.validateName(val!);
-              }
+   Column buildNameEmailFieldDesktop() {
+    return Column(children:[
+      const Text(
+        "Contact",
+        style: TextStyle(
+          fontSize: AppFonts.aboutFDesk,
+          fontWeight: FontWeight.bold,
+          // color: CustomColor.whitePrimary,
+        ),
+      ),
+      Row(
+        children: [
+          // name
+          Flexible(
+            child: CustomTextField(
+                controller: Contactcontroller.to.nameController,
+                hintText: "Your name",
+                validator:(val){
+                  Contactcontroller.to.validateName(val!);
+                }
 
+            ),
           ),
-        ),
-        const SizedBox(width: 15),
-        // email
-        Flexible(
-          child: CustomTextField(
-            controller: Contactcontroller.to.emailController,
-            hintText: "Your email",
-              validator:(val){
-                Contactcontroller.to.validateEmail(val!);
-              }
+          const SizedBox(width: 15),
+          // email
+          Flexible(
+            child: CustomTextField(
+                controller: Contactcontroller.to.emailController,
+                hintText: "Your email",
+                validator:(val){
+                  Contactcontroller.to.validateEmail(val!);
+                }
+            ),
           ),
-        ),
-      ],
-    );
+        ],
+      )
+    ]);
   }
 
   Column buildNameEmailFieldMobile() {
     return Column(
       children: [
+        const Text(
+          "Contact",
+          style: TextStyle(
+            fontSize: AppFonts.aboutFDesk,
+            fontWeight: FontWeight.bold,
+            // color: CustomColor.whitePrimary,
+          ),
+        ),
         // name
         Flexible(
           child: CustomTextField(
