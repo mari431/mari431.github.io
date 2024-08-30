@@ -1,6 +1,9 @@
 
 
 import 'package:get/get.dart';
+import 'package:marimuthu_portfolio/controllers/video_playerController.dart';
+
+import '../utils/project_utils.dart';
 
 class HomeController extends GetxController{
   static HomeController get to => Get.put(HomeController());
@@ -16,6 +19,10 @@ class HomeController extends GetxController{
   @override
   void onInit() {
     // TODO: implement onInit
+
+    final VideoController _videoController =
+    Get.put(VideoController(sampleWorkUtils));
+    _videoController.onInit();
     super.onInit();
   }
 

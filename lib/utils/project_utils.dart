@@ -1,3 +1,6 @@
+import 'package:video_player/video_player.dart';
+
+/// WORK PROJECTS start
 class ProjectUtils {
   final String image;
   final String title;
@@ -16,10 +19,9 @@ class ProjectUtils {
   });
 }
 
-/// WORK PROJECTS
 List<ProjectUtils> workProjectUtils = [
   ProjectUtils(
-    image: 'images/playstore.png',
+    image: 'assets/images/playstore.png',
     title: 'GTIL-Ahmedabad',
     subtitle:
     'Exceling in sourcing, manufacturing, and trading diverse innovative and sustainable textile products.(https://globetextiles.net/)',
@@ -29,7 +31,7 @@ List<ProjectUtils> workProjectUtils = [
     // "https://apps.apple.com/kr/app/%EC%98%81%EC%96%B4%EB%A8%B8%EB%A6%AC-%EA%B3%B5%EC%9E%91%EC%86%8C/id1507102714",
   ),
   ProjectUtils(
-    image: 'images/dowhisle_logo_web.png',
+    image: 'assets/images/dowhisle_logo_web.png',
     title: 'DoWhistle',
     subtitle:
     'Static Website for DoWhistle company.'
@@ -54,3 +56,90 @@ List<ProjectUtils> workProjectUtils = [
   //   webLink: 'https://www.elo.best',
   // ),
 ];
+/// WORK PROJECTS end
+
+
+/// WORK SAMPLE  start
+class SampleWorkdUtils {
+  final String video;
+  final String title;
+  final String subtitle;
+  final VideoPlayerController videoPlayerController;
+
+  SampleWorkdUtils({
+    required this.video,
+    required this.title,
+    required this.subtitle,
+  }) : videoPlayerController = VideoPlayerController.asset(video){
+    _initializeAndListen();
+  }
+
+  void _initializeAndListen() {
+    videoPlayerController.initialize().then((_) {
+      videoPlayerController.addListener(() {
+        if (videoPlayerController.value.position == videoPlayerController.value.duration) {
+          // Video has reached the end
+          videoPlayerController.pause();
+          videoPlayerController.seekTo(Duration.zero); // Optional: reset to the beginning
+        }
+      });
+    });
+  }
+
+  // Future<void> initializeController() async {
+  //   await videoPlayerController.initialize();
+  // }
+
+}
+
+List<SampleWorkdUtils> sampleWorkUtils = [
+  SampleWorkdUtils(
+    video: 'assets/videos/signin_signup_OP.mp4',
+    title: 'SignIn SignUp',
+    subtitle:
+    '',
+    // videoPlayerController: VideoPlayerController.asset('assets/videos/amountIn_words_OP1.mp4'),
+
+  ),
+  SampleWorkdUtils(
+    video: 'assets/videos/amountIn_words_OP.mp4',
+    title: 'Amount in Words',
+    subtitle:
+    '',
+    // videoPlayerController: VideoPlayerController.asset('assets/videos/amountIn_words_OP2.mp4'),
+  ),
+  SampleWorkdUtils(
+    video: 'assets/videos/3d_animation_flutter.mp4',
+    title: '3D Animation View',
+    subtitle:
+    '',
+    // videoPlayerController: VideoPlayerController.asset('assets/videos/amountIn_words_OP2.mp4'),
+  ),
+  SampleWorkdUtils(
+    video: 'assets/videos/Image_animation_flutter.mp4',
+    title: 'Slider Animation',
+    subtitle:
+    '',
+    // videoPlayerController: VideoPlayerController.asset('assets/videos/amountIn_words_OP2.mp4'),
+  ),
+];
+
+// Future<void> initializeVideos() async {
+//   for (var item in sampleWorkUtils) {
+//     await item.initializeController();
+//   }
+// }
+
+// void _initializeAndListen() {
+//   videoPlayerController.initialize().then((_) {
+//     videoPlayerController.addListener(() {
+//       if (videoPlayerController.value.position == videoPlayerController.value.duration) {
+//         // Video has reached the end
+//         videoPlayerController.pause();
+//         videoPlayerController.seekTo(Duration.zero); // Optional: reset to the beginning
+//       }
+//     });
+//   });
+// }
+
+/// WORK PROJECTS end

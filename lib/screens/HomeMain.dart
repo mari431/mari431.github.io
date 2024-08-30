@@ -8,6 +8,7 @@ import 'package:marimuthu_portfolio/screens/HomePage.dart';
 import 'package:marimuthu_portfolio/screens/aboutPage.dart';
 import 'package:marimuthu_portfolio/screens/get_In_touch.dart';
 import 'package:marimuthu_portfolio/screens/skillsPage.dart';
+import 'package:marimuthu_portfolio/screens/videoPlay/VideoPlayerScreen.dart';
 import 'package:marimuthu_portfolio/utils/common_utils.dart';
 
 import 'dart:js' as js;
@@ -17,6 +18,7 @@ import 'package:marimuthu_portfolio/widgets/footer.dart';
 import 'package:marimuthu_portfolio/widgets/header_desktop.dart';
 import 'package:marimuthu_portfolio/widgets/header_mobile.dart';
 import 'package:marimuthu_portfolio/widgets/projects_section.dart';
+import 'package:marimuthu_portfolio/widgets/sample_work_widget/sample_work_section.dart';
 
 class HomeMain extends StatefulWidget {
   const HomeMain({super.key});
@@ -62,7 +64,7 @@ class _HomeMainState extends State<HomeMain> {
               ),
             Container(
               width: Get.width,
-              height: Get.height - 80,
+              height: Get.height - 70,
               child: SingleChildScrollView(
                 controller: scrollController,
                 scrollDirection: Axis.vertical,
@@ -95,6 +97,13 @@ class _HomeMainState extends State<HomeMain> {
                         child: ProjectsSection(
                         ),
                       ),
+
+                     // Container(
+                     //     // height: 500,
+                     //     // color:  Colors.red,
+                     //     child: VideoPlayerScreen()),
+
+                    Container(child: SampleWorkSection(),),
 
 
                     GetInTouchWithMePage(

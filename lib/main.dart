@@ -5,7 +5,8 @@ import 'package:marimuthu_portfolio/controllers/ThemeController.dart';
 import 'package:marimuthu_portfolio/screens/HomeMain.dart';
 
 void main() {
-  Get.lazyPut(() => MenuNController());
+  // Get.lazyPut(() => MenuNController());
+  WidgetsFlutterBinding.ensureInitialized(); // Ensures all plugins are initialized before runApp
   runApp(MyApp());
 }
 
