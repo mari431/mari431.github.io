@@ -29,6 +29,7 @@ List<ProjectUtils> workProjectUtils = [
     'https://play.google.com/store/apps/details?id=globetextiles.net&hl=en',
     // iosLink:
     // "https://apps.apple.com/kr/app/%EC%98%81%EC%96%B4%EB%A8%B8%EB%A6%AC-%EA%B3%B5%EC%9E%91%EC%86%8C/id1507102714",
+    webLink: "https://mari431.github.io/",
   ),
   ProjectUtils(
     image: 'assets/images/dowhisle_logo_web.png',
