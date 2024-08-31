@@ -140,7 +140,25 @@ class AboutPage extends StatelessWidget {
           child: Container(
             width: 500,
             height: 500,
-            child: Image.asset(AboutUtils.myImage2Str),
+            child: Container(
+              width: 120,
+              height: 120,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                // border: Border.all(color: Colors.lightGreenAccent),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.3),
+                    spreadRadius: 2,
+                    blurRadius: 8,
+                    offset: Offset(0, 4), // changes position of shadow
+                  ),
+                ],
+              ),
+              child: ClipOval(
+                child: Image.asset(AboutUtils.myImage2Str,fit: BoxFit.fill),
+              ),
+            ),
           ),
         ),
         const SizedBox(height: 15),

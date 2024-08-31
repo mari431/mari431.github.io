@@ -1,3 +1,5 @@
+import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 import 'package:video_player/video_player.dart';
 
 /// WORK PROJECTS start
@@ -17,6 +19,18 @@ class ProjectUtils {
     this.iosLink,
     this.webLink,
   });
+
+
+  // void openLink() async {
+  //   if (await canLaunchUrlString(webLink)) {
+  //     await launchUrl(webLink);
+  //   } else {
+  //     // Handle the error or show a 404-like page
+  //     print('Could not launch $webLink');
+  //   }
+  // }
+
+
 }
 
 List<ProjectUtils> workProjectUtils = [
@@ -29,7 +43,7 @@ List<ProjectUtils> workProjectUtils = [
     'https://play.google.com/store/apps/details?id=globetextiles.net&hl=en',
     // iosLink:
     // "https://apps.apple.com/kr/app/%EC%98%81%EC%96%B4%EB%A8%B8%EB%A6%AC-%EA%B3%B5%EC%9E%91%EC%86%8C/id1507102714",
-    webLink: "https://mari431.github.io/",
+    // webLink: "/",
   ),
   ProjectUtils(
     image: 'assets/images/dowhisle_logo_web.png',
@@ -95,7 +109,7 @@ class SampleWorkdUtils {
 
 List<SampleWorkdUtils> sampleWorkUtils = [
   SampleWorkdUtils(
-    video: 'assets/videos/signin_signup_OP.mp4',
+    video: 'assets/videos/signin_signup_OP.webm',
     title: 'SignIn SignUp',
     subtitle:
     '',
@@ -103,28 +117,28 @@ List<SampleWorkdUtils> sampleWorkUtils = [
 
   ),
   SampleWorkdUtils(
-    video: 'assets/videos/amountIn_words_OP.mp4',
+    video: 'assets/videos/amountIn_words_OP.webm',
     title: 'Amount in Words',
     subtitle:
     '',
     // videoPlayerController: VideoPlayerController.asset('assets/videos/amountIn_words_OP2.mp4'),
   ),
   SampleWorkdUtils(
-    video: 'assets/videos/3d_animation_flutter.mp4',
+    video: 'assets/videos/3d_animation_flutter.webm',
     title: '3D Animation View',
     subtitle:
     '',
     // videoPlayerController: VideoPlayerController.asset('assets/videos/amountIn_words_OP2.mp4'),
   ),
   SampleWorkdUtils(
-    video: 'assets/videos/Image_animation_flutter.mp4',
+    video: 'assets/videos/Image_animation_flutter.webm',
     title: 'Slider Animation',
     subtitle:
     '',
     // videoPlayerController: VideoPlayerController.asset('assets/videos/amountIn_words_OP2.mp4'),
   ),
   SampleWorkdUtils(
-    video: 'assets/videos/shopping_cart_Image_OP.mp4',
+    video: 'assets/videos/shopping_cart_Image_OP.webm',
     title: 'Shopping Cart Image',
     subtitle:
     '',
