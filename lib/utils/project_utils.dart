@@ -122,6 +122,20 @@ List<SampleWorkdUtils> sampleWorkUtils = [
     '',
     // videoPlayerController: VideoPlayerController.asset('assets/videos/amountIn_words_OP2.mp4'),
   ),
+  SampleWorkdUtils(
+    video: 'assets/videos/shopping_cart_Image_OP.mp4',
+    title: 'Shopping Cart Image',
+    subtitle:
+    '',
+    // videoPlayerController: VideoPlayerController.asset('assets/videos/amountIn_words_OP2.mp4'),
+  ),
+  SampleWorkdUtils(
+    video: 'assets/videos/share_receipt_image_OP.webm',
+    title: 'Share Receipt Image',
+    subtitle:
+    '',
+    // videoPlayerController: VideoPlayerController.asset('assets/videos/amountIn_words_OP2.mp4'),
+  ),
 ];
 
 // Future<void> initializeVideos() async {

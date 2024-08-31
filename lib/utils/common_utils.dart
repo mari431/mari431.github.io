@@ -14,7 +14,7 @@ class AboutUtils {
       'I\'m done B.Tech IT, I have a solid foundation in information technology, coupled with hands-on experience in various programming languages and software development tools. During my academic journey, I have developed a keen interest in web development, mobile development, which I have pursued through personal projects.';
 
   static const String myImageStr = 'images/my_image1.jpg';
-  static const String myImage2Str = 'images/my_image2.jpg';
+  static const String myImage2Str = 'images/my_image22.jpg';
 
   static const  String logoStr = 'images/tomjerry_logo.png';
 
