@@ -5,6 +5,7 @@ import 'package:marimuthu_portfolio/constants/h_Nav_Item.dart';
 import 'package:marimuthu_portfolio/controllers/DownloadController.dart';
 import 'package:marimuthu_portfolio/controllers/ThemeController.dart';
 import 'package:marimuthu_portfolio/widgets/ThemeToggleButton.dart';
+import 'package:marimuthu_portfolio/widgets/logo/logo.dart';
 
 
 class DrawerMobile extends StatelessWidget {
@@ -23,22 +24,37 @@ class DrawerMobile extends StatelessWidget {
       // backgroundColor: Colors.white,
       child: ListView(
         children: [
-          Align(
-            alignment: Alignment.centerLeft,
-            child: Padding(
-              padding: const EdgeInsets.only(
-                left: 20,
-                top: 20,
-                bottom: 20,
+
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Padding(
+                  padding: const EdgeInsets.only(
+                    left: 20,
+                    top: 20,
+                    bottom: 20,
+                  ),
+                  child: IconButton(
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                    icon: const Icon(Icons.close),
+                  ),
+                ),
               ),
-              child: IconButton(
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-                icon: const Icon(Icons.close),
+              Container(
+                height: 50,
+                width: 50,
+                child: Logo_wdget(
+                  onTap: () {
+                    onNavItemTap(0);
+                  },),
               ),
-            ),
+            ],
           ),
+
           for (int i = 0; i < navIcons.length; i++)
             ListTile(
               contentPadding: const EdgeInsets.symmetric(

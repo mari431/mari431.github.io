@@ -28,7 +28,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
       controller: widget.controller,
       maxLines: widget.maxLines,
       style: const TextStyle(
-        color: Colors.grey,
+        color: Colors.black,
       ),
       decoration: InputDecoration(
         contentPadding: const EdgeInsets.all(16),

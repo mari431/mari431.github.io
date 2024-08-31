@@ -138,6 +138,8 @@ class ContactScreen extends StatelessWidget {
 
   Column buildNameEmailFieldMobile() {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         const Text(
           "Contact",

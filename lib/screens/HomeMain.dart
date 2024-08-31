@@ -17,6 +17,7 @@ import 'package:marimuthu_portfolio/widgets/drawer_mobile.dart';
 import 'package:marimuthu_portfolio/widgets/footer.dart';
 import 'package:marimuthu_portfolio/widgets/header_desktop.dart';
 import 'package:marimuthu_portfolio/widgets/header_mobile.dart';
+import 'package:marimuthu_portfolio/widgets/logo/logo.dart';
 import 'package:marimuthu_portfolio/widgets/projects_section.dart';
 import 'package:marimuthu_portfolio/widgets/sample_work_widget/sample_work_section.dart';
 
@@ -40,7 +41,6 @@ class _HomeMainState extends State<HomeMain> {
     return LayoutBuilder(builder: (context, constraints) {
       return Scaffold(
         key: scaffoldKey,
-        // backgroundColor: CustomColor.scaffoldBg,
 
         endDrawer: constraints.maxWidth >= kMinDesktopWidth
             ? null

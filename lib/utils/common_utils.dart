@@ -16,6 +16,16 @@ class AboutUtils {
   static const String myImageStr = 'images/my_image1.jpg';
   static const String myImage2Str = 'images/my_image22.jpg';
 
+  static const String logo_white = 'images/mn_logo_white.png';
+  static const String logo_black = 'images/mn_logo_black.png';
+
+  static const String logo_bg_white = 'images/mn_logo_bg_white.png';
+  static const String logo_bg_black = 'images/mn_logo_bg_black.png';
+
+  static String navLogo(bool isDarkMode) {
+    return isDarkMode ?  'images/mn_logo_white.png' : 'images/mn_logo_black.png';
+  }
+
   static const  String logoStr = 'images/tomjerry_logo.png';
 
   static const List<String> profileLinks = [

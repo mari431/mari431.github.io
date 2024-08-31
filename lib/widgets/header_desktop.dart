@@ -5,7 +5,9 @@ import 'package:marimuthu_portfolio/constants/appfonts.dart';
 import 'package:marimuthu_portfolio/constants/h_Nav_Item.dart';
 import 'package:marimuthu_portfolio/controllers/DownloadController.dart';
 import 'package:marimuthu_portfolio/controllers/ThemeController.dart';
+import 'package:marimuthu_portfolio/utils/common_utils.dart';
 import 'package:marimuthu_portfolio/widgets/ThemeToggleButton.dart';
+import 'package:marimuthu_portfolio/widgets/logo/logo.dart';
 
 
 
@@ -32,6 +34,18 @@ class HeaderDesktop extends StatelessWidget {
       // decoration: kHederDecoration,
       child: Row(
         children: [
+          Row(
+            children: [
+              Logo_wdget(
+                onTap: () {
+                  onNavMenuTap(0);
+                },),
+              Text('MN')
+            ],
+          ),
+          // ClipOval(
+          //   child: Image.asset(AboutUtils.logo_white,fit: BoxFit.fill),
+          // ),
           // SiteLogo(
           //   onTap: () {},
           // ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:marimuthu_portfolio/widgets/logo/logo.dart';
 
 
 class HeaderMobile extends StatelessWidget {
@@ -20,6 +21,9 @@ class HeaderMobile extends StatelessWidget {
           // SiteLogo(
           //   onTap: onLogoTap,
           // ),
+          Logo_wdget(
+            onTap: () {
+            },),
           const Spacer(),
           IconButton(
             onPressed: onMenuTap,
