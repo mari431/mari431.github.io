@@ -38,7 +38,7 @@
 <body>
 <script>
   // Define serviceWorkerVersion correctly
-<!--    var serviceWorkerVersion = ""1069092761"";-->
+<!--    var serviceWorkerVersion = ""3344735785"";-->
   var serviceWorkerVersion = "1.0.2";
 </script>
 <script>
@@ -106,8 +106,8 @@
       margin: 0;
       padding: 0;
       font-family: sans-serif;
-      background-color: #000000; /* Black color */
-      color: #ffffff; /* Optional: Change text color to white for better visibility */
+      background-color: #ffffff; /* Black color */
+      color: #000000; /* Optional: Change text color to white for better visibility */
       display: flex;
       justify-content: center;
       align-items: center;
@@ -125,7 +125,7 @@
           .loading-circle {
               width: 100%;
               height: 100%;
-              border-radius: 50%;
+              border-radius: 0%;
               clip-path: circle(at 50% 0%, 45%);
               position: absolute;
               animation: rotate 0s linear infinite;
@@ -152,7 +152,7 @@
               left: 50%;
               transform: translate(-50%, -50%);
               font-size: 24px;
-              color: white;
+              color: red;
               text-align: center;
           }
 
@@ -176,12 +176,20 @@
 
 
   .loading-text-color {
-    color: white;
+    color: purple;
   }
 
   .loading-text-dot {
-    color: white;
+    color: lightgreen;
   }
+
+  img {
+<!--  border: 1px solid #ddd;-->
+<!--  border-radius: 4px;-->
+  padding: 5px;
+  width: 150px;
+}
+
 </style>
 
 
@@ -194,7 +202,8 @@
     <div class="loading-circle"></div>
   </div>
   <div class="loading-text">
-    <div class="loading-text-color" >Marimuthu Dev </div>
+    <img src="images/flutter_bird_logo.png" alt="fluter dev">
+    <div class="loading-text-color" >Marimuthu Dev</div>
     <span class="loading-text-dot" >.</span>
     <span class="loading-text-dot">.</span>
     <span class="loading-text-dot">.</span>
