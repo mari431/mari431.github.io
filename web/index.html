@@ -106,8 +106,8 @@
       margin: 0;
       padding: 0;
       font-family: sans-serif;
-      background-color: #000000; /* Black color */
-      color: #ffffff; /* Optional: Change text color to white for better visibility */
+      background-color: #ffffff; /* Black color */
+      color: #000000; /* Optional: Change text color to white for better visibility */
       display: flex;
       justify-content: center;
       align-items: center;
@@ -120,6 +120,7 @@
               border-radius: 50%;
               border: 10px solid #ddd;
               position: relative;
+              color: red;
           }
 
           .loading-circle {
@@ -176,12 +177,20 @@
 
 
   .loading-text-color {
-    color: white;
+    color: purple;
   }
 
   .loading-text-dot {
-    color: white;
+    color: lightgreen;
   }
+
+  img {
+<!--  border: 1px solid #ddd;-->
+<!--  border-radius: 4px;-->
+  padding: 5px;
+  width: 150px;
+}
+
 </style>
 
 
@@ -194,7 +203,8 @@
     <div class="loading-circle"></div>
   </div>
   <div class="loading-text">
-    <div class="loading-text-color" >Marimuthu Dev </div>
+    <img src="images/flutter_bird_logo.png" alt="fluter dev">
+    <div class="loading-text-color" >Marimuthu Dev</div>
     <span class="loading-text-dot" >.</span>
     <span class="loading-text-dot">.</span>
     <span class="loading-text-dot">.</span>
