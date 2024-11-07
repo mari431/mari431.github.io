@@ -117,7 +117,6 @@ class ContactScreen extends StatelessWidget {
                 validator:(val){
                   Contactcontroller.to.validateName(val!);
                 }
-
             ),
           ),
           const SizedBox(width: 15),

@@ -28,6 +28,7 @@ class SampleWorkCardWidget extends StatelessWidget {
       width: 250,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
+          border: Border.all(color: Colors.grey.withOpacity(0.5)),
           // color: Color(0xff424657),
           boxShadow: [
             BoxShadow(

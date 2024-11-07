@@ -33,7 +33,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
       decoration: InputDecoration(
         contentPadding: const EdgeInsets.all(16),
         filled: true,
-        fillColor: Colors.grey.shade200,
+        fillColor: Colors.white,
         focusedBorder: getInputBorder,
         enabledBorder: getInputBorder,
         border: getInputBorder,
@@ -56,7 +56,8 @@ class _CustomTextFieldState extends State<CustomTextField> {
   OutlineInputBorder get getInputBorder {
     return OutlineInputBorder(
       borderRadius: BorderRadius.circular(10),
-      borderSide: BorderSide.none,
+      // borderSide: BorderSide.none,
+      borderSide: BorderSide(color: Colors.grey),
     );
   }
 }
