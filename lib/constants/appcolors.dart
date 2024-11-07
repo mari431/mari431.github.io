@@ -55,7 +55,7 @@ class AppColors {
   }
 
   static Color wProjectBgColor(bool isDarkMode) {
-    return isDarkMode ? Colors.black12 : Colors.white38;
+    return isDarkMode ? Colors.black12 : Colors.lime.shade200;
   }
 
   static Color wProjectAndroidIconColor(bool isDarkMode) {

@@ -26,6 +26,8 @@ class ProjectCardWidget extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         // color: Color(0xff424657),
+          color:AppColors.wProjectBgColor(_themeFindController.isDarkMode.value),
+          // color: Colors.lightGreenAccent.withOpacity(0.5),
           boxShadow: [
             BoxShadow(
                 color: Colors.grey.withOpacity(0.1),
@@ -45,6 +47,7 @@ class ProjectCardWidget extends StatelessWidget {
             height: 140,
             width: 280,
             fit: BoxFit.fill,
+            // color: Colors.black,
           ),
           // title
           Padding(
