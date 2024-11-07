@@ -19,6 +19,14 @@ class AppColors {
     return isDarkMode ? const Color(0x3B3B5B5B) : Colors.green;
   }
 
+  static Color navBarConBgColor(bool isDarkMode) {
+    return isDarkMode ?  Colors.black : Colors.white;
+  }
+
+  static Color navBarConBoxShadowColor(bool isDarkMode) {
+    return isDarkMode ?  Colors.black.withOpacity(0.5) : Colors.grey.withOpacity(0.5);
+  }
+
   static Color homeBgColor(bool isDarkMode) {
     return isDarkMode ? Colors.black45 : Colors.white38;
   }
@@ -26,6 +34,8 @@ class AppColors {
   static Color homeTextColor(bool isDarkMode) {
     return isDarkMode ? Colors.white : Colors.black;
   }
+
+
 
   static Color aboutBgColor(bool isDarkMode) {
     return isDarkMode ? Colors.black12 : Colors.white38;
@@ -37,11 +47,11 @@ class AppColors {
   }
 
   static Color skillBgColor(bool isDarkMode) {
-    return isDarkMode ? Colors.black45 : Colors.white38;
+    return isDarkMode ? Colors.black : Colors.white;
   }
 
   static Color skillIconColor(bool isDarkMode) {
-    return isDarkMode ? Colors.white : Colors.black;
+    return isDarkMode ? Colors.red : Colors.black;
   }
 
   static Color wProjectBgColor(bool isDarkMode) {

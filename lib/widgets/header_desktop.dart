@@ -24,101 +24,116 @@ class HeaderDesktop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 30.0,
-      margin: const EdgeInsets.symmetric(
-        vertical: 10.0,
-        horizontal: 20.0,
-      ),
-      width: double.maxFinite,
-      // decoration: kHederDecoration,
-      child: Row(
-        children: [
-          Row(
-            children: [
-              Logo_wdget(
-                onTap: () {
-                  onNavMenuTap(0);
-                },),
-              Text('MN')
-            ],
-          ),
-          // ClipOval(
-          //   child: Image.asset(AboutUtils.logo_white,fit: BoxFit.fill),
-          // ),
-          // SiteLogo(
-          //   onTap: () {},
-          // ),
-          const Spacer(),
-          for (int i = 0; i < navTitles.length; i++)
-            Container(
-              // width: 70,
-              child: Padding(
-                padding:  EdgeInsets.only(right: 2),
-                child: TextButton(
-                  onPressed: () {
-                    onNavMenuTap(i);
-                  },
-                  child: Text(
-                    navTitles[i],
-                    style:  TextStyle(
-                      fontSize: AppFonts.navBarText,
-                      fontWeight: FontWeight.w500,
-                      color:  AppColors.navBarTitleTextColor(_themeFindController.isDarkMode.value),
+    return Padding(
+      padding: const EdgeInsets.all(4.0),
+      child: Container(
+        height: 35.0,
+        margin: const EdgeInsets.symmetric(
+          vertical: 10.0,
+          horizontal: 20.0,
+        ),
+        width: double.maxFinite,
+        // color: Colors.white,
+        decoration: BoxDecoration(
+            color: AppColors.navBarConBgColor(_themeFindController.isDarkMode.value),
+            boxShadow: [
+              BoxShadow(
+                color: AppColors.navBarConBoxShadowColor(_themeFindController.isDarkMode.value),
+                // color: Colors.grey.withOpacity(0.5), // Shadow color with opacity
+                spreadRadius: 2, // How far the shadow spreads
+                blurRadius: 7, // Blur radius (how soft the shadow is)
+                offset: Offset(0, 4), // Position of the shadow (X, Y)
+              ),
+        ]),
+        // decoration: kHederDecoration,
+        child: Row(
+          children: [
+            Row(
+              children: [
+                Logo_wdget(
+                  onTap: () {
+                    onNavMenuTap(0);
+                  },),
+                Text('MN')
+              ],
+            ),
+            // ClipOval(
+            //   child: Image.asset(AboutUtils.logo_white,fit: BoxFit.fill),
+            // ),
+            // SiteLogo(
+            //   onTap: () {},
+            // ),
+            const Spacer(),
+            for (int i = 0; i < navTitles.length; i++)
+              Container(
+                // width: 70,
+                child: Padding(
+                  padding:  EdgeInsets.only(right: 2),
+                  child: TextButton(
+                    onPressed: () {
+                      onNavMenuTap(i);
+                    },
+                    child: Text(
+                      navTitles[i],
+                      style:  TextStyle(
+                        fontSize: AppFonts.navBarText,
+                        fontWeight: FontWeight.w500,
+                        color:  AppColors.navBarTitleTextColor(_themeFindController.isDarkMode.value),
+                      ),
                     ),
                   ),
                 ),
               ),
-            ),
 
-          ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                foregroundColor: Colors.white,
-                backgroundColor: Colors.blueGrey,  // Text and icon color
-                padding: EdgeInsets.symmetric(horizontal: 10, vertical: 8),  // Padding
-              ),
-              onPressed: (){
-                onNavMenuTap(6);
-              }, child: Text('Get in Touch',style: TextStyle(fontSize: 12),)),
-
-          Center(
-            child: Obx(() {
-              return downloadController.isDownloading.value
-                  ? CircularProgressIndicator()
-                  : ElevatedButton.icon(
-                onHover: (value) {
-
-                },
+            ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   foregroundColor: Colors.white,
-                  backgroundColor: Colors.red,  // Text and icon color
-                  padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),  // Padding
+                  backgroundColor: Colors.blueGrey,  // Text and icon color
+                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 8),  // Padding
                 ),
-                icon: Icon(Icons.download),  // The icon
-                label: Text('Resume',style: TextStyle(fontSize: 12)),     // The text
-                onPressed: () {
-                  downloadController.downloadAssetsFile(
-                    'assets/marimuthuKannayiram.pdf',  // Path to your asset PDF file
-                    'marimuthuKannayiram.pdf',         // Name of the file to save
-                  );
-                },
-              );
+                onPressed: (){
+                  onNavMenuTap(6);
+                }, child: Text('Get in Touch',style: TextStyle(fontSize: 12),)),
 
-              // IconButton(icon: Icon(Icons.download,),
-              //   onPressed: () {
-              //     downloadController.downloadAssetsFile(
-              //       'assets/marimuthuKannayiram.pdf',
-              //       'marimuthuKannayiram.pdf',
-              //     );
-              //   },
-              // );
-            }),
-          ),
+            Center(
+              child: Obx(() {
+                return downloadController.isDownloading.value
+                    ? CircularProgressIndicator()
+                    : ElevatedButton.icon(
+                  onHover: (value) {
+
+                  },
+                  style: ElevatedButton.styleFrom(
+                    foregroundColor: Colors.white,
+                    backgroundColor: Colors.red,  // Text and icon color
+                    padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),  // Padding
+                  ),
+                  icon: Icon(Icons.download),  // The icon
+                  label: Text('Resume',style: TextStyle(fontSize: 12)),     // The text
+                  onPressed: () {
+                    downloadController.downloadAssetsFile(
+                      'assets/marimuthuKannayiram.pdf',  // Path to your asset PDF file
+                      'marimuthuKannayiram.pdf',         // Name of the file to save
+                    );
+                  },
+                );
+
+                // IconButton(icon: Icon(Icons.download,),
+                //   onPressed: () {
+                //     downloadController.downloadAssetsFile(
+                //       'assets/marimuthuKannayiram.pdf',
+                //       'marimuthuKannayiram.pdf',
+                //     );
+                //   },
+                // );
+              }),
+            ),
 
 
 
-          ThemeToggleButton(),
-        ],
+            ThemeToggleButton(),
+          ],
+        ),
       ),
     );
   }

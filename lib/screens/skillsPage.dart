@@ -76,10 +76,10 @@ class SkillsPage extends StatelessWidget {
                           borderRadius: BorderRadius.circular(32),
                           boxShadow: [
                             BoxShadow(
-                                color: Colors.grey.withOpacity(0.5),
-                                spreadRadius: 1,
-                                blurRadius: 1,
-                                offset: Offset(0, 0)
+                                // color: Colors.grey.withOpacity(0.5),
+                                // spreadRadius: 1,
+                                // blurRadius: 1,
+                                // offset: Offset(0, 0)
                             )
                           ]
                       ),
