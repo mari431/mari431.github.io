@@ -31,7 +31,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
         color: Colors.black,
       ),
       decoration: InputDecoration(
-        contentPadding: const EdgeInsets.all(16),
+        contentPadding: const EdgeInsets.all(7),
         filled: true,
         fillColor: Colors.white,
         focusedBorder: getInputBorder,
