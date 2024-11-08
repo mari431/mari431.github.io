@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
     return Obx(
       () => GetMaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Flutter Demo',
+        title: 'Marimuthu-Portfolio',
         theme: ThemeData.light(),
         darkTheme: ThemeData.dark(),
         themeMode: _themeController.theme,
