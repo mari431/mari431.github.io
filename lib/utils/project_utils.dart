@@ -117,8 +117,37 @@ List<SampleWorkdUtils> sampleWorkUtils = [
 
   ),
   SampleWorkdUtils(
-    video: 'assets/videos/amountIn_words_OP.webm',
-    title: 'Amount in Words',
+    video: 'assets/videos/food_order_demo.webm',
+    title: 'Food Order Demo',
+    subtitle:
+    '',
+    // videoPlayerController: VideoPlayerController.asset('assets/videos/amountIn_words_OP2.mp4'),
+  ),
+  SampleWorkdUtils(
+    video: 'assets/videos/Doctors_Appointment_demo.webm',
+    title: 'Doctor`s Appointment Demo',
+    subtitle:
+    '',
+    // videoPlayerController: VideoPlayerController.asset('assets/videos/amountIn_words_OP2.mp4'),
+  ),
+
+  SampleWorkdUtils(
+    video: 'assets/videos/shopping_cart_Image_OP.webm',
+    title: 'Shopping Demo',
+    subtitle:
+    '',
+    // videoPlayerController: VideoPlayerController.asset('assets/videos/amountIn_words_OP2.mp4'),
+  ),
+  SampleWorkdUtils(
+    video: 'assets/videos/Instagram_UI_Design_Flutter.webm',
+    title: 'Instagram Demo',
+    subtitle:
+    '',
+    // videoPlayerController: VideoPlayerController.asset('assets/videos/amountIn_words_OP2.mp4'),
+  ),
+  SampleWorkdUtils(
+    video: 'assets/videos/GOOGLE_MAPS_WITH_FLUTTER.webm',
+    title: 'GMAP WITH FLUTTER',
     subtitle:
     '',
     // videoPlayerController: VideoPlayerController.asset('assets/videos/amountIn_words_OP2.mp4'),
@@ -133,13 +162,6 @@ List<SampleWorkdUtils> sampleWorkUtils = [
   SampleWorkdUtils(
     video: 'assets/videos/Image_animation_flutter.webm',
     title: 'Slider Animation',
-    subtitle:
-    '',
-    // videoPlayerController: VideoPlayerController.asset('assets/videos/amountIn_words_OP2.mp4'),
-  ),
-  SampleWorkdUtils(
-    video: 'assets/videos/shopping_cart_Image_OP.webm',
-    title: 'Shopping Cart Image',
     subtitle:
     '',
     // videoPlayerController: VideoPlayerController.asset('assets/videos/amountIn_words_OP2.mp4'),
