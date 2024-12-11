@@ -38,7 +38,7 @@
 <body>
 <script>
   // Define serviceWorkerVersion correctly
-<!--    var serviceWorkerVersion = ""270065601"";-->
+<!--    var serviceWorkerVersion = ""1317434557"";-->
   var serviceWorkerVersion = "1.0.5";
 </script>
 <script>
@@ -112,13 +112,17 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
+      background-image: url('images/bg_image.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   }
 
           .loading-container {
               width: 200px;
               height: 200px;
               border-radius: 50%;
-              border: 10px solid #90ee90;
+              border: 10px solid #00ff0080;
               position: relative;
           }
 
@@ -180,22 +184,23 @@
   }
 
   .loading-text-dot {
-    color: lightgreen;
+    color: black;
+    size:50px;
   }
 
   img {
 <!--  border: 1px solid #ddd;-->
 <!--  border-radius: 4px;-->
-  padding: 5px;
+  padding: 2px;
   width: 150px;
 }
 
-  body {
-  background-image: url('images/bg_image.webp');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
+<!--  body {-->
+<!--  background-image: url('images/bg_image.webp');-->
+<!--  background-size: cover;-->
+<!--  background-position: center;-->
+<!--  background-repeat: no-repeat;-->
+<!--}-->
 
 </style>
 
@@ -203,7 +208,7 @@
 <div id="loader">
   <!-- You can put your custom loading screen here -->
   <!--    <p>Globe Web Application Loading...</p>-->
-  <div class="loading-container">
+  <div class="loading-container" style="background-color: rgba(255, 255, 255, 0.5);">
     <div class="loading-circle"></div>
     <div class="loading-circle"></div>
     <div class="loading-circle"></div>
