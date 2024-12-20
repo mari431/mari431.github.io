@@ -72,7 +72,11 @@ class _HomeMainState extends State<HomeMain> {
                   children: [
                     SizedBox(key: navbarKeys.first),
                     /// Home
-                    HomePage(),
+                    // Container(
+                    //     decoration: BoxDecoration(image: DecorationImage(image: AssetImage('assets/images/bg_image.webp'))),
+                    //     child:
+                        HomePage(),
+                    // ),
                     const SizedBox(height: 5),
                     /// ABOUT
                     Container(

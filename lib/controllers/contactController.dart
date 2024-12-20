@@ -1,8 +1,12 @@
 
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_email_sender/flutter_email_sender.dart';
 import 'package:get/get.dart';
 import 'package:marimuthu_portfolio/utils/validation_utility.dart';
+import 'package:flutter/services.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Contactcontroller extends GetxController {
   static Contactcontroller get to => Get.put(Contactcontroller());
@@ -44,12 +48,98 @@ class Contactcontroller extends GetxController {
     return null;
   }
 
-  Future<void> sendMail()async{
-    print('Name: ${nameController.text}');
-    print('Email: ${emailController.text}');
-    print('Message: ${messageController.text}');
+  // Future<void> sendMail()async{
+  //   print('Name: ${nameController.text}');
+  //   print('Email: ${emailController.text}');
+  //   print('Message: ${messageController.text}');
+  // }
+
+final subjectText = 'Test Subject'.obs;
+final bodyText = 'Hi This is you'.obs;
+final recipient = 'marimuthu.k.it@gmail.com'.obs;
+
+/// Function to send email
+Future<void> sendAndroidOrIosMail() async {
+  final email = Email(
+    body: bodyText.value,
+    subject: subjectText.value,
+    recipients: [recipient.value],
+    isHTML: false,
+  );
+
+  try {
+    await FlutterEmailSender.send(email);
+    Get.snackbar('Success', 'Email sent successfully!');
+    print('succc mail');
+  } catch (error) {
+    // Get.snackbar('Error', 'Failed to send email: $error');
+    // print('fail mail : $error');
+    if (error is PlatformException && error.code == 'not_available') {
+      // Get.snackbar('Error', 'No email client is installed. Please install an email app.');
+      print('fail mail1 : $error');
+    } else {
+      // Get.snackbar('Error', 'Failed to send email: $error');
+      print('fail mail2 : $error');
+    }
+  }
+}
+
+
+  Future<void> sendMail() async {
+
+  if(1==1){
+
+    if (kIsWeb) {
+
+      // final String deepLink ='http://globetextiles.net/';
+      // final Uri deepLinkUri = Uri.parse(deepLink);
+
+      final Uri emailUri = Uri(
+        scheme: 'mailto',
+        path: recipient.value,
+        query: 'subject=${Uri.encodeComponent(subjectText.value)}&body=${Uri.encodeComponent(bodyText.value)}',
+      );
+
+      final Uri gmailUri = Uri(
+        scheme: 'https',
+        host: 'mail.google.com',
+        path: '/mail/',
+        queryParameters: {
+          'view': 'cm',
+          'fs': '1',
+          'to': recipient.value,
+          'su': subjectText.value,
+          'body': bodyText.value,
+        },
+      );
+
+      if (await canLaunchUrl(gmailUri)) {
+        // await launchUrl(emailUri);
+        await launchUrl(gmailUri, mode: LaunchMode.externalApplication);
+      } else {
+        throw 'Could not launch $gmailUri';
+      }
+    }
+    else {
+      sendAndroidOrIosMail();
+      // final Email emailToSend = Email(
+      //   body: bodyText.value,
+      //   subject: subjectText.value,
+      //   recipients: [recipient.value],
+      //   isHTML: false,
+      // );
+      //
+      // await FlutterEmailSender.send(emailToSend);
+    }
+
+  }else{
+
   }
 
+
+
+
+  }
 
 
 }

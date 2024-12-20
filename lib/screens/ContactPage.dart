@@ -23,6 +23,7 @@ class ContactScreen extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.fromLTRB(25, 20, 25, 60),
       // color: Colors.grey.shade200,
+      decoration: BoxDecoration(border: Border.all(color: Colors.grey)),
       child: Form(
         key: _contactformKey,
         child: Column(
@@ -80,13 +81,14 @@ class ContactScreen extends StatelessWidget {
                     elevation: 5, // Shadow elevation
                   ),
                   onPressed: () {
-                    if (_contactformKey.currentState!.validate()) {
-                      // Handle form submission here
-                      Contactcontroller.to.sendMail();
-                    }
+                    // if (_contactformKey.currentState!.validate()) {
+                    //   // Handle form submission here
+                    //   Contactcontroller.to.sendMail();
+                    // }
+                    Contactcontroller.to.sendMail();
 
                   },
-                  child: Text("Under Processing..."),
+                  child: Text("Send Mail"),
                 ),
               ),
             ),
@@ -114,9 +116,9 @@ class ContactScreen extends StatelessWidget {
             child: CustomTextField(
                 controller: Contactcontroller.to.nameController,
                 hintText: "Your name",
-                validator:(val){
-                  Contactcontroller.to.validateName(val!);
-                }
+                // validator:(val){
+                //   Contactcontroller.to.validateName(val!);
+                // }
             ),
           ),
           const SizedBox(width: 15),
@@ -125,9 +127,9 @@ class ContactScreen extends StatelessWidget {
             child: CustomTextField(
                 controller: Contactcontroller.to.emailController,
                 hintText: "Your email",
-                validator:(val){
-                  Contactcontroller.to.validateEmail(val!);
-                }
+                // validator:(val){
+                //   Contactcontroller.to.validateEmail(val!);
+                // }
             ),
           ),
         ],
@@ -153,9 +155,9 @@ class ContactScreen extends StatelessWidget {
           child: CustomTextField(
             controller: Contactcontroller.to.nameController,
             hintText: "Your name",
-              validator:(val){
-                Contactcontroller.to.validateName(val!);
-              }
+              // validator:(val){
+              //   Contactcontroller.to.validateName(val!);
+              // }
           ),
         ),
         const SizedBox(height: 15),
@@ -164,9 +166,9 @@ class ContactScreen extends StatelessWidget {
           child: CustomTextField(
             controller: Contactcontroller.to.emailController,
             hintText: "Your email",
-              validator:(val){
-                Contactcontroller.to.validateEmail(val!);
-              }
+              // validator:(val){
+              //   Contactcontroller.to.validateEmail(val!);
+              // }
           ),
         ),
       ],
