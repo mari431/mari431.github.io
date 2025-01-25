@@ -66,14 +66,14 @@ class Contactcontroller extends GetxController {
   //   print('Message: ${messageController.text}');
   // }
 
-final subjectText = 'Test Subject'.obs;
-final bodyText = 'Hi This is you'.obs;
+final subjectText = 'Please write your Subject'.obs;
+// final bodyText = nameController.text.isNotEmpty ? nameController.text : 'Hi This is you'.obs;
 final recipient = 'marimuthu.k.it@gmail.com'.obs;
 
 /// Function to send email
 Future<void> sendAndroidOrIosMail() async {
   final email = Email(
-    body: bodyText.value,
+    body: nameController.text.isNotEmpty ? nameController.text : 'Hi This is you',
     subject: subjectText.value,
     recipients: [recipient.value],
     isHTML: false,
@@ -109,7 +109,7 @@ Future<void> sendAndroidOrIosMail() async {
       final Uri emailUri = Uri(
         scheme: 'mailto',
         path: recipient.value,
-        query: 'subject=${Uri.encodeComponent(subjectText.value)}&body=${Uri.encodeComponent(bodyText.value)}',
+        query: 'subject=${Uri.encodeComponent(subjectText.value)}&body=${Uri.encodeComponent(nameController.text.isNotEmpty ? nameController.text : 'Hi This is you')}',
       );
 
       final Uri gmailUri = Uri(
@@ -121,7 +121,7 @@ Future<void> sendAndroidOrIosMail() async {
           'fs': '1',
           'to': recipient.value,
           'su': subjectText.value,
-          'body': bodyText.value,
+          'body': nameController.text.isNotEmpty ? nameController.text : 'Hi This is you',
         },
       );
 

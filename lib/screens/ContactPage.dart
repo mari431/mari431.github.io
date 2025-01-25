@@ -28,6 +28,15 @@ class ContactScreen extends StatelessWidget {
           key: _contactformKey,
           child: Column(
             children: [
+              const Text(
+                "Contact",
+                style: TextStyle(
+                  fontSize: AppFonts.aboutFDesk,
+                  fontWeight: FontWeight.bold,
+                  // color: CustomColor.whitePrimary,
+                ),
+              ),
+
               const SizedBox(height: 50),
 
               TextFormField(
@@ -36,7 +45,7 @@ class ContactScreen extends StatelessWidget {
                                 focusNode: Contactcontroller.to.subjectfocusNode,
                                 // focusNode: FocusNode(),
                                 decoration: InputDecoration(
-                hintText: 'Write your subject',
+                hintText: 'Write your message',
                 // border: InputBorder.none,
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12.0),
