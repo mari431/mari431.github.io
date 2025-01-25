@@ -15,10 +15,22 @@ class Contactcontroller extends GetxController {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController messageController = TextEditingController();
 
+  RxBool isMessageFocused = false.obs;
+
+  final FocusNode subjectfocusNode = FocusNode();
+  final FocusNode messagefocusNode = FocusNode();
+
   @override
   void onInit() {
     // TODO: implement onInit
     super.onInit();
+  }
+
+  @override
+  void dispose() {
+    subjectfocusNode.dispose();
+    messagefocusNode.dispose();
+    super.dispose();
   }
 
   String? validateName(String value) {
