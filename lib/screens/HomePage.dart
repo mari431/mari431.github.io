@@ -141,14 +141,15 @@ class HomePage extends StatelessWidget {
         Expanded(
           child: Column(
             children: [
-              Text(
-                "Hi,\nI'm ${AboutUtils.myFName} ${AboutUtils.myLName}\nA ${AboutUtils.aboutPosition}",
-                style: TextStyle(
-                  // color: Colors.white,
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
+              ShowcaseScreen(),
+              // Text(
+              //   "Hi,\nI'm ${AboutUtils.myFName} ${AboutUtils.myLName}\nA ${AboutUtils.aboutPosition}",
+              //   style: TextStyle(
+              //     // color: Colors.white,
+              //     fontSize: 20,
+              //     fontWeight: FontWeight.bold,
+              //   ),
+              // ),
             ],
           ),
         ),
