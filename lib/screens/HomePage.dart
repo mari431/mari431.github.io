@@ -6,6 +6,7 @@ import 'package:marimuthu_portfolio/constants/size.dart';
 import 'package:marimuthu_portfolio/controllers/ThemeController.dart';
 import 'package:marimuthu_portfolio/controllers/UrlController.dart';
 import 'package:marimuthu_portfolio/controllers/homeController.dart';
+import 'package:marimuthu_portfolio/screens/ShowcaseScreen.dart';
 import 'package:marimuthu_portfolio/screens/aboutPage.dart';
 import 'package:marimuthu_portfolio/utils/common_utils.dart';
 import 'package:marquee_list/marquee_list.dart';
@@ -89,14 +90,15 @@ class HomePage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  "Hi,\nI'm ${AboutUtils.myFName} ${AboutUtils.myLName}\nA ${AboutUtils.aboutPosition}",
-                  style: TextStyle(
-                    // color: Colors.white,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
+                ShowcaseScreen(),
+                // Text(
+                //   "Hi,\nI'm ${AboutUtils.myFName} ${AboutUtils.myLName}\nA ${AboutUtils.aboutPosition}",
+                //   style: TextStyle(
+                //     // color: Colors.white,
+                //     fontSize: 20,
+                //     fontWeight: FontWeight.bold,
+                //   ),
+                // ),
               ],
             ),
           ),

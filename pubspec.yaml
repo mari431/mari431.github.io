@@ -74,8 +74,8 @@ flutter:
     - jsonfiles/
     - assets/videos/
     - assets/images/
-    - assets/marimuthuKannayiram.pdf
-    - marimuthuKannayiram.pdf
+    - assets/Marimuthu_Kannayiram_Flutter_developer.pdf
+#    - Marimuthu_Kannayiram_Flutter_developer.pdf
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

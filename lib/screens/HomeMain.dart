@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:marimuthu_portfolio/constants/appfonts.dart';
 import 'package:marimuthu_portfolio/constants/size.dart';
+import 'package:marimuthu_portfolio/controllers/ShowcaseController.dart';
 import 'package:marimuthu_portfolio/controllers/UrlController.dart';
 import 'package:marimuthu_portfolio/screens/ContactPage.dart';
 import 'package:marimuthu_portfolio/screens/HomePage.dart';
@@ -38,6 +39,8 @@ class _HomeMainState extends State<HomeMain> {
     final screenSize = MediaQuery.of(context).size;
     final screenWidth = screenSize.width;
 
+    final showcaseController = Get.put(ShowcaseController());
+
     return LayoutBuilder(builder: (context, constraints) {
       return Scaffold(
         key: scaffoldKey,
@@ -65,70 +68,78 @@ class _HomeMainState extends State<HomeMain> {
             Container(
               width: Get.width,
               height: Get.height - 70,
-              child: SingleChildScrollView(
-                controller: scrollController,
-                scrollDirection: Axis.vertical,
-                child: Column(
-                  children: [
-                    SizedBox(key: navbarKeys.first),
-                    /// Home
-                    // Container(
-                    //     decoration: BoxDecoration(image: DecorationImage(image: AssetImage('assets/images/bg_image.webp'))),
-                    //     child:
-                        HomePage(),
-                    // ),
-                    const SizedBox(height: 5),
-                    /// ABOUT
-                    Container(
-                      key: navbarKeys[1],
-                      width: screenWidth,
-                      child: AboutPage(),
-                    ),
-                    const SizedBox(height: 5),
-
-                    /// SKILLS
-                    Container(
-                      key: navbarKeys[2],
-                      width: screenWidth,
-                      child: Center(child: SkillsPage()),
-                    ),
-                    const SizedBox(height: 5),
-
-                    /// Work PROJECTS
+              child: NotificationListener<ScrollNotification>(
+                onNotification: (scrollNotification) {
+                  if (scrollNotification is ScrollUpdateNotification) {
+                    showcaseController.onScroll(scrollNotification.metrics.pixels);
+                  }
+                  return true;
+                },
+                child: SingleChildScrollView(
+                  controller: scrollController,
+                  scrollDirection: Axis.vertical,
+                  child: Column(
+                    children: [
+                      SizedBox(key: navbarKeys.first),
+                      /// Home
+                      // Container(
+                      //     decoration: BoxDecoration(image: DecorationImage(image: AssetImage('assets/images/bg_image.webp'))),
+                      //     child:
+                          HomePage(),
+                      // ),
+                      const SizedBox(height: 5),
+                      /// ABOUT
                       Container(
-                        key: navbarKeys[3],
+                        key: navbarKeys[1],
                         width: screenWidth,
-                        child: ProjectsSection(
+                        child: AboutPage(),
+                      ),
+                      const SizedBox(height: 5),
+                
+                      /// SKILLS
+                      Container(
+                        key: navbarKeys[2],
+                        width: screenWidth,
+                        child: Center(child: SkillsPage()),
+                      ),
+                      const SizedBox(height: 5),
+                
+                      /// Work PROJECTS
+                        Container(
+                          key: navbarKeys[3],
+                          width: screenWidth,
+                          child: ProjectsSection(
+                          ),
+                        ),
+                      const SizedBox(height: 30),
+                      Container(
+                        key: navbarKeys[4],
+                        width: screenWidth,
+                        child: SampleWorkSection(),),
+                      const SizedBox(height: 30),
+                
+                      // GetInTouchWithMePage(
+                      //   key: navbarKeys[6],
+                      // ),
+                      Container(
+                        key: navbarKeys[6],
+                        width: screenWidth,
+                        child: GetInTouchWithMePage(
+                          // key: navbarKeys[6],
                         ),
                       ),
-                    const SizedBox(height: 30),
-                    Container(
-                      key: navbarKeys[4],
-                      width: screenWidth,
-                      child: SampleWorkSection(),),
-                    const SizedBox(height: 30),
-
-                    // GetInTouchWithMePage(
-                    //   key: navbarKeys[6],
-                    // ),
-                    Container(
-                      key: navbarKeys[6],
-                      width: screenWidth,
-                      child: GetInTouchWithMePage(
-                        // key: navbarKeys[6],
+                      const SizedBox(height: 30),
+                       /// CONTACT
+                      Container(
+                        key: navbarKeys[5],
+                        width: screenWidth,
+                        child: ContactScreen(),
                       ),
-                    ),
-                    const SizedBox(height: 30),
-                    // /// CONTACT
-                    Container(
-                      key: navbarKeys[5],
-                      width: screenWidth,
-                      child: ContactScreen(),
-                    ),
-
-                    const SizedBox(height: 50),
-                    Footer(),
-                  ],
+                
+                      const SizedBox(height: 50),
+                      Footer(),
+                    ],
+                  ),
                 ),
               ),
             ),

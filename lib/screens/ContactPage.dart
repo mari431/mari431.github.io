@@ -29,14 +29,21 @@ class ContactScreen extends StatelessWidget {
           child: Column(
             children: [
               const Text(
-                "Contact",
+                "Contact me",
                 style: TextStyle(
                   fontSize: AppFonts.aboutFDesk,
                   fontWeight: FontWeight.bold,
                   // color: CustomColor.whitePrimary,
                 ),
               ),
-
+              const Text(
+                "Do you have a project or an idea? Feel free to contact me.",
+                style: TextStyle(
+                  fontSize: 15,
+                  // fontWeight: FontWeight.bold,
+                  // color: CustomColor.whitePrimary,
+                ),
+              ),
               const SizedBox(height: 50),
 
               TextFormField(
