@@ -79126,7 +79126,7 @@ A.a2t.prototype={
 $1(a){},
 $S:10}
 A.a2u.prototype={
-$0(){this.a.e.rj("assets/marimuthuKannayiram.pdf","marimuthuKannayiram.pdf")},
+$0(){this.a.e.rj("assets/Marimuthu_Kannayiram_Flutter_developer.pdf","Marimuthu_Kannayiram_Flutter_developer.pdf")},
 $S:0}
 A.Iq.prototype={
 J(a){var s=null
