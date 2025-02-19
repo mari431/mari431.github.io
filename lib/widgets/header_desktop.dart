@@ -112,8 +112,8 @@ class HeaderDesktop extends StatelessWidget {
                   label: Text('Resume',style: TextStyle(fontSize: 12)),     // The text
                   onPressed: () {
                     downloadController.downloadAssetsFile(
-                      'assets/marimuthuKannayiram.pdf',  // Path to your asset PDF file
-                      'marimuthuKannayiram.pdf',         // Name of the file to save
+                      'assets/Marimuthu_Kannayiram_Flutter_developer.pdf',  // Path to your asset PDF file
+                      'Marimuthu_Kannayiram_Flutter_developer.pdf',         // Name of the file to save
                     );
                   },
                 );
