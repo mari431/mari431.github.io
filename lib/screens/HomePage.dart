@@ -21,7 +21,7 @@ class HomePage extends StatelessWidget {
     return Center(
       child: Container(
         padding: const EdgeInsets.fromLTRB(25, 20, 25, 60),
-        color: AppColors.homeBgColor(_themeFindController.isDarkMode.value),
+        // color: AppColors.homeBgColor(_themeFindController.isDarkMode.value),
         child: SingleChildScrollView(
           child: Column(
             children: [

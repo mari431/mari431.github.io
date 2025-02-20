@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:marimuthu_portfolio/controllers/MenuNController.dart';
 import 'package:marimuthu_portfolio/controllers/ThemeController.dart';
 import 'package:marimuthu_portfolio/screens/HomeMain.dart';
+import 'package:marimuthu_portfolio/widgets/cursor_bg/CursorParallaxEffect.dart';
 
 void main() {
   // Get.lazyPut(() => MenuNController());
@@ -24,7 +25,9 @@ class MyApp extends StatelessWidget {
         theme: ThemeData.light(),
         darkTheme: ThemeData.dark(),
         themeMode: _themeController.theme,
-        home: HomeMain(),
+        // home: HomeMain(),
+        // home: CursorParallaxEffect(),
+        home:DottedBackgroundScreen()
       ),
     );
   }

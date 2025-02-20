@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:marimuthu_portfolio/constants/appcolors.dart';
 import 'package:marimuthu_portfolio/controllers/ThemeController.dart';
 import 'package:marimuthu_portfolio/controllers/video_playerController.dart';
 
@@ -30,6 +31,7 @@ class SampleWorkCardWidget extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
           border: Border.all(color: Colors.grey.withOpacity(0.5)),
           // color: Color(0xff424657),
+          color:AppColors.wProjectBgColor(_themeFindController.isDarkMode.value),
           boxShadow: [
             BoxShadow(
                 color: Colors.grey.withOpacity(0.1),

@@ -7,6 +7,7 @@ import 'package:marimuthu_portfolio/controllers/DownloadController.dart';
 import 'package:marimuthu_portfolio/controllers/ThemeController.dart';
 import 'package:marimuthu_portfolio/utils/common_utils.dart';
 import 'package:marimuthu_portfolio/widgets/ThemeToggleButton.dart';
+import 'package:marimuthu_portfolio/widgets/custom_widget/OpenToWorkWidget.dart';
 import 'package:marimuthu_portfolio/widgets/logo/logo.dart';
 
 
@@ -24,6 +25,7 @@ class HeaderDesktop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return Container(
       height: 55.0,
       // margin: const EdgeInsets.symmetric(
@@ -33,6 +35,7 @@ class HeaderDesktop extends StatelessWidget {
       width: double.maxFinite,
       // color: Colors.white,
       decoration: BoxDecoration(
+        // color: Colors.transparent,
           color: AppColors.navBarConBgColor(_themeFindController.isDarkMode.value),
           boxShadow: [
             BoxShadow(
@@ -48,11 +51,13 @@ class HeaderDesktop extends StatelessWidget {
         children: [
           Row(
             children: [
-              Logo_wdget(
-                onTap: () {
-                  onNavMenuTap(0);
-                },),
-              Text('Open to work')
+              // Logo_wdget(
+              //   onTap: () {
+              //     onNavMenuTap(0);
+              //   },),
+              SizedBox(width: 20,),
+              OpenToWorkAnimation(),
+              // Text('Open to work')
             ],
           ),
           // ClipOval(

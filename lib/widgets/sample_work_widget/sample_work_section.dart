@@ -24,7 +24,7 @@ class SampleWorkSection extends StatelessWidget {
               const SizedBox(height: 5),
               // Work projects title
               const Text(
-                "Sample Work projects",
+                "Sample Practice projects",
                 style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
@@ -32,7 +32,32 @@ class SampleWorkSection extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 10),
-              // Work projects cards
+              /// Work projects cards
+
+
+              // Container(
+              //   width: 330,
+              //   // height: 420,
+              //   // constraints: const BoxConstraints(maxWidth: 900),
+              //   child: SizedBox(
+              //     height: 420,
+              //     child: ListView.builder(
+              //       // shrinkWrap: true,  // Important to prevent infinite height error
+              //       physics: AlwaysScrollableScrollPhysics(),
+              //       scrollDirection: Axis.horizontal,
+              //       // physics: NeverScrollableScrollPhysics(), // Disable scrolling if inside another scrollable widget
+              //       itemCount: sampleWorkUtils.length,
+              //       itemBuilder: (context, index) {
+              //         final sampProject = sampleWorkUtils[index];
+              //         return SampleWorkCardWidget(
+              //           samplework: sampProject,
+              //           index: index,
+              //         );
+              //       },
+              //     ),
+              //   ),
+              // )
+
               ConstrainedBox(
                 constraints: const BoxConstraints(maxWidth: 900),
                 child: Wrap(

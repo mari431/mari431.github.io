@@ -5,7 +5,7 @@ List<String> navTitles = [
   "About",
   "Skills",
   "Projects",
-  "Sample Work Video",
+  "Sample Practice Video",
   "Contact",
 ];
 

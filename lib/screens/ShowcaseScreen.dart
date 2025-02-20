@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:marimuthu_portfolio/controllers/ShowcaseController.dart';
 import 'package:marimuthu_portfolio/utils/common_utils.dart';
 import 'package:marimuthu_portfolio/widgets/custom_widget/GlowText.dart';
+import 'package:marimuthu_portfolio/widgets/custom_widget/WavingEmoji.dart';
 
 class ShowcaseScreen extends StatelessWidget {
   final controller = Get.put(ShowcaseController());
@@ -21,13 +22,19 @@ class ShowcaseScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
-                "Hi,\nI'm ${AboutUtils.myFName} ${AboutUtils.myLName}",
-                style: TextStyle(
-                  // color: Colors.white,
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  WavingEmoji(),
+                  Text(
+                    " Hi, my name is ${AboutUtils.myFName} ${AboutUtils.myLName}",
+                    style: TextStyle(
+                      // color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
               ),
               GlowText("A ${AboutUtils.aboutPosition}", 28, Colors.purpleAccent),
               SizedBox(height: 10),

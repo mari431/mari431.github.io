@@ -38,7 +38,7 @@ List<ProjectUtils> workProjectUtils = [
     image: 'assets/images/playstore.png',
     title: 'GTIL-Ahmedabad',
     subtitle:
-    'Exceling in sourcing, manufacturing, and trading diverse innovative and sustainable textile products.(https://globetextiles.net/)',
+    'Exceling in sourcing, manufacturing, and trading diverse innovative and sustainable textile products.',
     androidLink:
     'https://play.google.com/store/apps/details?id=globetextiles.net&hl=en',
     // iosLink:
@@ -49,8 +49,7 @@ List<ProjectUtils> workProjectUtils = [
     image: 'assets/images/dowhisle_logo_web.png',
     title: 'DoWhistle',
     subtitle:
-    'Static Website for DoWhistle company.'
-        ' (Dev Team member)',
+    'Static Website for DoWhistle company.',
     webLink: "https://www.dowhistle.com/",
   ),
   // ProjectUtils(

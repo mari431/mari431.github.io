@@ -11,6 +11,14 @@ class AppColors {
 
   static const Color positionColor = Colors.lightGreenAccent;
 
+  static Color fullBGColor(bool isDarkMode) {
+    return isDarkMode ?  Colors.transparent : WidgetStateColor.transparent;
+  }
+
+  static Color fullBGDottedColor(bool isDarkMode) {
+    return isDarkMode ?  Colors.white.withOpacity(0.1) : Colors.black.withOpacity(0.1);
+  }
+
   static Color navBarTitleTextColor(bool isDarkMode) {
     return isDarkMode ?  Colors.lightGreenAccent : Colors.black;
   }
@@ -20,11 +28,15 @@ class AppColors {
   }
 
   static Color navBarConBgColor(bool isDarkMode) {
-    return isDarkMode ?  Colors.black : Colors.white;
+    return isDarkMode ?  Colors.transparent : Colors.white;
   }
 
   static Color navBarConBoxShadowColor(bool isDarkMode) {
     return isDarkMode ?  Colors.black.withOpacity(0.5) : Colors.grey.withOpacity(0.5);
+  }
+
+  static Color homeMainBgColor(bool isDarkMode) {
+    return isDarkMode ? Colors.transparent : Colors.transparent;
   }
 
   static Color homeBgColor(bool isDarkMode) {
@@ -55,7 +67,7 @@ class AppColors {
   }
 
   static Color wProjectBgColor(bool isDarkMode) {
-    return isDarkMode ? Colors.black12 : Colors.lime.shade200;
+    return isDarkMode ? Colors.black : Colors.white;
   }
 
   static Color wProjectAndroidIconColor(bool isDarkMode) {

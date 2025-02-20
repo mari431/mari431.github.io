@@ -58,17 +58,21 @@ class AboutPage extends StatelessWidget {
           child: Container(
             width: 500,
             height: 500,
+            // color: _themeFindController.isDarkMode == true ? Colors.black : Colors.white,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text('About Me',style: TextStyle(fontSize: AppFonts.aboutFDesk),),
-                Text(
-                  AboutUtils.aboutMeDetail2,
-                  style: TextStyle(
-                    // color: Colors.white,
-                    fontSize: AppFonts.aboutBodyDesk,
-                    fontWeight: FontWeight.bold,
+                Container(
+                  color: _themeFindController.isDarkMode == true ? Colors.black.withOpacity(0.5) : Colors.white,
+                  child: Text(
+                    AboutUtils.aboutMeDetail2,
+                    style: TextStyle(
+                      // color: Colors.white,
+                      fontSize: AppFonts.aboutBodyDesk,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
 

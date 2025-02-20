@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:marimuthu_portfolio/constants/appcolors.dart';
 import 'package:marimuthu_portfolio/constants/appfonts.dart';
 import 'package:marimuthu_portfolio/constants/size.dart';
 import 'package:marimuthu_portfolio/controllers/ShowcaseController.dart';
+import 'package:marimuthu_portfolio/controllers/ThemeController.dart';
 import 'package:marimuthu_portfolio/controllers/UrlController.dart';
 import 'package:marimuthu_portfolio/screens/ContactPage.dart';
 import 'package:marimuthu_portfolio/screens/HomePage.dart';
@@ -32,6 +34,7 @@ class HomeMain extends StatefulWidget {
 class _HomeMainState extends State<HomeMain> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
   final scrollController = ScrollController();
+  final ThemeController _themeFindController = Get.find<ThemeController>();
   final List<GlobalKey> navbarKeys = List.generate(7, (index) => GlobalKey());
 
   @override
@@ -43,6 +46,7 @@ class _HomeMainState extends State<HomeMain> {
 
     return LayoutBuilder(builder: (context, constraints) {
       return Scaffold(
+        backgroundColor: AppColors.homeMainBgColor(_themeFindController.isDarkMode.value),
         key: scaffoldKey,
 
         endDrawer: constraints.maxWidth >= kMinDesktopWidth
