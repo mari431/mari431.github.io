@@ -66,3 +66,16 @@ const List<Map> getInTouchWithMeItems = [
     "link": "https://stackoverflow.com/users/19601808/marimuthu-k",
   },
 ];
+
+const List<Map> companyIWorkedWith = [
+  {
+    "img": "images/Chattary-Ajwan-Infotech-Pvt.png",
+    "title": "Chattary Ajwan Infotech Pvt",
+    "url":"http://www.chattary.com/"
+  },
+  {
+    "img": "images/playstore.png",
+    "title": "Globe Textiles (India) Ltd.",
+    "url":"https://globetextiles.net/"
+  },
+];

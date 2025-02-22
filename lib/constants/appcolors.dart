@@ -100,4 +100,13 @@ class AppColors {
     return isDarkMode ? Colors.lightGreenAccent : Colors.black;
   }
 
+
+  static Color CompanyIWorkedBgColor(bool isDarkMode) {
+    return isDarkMode ? Colors.black : Colors.white;
+  }
+
+  static Color CompanyIWorkedConShadowColor(bool isDarkMode) {
+    return isDarkMode ? Colors.white.withOpacity(0.3) : Colors.grey.withOpacity(0.3);
+  }
+
 }

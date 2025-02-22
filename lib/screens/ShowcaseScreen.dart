@@ -26,12 +26,14 @@ class ShowcaseScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   WavingEmoji(),
-                  Text(
-                    " Hi, my name is ${AboutUtils.myFName} ${AboutUtils.myLName}",
-                    style: TextStyle(
-                      // color: Colors.white,
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
+                  Expanded(
+                    child: Text(
+                      " Hi, my name is ${AboutUtils.myFName} ${AboutUtils.myLName}",
+                      style: TextStyle(
+                        // color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ],
