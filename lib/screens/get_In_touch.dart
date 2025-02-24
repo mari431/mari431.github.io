@@ -6,6 +6,7 @@ import 'package:marimuthu_portfolio/constants/size.dart';
 import 'package:marimuthu_portfolio/controllers/ThemeController.dart';
 import 'package:marimuthu_portfolio/controllers/UrlController.dart';
 import 'package:marimuthu_portfolio/utils/common_utils.dart';
+import 'package:marimuthu_portfolio/widgets/custom_widget/HoverShadowWidget.dart';
 
 import '../constants/skill_items.dart';
 
@@ -53,7 +54,7 @@ class GetInTouchWithMePage extends StatelessWidget {
         const Text(
           "Get in touch",
           style: TextStyle(
-            fontSize: AppFonts.aboutFDesk,
+            fontSize: AppFonts.subHeader,
             fontWeight: FontWeight.bold,
             // color: CustomColor.whitePrimary,
           ),
@@ -69,19 +70,21 @@ class GetInTouchWithMePage extends StatelessWidget {
                   runSpacing: 10.0,
                   children: [
                     for (int i = 0; i < getInTouchWithMeItems.length; i++)
-                      InkWell(
-                        onTap: (){
-                          UrlController.to.openUrl(getInTouchWithMeItems[i]["link"]);
-                          // getInTouchWithMeItems[i]["title"]
-                        },
-                        child: Chip(
-                          padding: const EdgeInsets.symmetric(
-                            vertical: 12.0,
-                            horizontal: 16.0,
+                      HoverShadowContainer(
+                        child: InkWell(
+                          onTap: (){
+                            UrlController.to.openUrl(getInTouchWithMeItems[i]["link"]);
+                            // getInTouchWithMeItems[i]["title"]
+                          },
+                          child: Chip(
+                            padding: const EdgeInsets.symmetric(
+                              vertical: 12.0,
+                              horizontal: 16.0,
+                            ),
+                            backgroundColor: AppColors.GetInTouchBGColor(_themeFindController.isDarkMode.value),
+                            label: Text(getInTouchWithMeItems[i]["title"],style: TextStyle(color: AppColors.GetInTouchTextColor(_themeFindController.isDarkMode.value)),),
+                            avatar: Image.asset(getInTouchWithMeItems[i]["img"],color: AppColors.GetInTouchIconColor(_themeFindController.isDarkMode.value),),
                           ),
-                          backgroundColor: AppColors.GetInTouchBGColor(_themeFindController.isDarkMode.value),
-                          label: Text(getInTouchWithMeItems[i]["title"],style: TextStyle(color: AppColors.GetInTouchTextColor(_themeFindController.isDarkMode.value)),),
-                          avatar: Image.asset(getInTouchWithMeItems[i]["img"],color: AppColors.GetInTouchIconColor(_themeFindController.isDarkMode.value),),
                         ),
                       ),
                   ],
@@ -108,24 +111,26 @@ class GetInTouchWithMePage extends StatelessWidget {
         ),
 
         for (int i = 0; i < getInTouchWithMeItems.length; i++)
-          InkWell(
-            onTap: (){
-              UrlController.to.openUrl(getInTouchWithMeItems[i]["link"]);
-              // getInTouchWithMeItems[i]["title"]
-            },
-            child: Column(
-              children: [
-                Chip(
-                  padding: const EdgeInsets.symmetric(
-                    vertical: 12.0,
-                    horizontal: 16.0,
+          HoverShadowContainer(
+            child: InkWell(
+              onTap: (){
+                UrlController.to.openUrl(getInTouchWithMeItems[i]["link"]);
+                // getInTouchWithMeItems[i]["title"]
+              },
+              child: Column(
+                children: [
+                  Chip(
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 12.0,
+                      horizontal: 16.0,
+                    ),
+                    backgroundColor: AppColors.GetInTouchBGColor(_themeFindController.isDarkMode.value),
+                    label: Text(getInTouchWithMeItems[i]["title"],style: TextStyle(color: AppColors.GetInTouchTextColor(_themeFindController.isDarkMode.value)),),
+                    avatar: Image.asset(getInTouchWithMeItems[i]["img"],color: AppColors.GetInTouchIconColor(_themeFindController.isDarkMode.value),),
                   ),
-                  backgroundColor: AppColors.GetInTouchBGColor(_themeFindController.isDarkMode.value),
-                  label: Text(getInTouchWithMeItems[i]["title"],style: TextStyle(color: AppColors.GetInTouchTextColor(_themeFindController.isDarkMode.value)),),
-                  avatar: Image.asset(getInTouchWithMeItems[i]["img"],color: AppColors.GetInTouchIconColor(_themeFindController.isDarkMode.value),),
-                ),
-                SizedBox(height: 5,)
-              ],
+                  SizedBox(height: 5,)
+                ],
+              ),
             ),
           ),
 

@@ -5,6 +5,7 @@ import 'package:marimuthu_portfolio/constants/appfonts.dart';
 import 'package:marimuthu_portfolio/constants/size.dart';
 import 'package:marimuthu_portfolio/controllers/ThemeController.dart';
 import 'package:marimuthu_portfolio/utils/common_utils.dart';
+import 'package:marimuthu_portfolio/widgets/custom_widget/HoverShadowWidget.dart';
 
 import '../constants/skill_items.dart';
 
@@ -52,7 +53,7 @@ class SkillsPage extends StatelessWidget {
         const Text(
           "What I can do",
           style: TextStyle(
-            fontSize: AppFonts.aboutFDesk,
+            fontSize: AppFonts.subHeader,
             fontWeight: FontWeight.bold,
             // color: CustomColor.whitePrimary,
           ),
@@ -69,35 +70,37 @@ class SkillsPage extends StatelessWidget {
                 runSpacing: 5.0,
                 children: [
                   for (int i = 0; i < platformItems.length; i++)
-                    Container(
-                      width: 200,
-                      decoration: BoxDecoration(
-                          color: AppColors.skillBgColor(_themeFindController.isDarkMode.value),
-                          borderRadius: BorderRadius.circular(32),
-                          boxShadow: [
-                            BoxShadow(
-                                // color: Colors.grey.withOpacity(0.5),
-                                // spreadRadius: 1,
-                                // blurRadius: 1,
-                                // offset: Offset(0, 0)
-                            )
-                          ]
-                      ),
-                      // decoration: BoxDecoration(
-                      //   color: AppColors.skillBgColor(_themeFindController.isDarkMode.value),
-                      //   borderRadius: BorderRadius.circular(5),
-                      // ),
-                      child: ListTile(
-                        contentPadding: const EdgeInsets.symmetric(
-                          horizontal: 20.0,
-                          vertical: 10.0,
+                    HoverShadowContainer(
+                      child: Container(
+                        width: 200,
+                        decoration: BoxDecoration(
+                            color: AppColors.skillBgColor(_themeFindController.isDarkMode.value),
+                            borderRadius: BorderRadius.circular(16),
+                            boxShadow: [
+                              BoxShadow(
+                                  // color: Colors.grey.withOpacity(0.5),
+                                  // spreadRadius: 1,
+                                  // blurRadius: 1,
+                                  // offset: Offset(0, 0)
+                              )
+                            ]
                         ),
-                        leading: Image.asset(
-                          platformItems[i]["img"],
-                          width: 26.0,
-                          color: AppColors.skillIconColor(_themeFindController.isDarkMode.value),
+                        // decoration: BoxDecoration(
+                        //   color: AppColors.skillBgColor(_themeFindController.isDarkMode.value),
+                        //   borderRadius: BorderRadius.circular(5),
+                        // ),
+                        child: ListTile(
+                          contentPadding: const EdgeInsets.symmetric(
+                            horizontal: 20.0,
+                            vertical: 10.0,
+                          ),
+                          leading: Image.asset(
+                            platformItems[i]["img"],
+                            width: 26.0,
+                            color: AppColors.skillIconColor(_themeFindController.isDarkMode.value),
+                          ),
+                          title: Text(platformItems[i]["title"],style: TextStyle(color: AppColors.skillTextColor(_themeFindController.isDarkMode.value)),),
                         ),
-                        title: Text(platformItems[i]["title"],style: TextStyle(color: AppColors.skillTextColor(_themeFindController.isDarkMode.value)),),
                       ),
                     )
                 ],
@@ -115,14 +118,16 @@ class SkillsPage extends StatelessWidget {
                   runSpacing: 10.0,
                   children: [
                     for (int i = 0; i < skillItems.length; i++)
-                      Chip(
-                        padding: const EdgeInsets.symmetric(
-                          vertical: 12.0,
-                          horizontal: 16.0,
+                      HoverShadowContainer(
+                        child: Chip(
+                          padding: const EdgeInsets.symmetric(
+                            vertical: 12.0,
+                            horizontal: 16.0,
+                          ),
+                          // backgroundColor: CustomColor.bgLight2,
+                          label: Text(skillItems[i]["title"]),
+                          avatar: Image.asset(skillItems[i]["img"]),
                         ),
-                        // backgroundColor: CustomColor.bgLight2,
-                        label: Text(skillItems[i]["title"]),
-                        avatar: Image.asset(skillItems[i]["img"]),
                       ),
                   ],
                 ),
@@ -140,38 +145,40 @@ class SkillsPage extends StatelessWidget {
         const Text(
           "What I can do",
           style: TextStyle(
-            fontSize: AppFonts.aboutFDesk,
+            fontSize: AppFonts.subHeader,
             fontWeight: FontWeight.bold,
             // color: CustomColor.whitePrimary,
           ),
         ),
         for (int i = 0; i < platformItems.length; i++)
-          Container(
-            margin: const EdgeInsets.only(bottom: 5.0),
-            width: double.maxFinite,
-            decoration: BoxDecoration(
-                color: AppColors.skillBgColor(_themeFindController.isDarkMode.value),
-                borderRadius: BorderRadius.circular(32),
-                boxShadow: [
-                  BoxShadow(
-                      color: Colors.grey.withOpacity(0.5),
-                      spreadRadius: 1,
-                      blurRadius: 1,
-                      offset: Offset(0, 0)
-                  )
-                ]
-            ),
-            child: ListTile(
-              contentPadding: const EdgeInsets.symmetric(
-                vertical: 10.0,
-                horizontal: 20.0,
+          HoverShadowContainer(
+            child: Container(
+              margin: const EdgeInsets.only(bottom: 5.0),
+              width: double.maxFinite,
+              decoration: BoxDecoration(
+                  color: AppColors.skillBgColor(_themeFindController.isDarkMode.value),
+                  borderRadius: BorderRadius.circular(32),
+                  boxShadow: [
+                    BoxShadow(
+                        color: Colors.grey.withOpacity(0.5),
+                        spreadRadius: 1,
+                        blurRadius: 1,
+                        offset: Offset(0, 0)
+                    )
+                  ]
               ),
-              leading: Image.asset(
-                platformItems[i]["img"],
-                width: 26.0,
-                color: AppColors.skillIconColor(_themeFindController.isDarkMode.value),
+              child: ListTile(
+                contentPadding: const EdgeInsets.symmetric(
+                  vertical: 10.0,
+                  horizontal: 20.0,
+                ),
+                leading: Image.asset(
+                  platformItems[i]["img"],
+                  width: 26.0,
+                  color: AppColors.skillIconColor(_themeFindController.isDarkMode.value),
+                ),
+                title: Text(platformItems[i]["title"],),
               ),
-              title: Text(platformItems[i]["title"],),
             ),
           ),
         const SizedBox(height: 5),
@@ -183,14 +190,16 @@ class SkillsPage extends StatelessWidget {
           alignment: WrapAlignment.center,
           children: [
             for (int i = 0; i < skillItems.length; i++)
-              Chip(
-                padding: const EdgeInsets.symmetric(
-                  vertical: 12.0,
-                  horizontal: 16.0,
+              HoverShadowContainer(
+                child: Chip(
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 12.0,
+                    horizontal: 16.0,
+                  ),
+                  // backgroundColor: CustomColor.bgLight2,
+                  label: Text(skillItems[i]["title"]),
+                  avatar: Image.asset(skillItems[i]["img"]),
                 ),
-                // backgroundColor: CustomColor.bgLight2,
-                label: Text(skillItems[i]["title"]),
-                avatar: Image.asset(skillItems[i]["img"]),
               ),
           ],
         )

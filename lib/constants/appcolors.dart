@@ -109,4 +109,11 @@ class AppColors {
     return isDarkMode ? Colors.white.withOpacity(0.3) : Colors.grey.withOpacity(0.3);
   }
 
+  static Color playPauseBtnBGColor(bool isDarkMode) {
+    return isDarkMode ? Colors.yellowAccent.shade400 : Colors.black;
+  }
+  static Color playPauseBtnTextColor(bool isDarkMode) {
+    return isDarkMode ? Colors.black : Colors.white;
+  }
+
 }

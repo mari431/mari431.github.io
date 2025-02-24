@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:marimuthu_portfolio/constants/appcolors.dart';
 import 'package:marimuthu_portfolio/controllers/ThemeController.dart';
+import 'package:marimuthu_portfolio/widgets/custom_widget/HoverShadowWidget.dart';
 
 import '../utils/project_utils.dart';
 import 'project_card.dart';
@@ -26,7 +27,7 @@ class ProjectsSection extends StatelessWidget {
               const Text(
                 "Work projects",
                 style: TextStyle(
-                  fontSize: 24,
+                  fontSize: 18,
                   fontWeight: FontWeight.bold,
                   // color: CustomColor.whitePrimary,
                 ),
@@ -40,8 +41,10 @@ class ProjectsSection extends StatelessWidget {
                   runSpacing: 25,
                   children: [
                     for (int i = 0; i < workProjectUtils.length; i++)
-                      ProjectCardWidget(
-                        project: workProjectUtils[i],
+                      HoverShadowContainer(
+                        child: ProjectCardWidget(
+                          project: workProjectUtils[i],
+                        ),
                       ),
                   ],
                 ),

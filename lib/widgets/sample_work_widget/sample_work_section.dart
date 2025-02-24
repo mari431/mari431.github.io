@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:marimuthu_portfolio/constants/appcolors.dart';
 import 'package:marimuthu_portfolio/controllers/ThemeController.dart';
 import 'package:marimuthu_portfolio/utils/project_utils.dart';
+import 'package:marimuthu_portfolio/widgets/custom_widget/HoverShadowWidget.dart';
 import 'package:marimuthu_portfolio/widgets/sample_work_widget/sample_work_card.dart';
 
 
@@ -26,7 +27,7 @@ class SampleWorkSection extends StatelessWidget {
               const Text(
                 "Sample Practice projects",
                 style: TextStyle(
-                  fontSize: 24,
+                  fontSize: 18,
                   fontWeight: FontWeight.bold,
                   // color: CustomColor.whitePrimary,
                 ),
@@ -65,9 +66,11 @@ class SampleWorkSection extends StatelessWidget {
                   runSpacing: 15,
                   children: [
                     for (int i = 0; i < sampleWorkUtils.length; i++)
-                      SampleWorkCardWidget(
-                        samplework: sampleWorkUtils[i],
-                        index:i
+                      HoverShadowContainer(
+                        child: SampleWorkCardWidget(
+                          samplework: sampleWorkUtils[i],
+                          index:i
+                        ),
                       ),
                   ],
                 ),

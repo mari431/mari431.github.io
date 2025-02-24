@@ -9,12 +9,15 @@ import 'package:marimuthu_portfolio/controllers/homeController.dart';
 import 'package:marimuthu_portfolio/screens/ShowcaseScreen.dart';
 import 'package:marimuthu_portfolio/screens/aboutPage.dart';
 import 'package:marimuthu_portfolio/utils/common_utils.dart';
+import 'package:marimuthu_portfolio/widgets/custom_widget/HoverShadowWidget.dart';
 import 'package:marquee_list/marquee_list.dart';
 
 class HomePage extends StatelessWidget {
    HomePage({super.key});
 
   final ThemeController _themeFindController = Get.find<ThemeController>();
+
+
 
   @override
   Widget build(BuildContext context) {

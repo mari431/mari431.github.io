@@ -70,7 +70,8 @@ class SampleWorkCardWidget extends StatelessWidget {
               builder: (controller) {
               return ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.black
+                  minimumSize: Size.fromRadius(12.0),
+                  backgroundColor: AppColors.playPauseBtnBGColor(_themeFindController.isDarkMode.value)
                 ),
                 onPressed: () {
                   videoController.playVideo(index);
@@ -78,7 +79,7 @@ class SampleWorkCardWidget extends StatelessWidget {
                 child:
                 Text(
                   videoController.isPlaying(index) ? 'Pause' : 'Play',
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(color: AppColors.playPauseBtnTextColor(_themeFindController.isDarkMode.value)),
                 ),
                 // Text(samplework.videoPlayerController.value.isPlaying ? 'Pause' : 'Play'),
               );
