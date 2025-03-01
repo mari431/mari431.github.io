@@ -70,7 +70,7 @@ const List<Map> getInTouchWithMeItems = [
 const List<Map> companyIWorkedWith = [
   {
     "img": "images/Chattary-Ajwan-Infotech-Pvt.png",
-    "title": "Chattary Ajwan Infotech Pvt",
+    "title": "Chattary Ajwan Infotech Pvt Ltd",
     "url":"http://www.chattary.com/"
   },
   {
