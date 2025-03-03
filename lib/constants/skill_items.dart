@@ -28,6 +28,11 @@ const List<Map> skillItems = [
   },
 
   {
+    "img": "images/firebase_Icon.png",
+    "title": "Firebase",
+  },
+
+  {
     "img": "images/javascript.png",
     "title": "JS",
   },
