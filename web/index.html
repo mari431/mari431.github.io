@@ -117,20 +117,20 @@
 </head>
 <body>
 
-<script>
-    var serviceWorkerVersion = "1.0.15";
+<!--<script>-->
+<!--    var serviceWorkerVersion = "1.0.15";-->
 
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', function () {
-        navigator.serviceWorker.register('flutter_service_worker.js?v=' + serviceWorkerVersion)
-          .then(function(registration) {
-            console.log('ServiceWorker registration successful with scope:', registration.scope);
-          }).catch(function(error) {
-            console.log('ServiceWorker registration failed:', error);
-          });
-      });
-    }
-</script>
+<!--    if ('serviceWorker' in navigator) {-->
+<!--      window.addEventListener('load', function () {-->
+<!--        navigator.serviceWorker.register('flutter_service_worker.js?v=' + serviceWorkerVersion)-->
+<!--          .then(function(registration) {-->
+<!--            console.log('ServiceWorker registration successful with scope:', registration.scope);-->
+<!--          }).catch(function(error) {-->
+<!--            console.log('ServiceWorker registration failed:', error);-->
+<!--          });-->
+<!--      });-->
+<!--    }-->
+<!--</script>-->
 
 <script>
     window.addEventListener('flutter-first-frame', function () {
