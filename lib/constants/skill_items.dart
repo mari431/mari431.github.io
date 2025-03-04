@@ -28,7 +28,7 @@ const List<Map> skillItems = [
   },
 
   {
-    "img": "images/firebase_Icon.png",
+    "img": "images/firebaseskill.png",
     "title": "Firebase",
   },
 
