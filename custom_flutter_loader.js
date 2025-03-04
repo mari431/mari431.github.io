@@ -36,6 +36,6 @@ window.flutterLoader = {
 window.addEventListener('load', function() {
   window.flutterLoader.load({
     baseUri: document.baseURI,
-    serviceWorkerVersion: "1.0.15"  // Update with your correct version
+    serviceWorkerVersion: "1.0.16"  // Update with your correct version
   });
 });
