@@ -70,6 +70,8 @@ final subjectText = 'Please write your Subject'.obs;
 // final bodyText = nameController.text.isNotEmpty ? nameController.text : 'Hi This is you'.obs;
 final recipient = 'marimuthu.k.it@gmail.com'.obs;
 
+
+
 /// Function to send email
 Future<void> sendAndroidOrIosMail() async {
   final email = Email(
@@ -99,7 +101,7 @@ Future<void> sendAndroidOrIosMail() async {
 
   Future<void> sendMail() async {
 
-  if(1==1){
+  if(Contactcontroller.to.nameController.text.isNotEmpty){
 
     if (kIsWeb) {
 

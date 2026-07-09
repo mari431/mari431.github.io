@@ -92,7 +92,7 @@ class _HomeMainState extends State<HomeMain> {
                       //     child:
                           HomePage(),
                       // ),
-                      CompanyIWorked(),
+
                       const SizedBox(height: 5),
                       /// ABOUT
                       Container(
@@ -101,7 +101,16 @@ class _HomeMainState extends State<HomeMain> {
                         child: AboutPage(),
                       ),
                       const SizedBox(height: 5),
-                
+
+                      /// Work PROJECTS
+                      Container(
+                        key: navbarKeys[3],
+                        width: screenWidth,
+                        child: ProjectsSection(
+                        ),
+                      ),
+                      const SizedBox(height: 30),
+
                       /// SKILLS
                       Container(
                         key: navbarKeys[2],
@@ -110,14 +119,7 @@ class _HomeMainState extends State<HomeMain> {
                       ),
                       const SizedBox(height: 5),
                 
-                      /// Work PROJECTS
-                        Container(
-                          key: navbarKeys[3],
-                          width: screenWidth,
-                          child: ProjectsSection(
-                          ),
-                        ),
-                      const SizedBox(height: 30),
+
                       Container(
                         key: navbarKeys[4],
                         width: screenWidth,
@@ -135,6 +137,7 @@ class _HomeMainState extends State<HomeMain> {
                         ),
                       ),
                       const SizedBox(height: 30),
+                      CompanyIWorked(),
                        /// CONTACT
                       Container(
                         key: navbarKeys[5],

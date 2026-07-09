@@ -10,6 +10,7 @@ class ProjectUtils {
   final String? androidLink;
   final String? iosLink;
   final String? webLink;
+  final String? desktop;
 
   ProjectUtils({
     required this.image,
@@ -18,6 +19,7 @@ class ProjectUtils {
     this.androidLink,
     this.iosLink,
     this.webLink,
+    this.desktop,
   });
 
 
@@ -35,16 +37,24 @@ class ProjectUtils {
 
 List<ProjectUtils> workProjectUtils = [
   ProjectUtils(
-    image: 'assets/images/playstore.png',
-    title: 'GTIL-Ahmedabad',
+    image: 'assets/images/playstore.jpg',
+    title: 'GEIL-Ahmedabad',
     subtitle:
     'Exceling in sourcing, manufacturing, and trading diverse innovative and sustainable textile products.',
     androidLink:
     'https://play.google.com/store/apps/details?id=globetextiles.net&hl=en',
     // iosLink:
     // "https://apps.apple.com/kr/app/%EC%98%81%EC%96%B4%EB%A8%B8%EB%A6%AC-%EA%B3%B5%EC%9E%91%EC%86%8C/id1507102714",
-    // webLink: "/",
+    // desktop: "/",
   ),
+  ProjectUtils(
+    image: 'assets/images/caipl_dashboard.jpg',
+    title: 'Macro Vision',
+    subtitle:
+    'ERP System Application for Chattary Ajwan Info Tech company.',
+    desktop: "-",
+  ),
+
   ProjectUtils(
     image: 'assets/images/dowhisle_logo_web.png',
     title: 'DoWhistle',

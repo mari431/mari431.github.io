@@ -64,7 +64,7 @@ class CompanyIWorked extends StatefulWidget {
           child: Container(
             padding: const EdgeInsets.fromLTRB(25, 20, 25, 60),
             decoration: BoxDecoration(
-                color: AppColors.skillBgColor(_themeFindController.isDarkMode.value),
+                // color: AppColors.skillBgColor(_themeFindController.isDarkMode.value),
                 boxShadow: [
                   // if (hoveredIndex == 1)
                   //   BoxShadow(

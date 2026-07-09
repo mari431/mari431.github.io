@@ -132,6 +132,21 @@ class ProjectCardWidget extends StatelessWidget {
                       ),
                     ),
                   ),
+                if (project.desktop != null)
+                  Padding(
+                    padding: const EdgeInsets.only(left: 6),
+                    child: InkWell(
+                      onTap: () {
+                        js.context.callMethod("open", [project.desktop]);
+                      },
+                      child: Icon(Icons.desktop_mac_outlined,color: Colors.red,),
+                      // child: Image.asset(
+                      //   "images/web_icon.png",
+                      //   width: 15,
+                      //   color: AppColors.wProjectWebIconColor(_themeFindController.isDarkMode.value),
+                      // ),
+                    ),
+                  ),
               ],
             ),
           )

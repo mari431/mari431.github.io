@@ -8,10 +8,12 @@ class AboutUtils {
       'Kannayiram';
 
   static const String aboutPosition =
-      'Flutter Developer.';
+      'Flutter - Full Stack Developer.';
 
-  static const String aboutMeDetail2 =
-      'I\'m done B.Tech IT, I have a solid foundation in information technology, coupled with hands-on experience in various programming languages and software development tools. During my academic journey, I have developed a keen interest in web development, mobile development, which I have pursued through personal projects.';
+  // static const String aboutMeDetail2 =
+  //     'I\'m done B.Tech IT, I have a solid foundation in information technology, coupled with hands-on experience in various programming languages and software development tools. During my academic journey, I have developed a keen interest in web development, mobile development, which I have pursued through personal projects.';
+
+  static const String aboutMeDetail2 = 'I\'m Marimuthu, a Full Stack Developer with 6.7 years of experience building cross-platform applications and the systems behind them. I specialize in Flutter — building apps that run on Android, iOS, Web, and Desktop from a single codebase — paired with Node.js, Firebase, and MSSQL Server on the backend.I care about the full picture of an app, not just the UI: how data is structured in the database, how APIs move that data reliably, and how the release pipeline gets it into users\' hands without friction. That end-to-end view comes from years of working across the stack — designing databases and stored procedures, building REST APIs with Node.js/Express, integrating Firebase for real-time features, and automating releases with CI/CD.When I\'m not building, I\'m usually refining how these pieces fit together — cleaner architecture, faster release cycles, fewer moving parts to break.Currently building at Globe Enterprises (India) Ltd. Based in Ahmedabad, Gujarat.';
 
   static const String myImageStr = 'images/my_image1.jpg';
   static const String myImage2Str = 'images/my_image22.jpg';

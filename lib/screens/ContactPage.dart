@@ -17,6 +17,17 @@ class ContactScreen extends StatelessWidget {
   final ThemeController _themeFindController = Get.find<ThemeController>();
   final _contactformKey = GlobalKey<FormState>();
 
+  String? validateBodyContent(String value) {
+    if (value.isEmpty) {
+      return 'body content is required';
+    }
+    // else if (!EmailValidator.isValidEmail(value)) {
+    //   return 'Invalid email format';
+    // }
+    // Add more complex validation logic here if needed
+    return null;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(

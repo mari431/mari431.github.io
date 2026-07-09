@@ -63,7 +63,7 @@ const List<Map> getInTouchWithMeItems = [
   {
     "img": "images/linkedin_logo_black.png",
     "title": "Linkedin",
-    "link": "https://www.linkedin.com/in/marimuthu-k-2015it19/",
+    "link": "https://www.linkedin.com/in/marimuthu-kannayiram/",
   },
   {
     "img": "images/sto.png",
@@ -79,8 +79,8 @@ const List<Map> companyIWorkedWith = [
     "url":"http://www.chattary.com/"
   },
   {
-    "img": "images/playstore.png",
-    "title": "Globe Textiles (India) Ltd.",
-    "url":"https://globetextiles.net/"
+    "img": "images/playstore.jpg",
+    "title": "Globe Enterprises (India) Ltd.",
+    "url":"https://globeenterprises.net/"
   },
 ];

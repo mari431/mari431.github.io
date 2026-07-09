@@ -36,7 +36,8 @@ class _HoverShadowContainerState extends State<HoverShadowContainer> {
           boxShadow: _isHovering
               ? [
             BoxShadow(
-              color: AppColors.CompanyIWorkedConShadowColor(_themeFindController.isDarkMode.value),
+              // color: AppColors.CompanyIWorkedConShadowColor(_themeFindController.isDarkMode.value),
+              color: Colors.transparent,
               // color: Colors.black.withOpacity(0.3),
               offset: Offset(0, 4),
               blurRadius: 10,
