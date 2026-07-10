@@ -27,7 +27,7 @@ class SkillsPage extends StatelessWidget {
               ConstrainedBox(
                 constraints: const BoxConstraints(
                   maxWidth: 700,
-                  maxHeight: 500,
+                  maxHeight: 530,
                 ),
                 child: LayoutBuilder(
                   builder: (context, constraints) {

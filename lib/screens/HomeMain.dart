@@ -25,6 +25,8 @@ import 'package:marimuthu_portfolio/widgets/logo/logo.dart';
 import 'package:marimuthu_portfolio/widgets/projects_section.dart';
 import 'package:marimuthu_portfolio/widgets/sample_work_widget/sample_work_section.dart';
 
+import 'certificate/views/CertificateView.dart';
+
 class HomeMain extends StatefulWidget {
   const HomeMain({super.key});
 
@@ -36,7 +38,7 @@ class _HomeMainState extends State<HomeMain> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
   final scrollController = ScrollController();
   final ThemeController _themeFindController = Get.find<ThemeController>();
-  final List<GlobalKey> navbarKeys = List.generate(7, (index) => GlobalKey());
+  final List<GlobalKey> navbarKeys = List.generate(8, (index) => GlobalKey());
 
   @override
   Widget build(BuildContext context) {
@@ -137,6 +139,22 @@ class _HomeMainState extends State<HomeMain> {
                         ),
                       ),
                       const SizedBox(height: 30),
+
+                      Text(
+                        "Certificates",
+                        style: TextStyle(
+                          fontSize: AppFonts.subHeader,
+                          fontWeight: FontWeight.bold,
+                          // color: CustomColor.whitePrimary,
+                        ),
+                      ),
+                      Container(
+                        key: navbarKeys[7],
+                        width: screenWidth,
+                        child: CertificateView(),
+                      ),
+
+                      // CertificateView(),
                       CompanyIWorked(),
                        /// CONTACT
                       Container(
@@ -144,6 +162,8 @@ class _HomeMainState extends State<HomeMain> {
                         width: screenWidth,
                         child: ContactScreen(),
                       ),
+
+
                 
                       const SizedBox(height: 50),
                       Footer(),

@@ -5,7 +5,10 @@ import 'package:marimuthu_portfolio/controllers/ThemeController.dart';
 import 'package:marimuthu_portfolio/screens/HomeMain.dart';
 import 'package:marimuthu_portfolio/widgets/cursor_bg/CursorParallaxEffect.dart';
 
+import 'controllers/CertificateController.dart';
+
 void main() {
+  // Get.put(CertificateController());
   // Get.lazyPut(() => MenuNController());
   WidgetsFlutterBinding.ensureInitialized(); // Ensures all plugins are initialized before runApp
   runApp(MyApp());

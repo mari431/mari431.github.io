@@ -27,7 +27,7 @@ class AboutPage extends StatelessWidget {
               const SizedBox(height: 5),
               Container(
                 width: Get.width,
-                height: 500,
+                height: 788,
                 // constraints: const BoxConstraints(
                 //   maxWidth: 700,
                 //   maxHeight: 500,
@@ -107,7 +107,7 @@ class AboutPage extends StatelessWidget {
         Expanded(
           child: Container(
             width: 500,
-            height: 500,
+            height: 582,
             child: Container(
               width: 120,
               height: 120,
@@ -142,11 +142,11 @@ class AboutPage extends StatelessWidget {
       children: [
         Expanded(
           child: Container(
-            width: 500,
-            height: 500,
+            width: 300,
+            height: 100,
             child: Container(
-              width: 120,
-              height: 120,
+              width: 60,
+              height: 60,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 // border: Border.all(color: Colors.lightGreenAccent),
@@ -169,8 +169,9 @@ class AboutPage extends StatelessWidget {
         Expanded(
           child: Container(
             width: 500,
-            height: 500,
+            height: 600,
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text('About Me',style: TextStyle(fontSize: AppFonts.aboutFDesk),),
                 Text(
