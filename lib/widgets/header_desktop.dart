@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:marimuthu_portfolio/constants/appcolors.dart';
 import 'package:marimuthu_portfolio/constants/h_Nav_Item.dart';
 import 'package:marimuthu_portfolio/controllers/DownloadController.dart';
 import 'package:marimuthu_portfolio/controllers/ThemeController.dart';
@@ -87,7 +86,6 @@ class HeaderDesktop extends StatelessWidget {
                   for (final index in _primaryNavIndexes)
                     _NavLink(
                       title: navTitles[index],
-                      foreground: foreground,
                       muted: muted,
                       onTap: () => onNavMenuTap(index),
                     ),
@@ -135,13 +133,11 @@ class HeaderDesktop extends StatelessWidget {
 class _NavLink extends StatefulWidget {
   const _NavLink({
     required this.title,
-    required this.foreground,
     required this.muted,
     required this.onTap,
   });
 
   final String title;
-  final Color foreground;
   final Color muted;
   final VoidCallback onTap;
 
