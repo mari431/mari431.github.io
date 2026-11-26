@@ -8,6 +8,7 @@ import 'package:marimuthu_portfolio/controllers/ThemeController.dart';
 import 'package:marimuthu_portfolio/controllers/UrlController.dart';
 import 'package:marimuthu_portfolio/screens/ContactPage.dart';
 import 'package:marimuthu_portfolio/screens/HomePage.dart';
+import 'package:marimuthu_portfolio/screens/ServicesPage.dart';
 import 'package:marimuthu_portfolio/screens/aboutPage.dart';
 import 'package:marimuthu_portfolio/screens/companyIWorked.dart';
 import 'package:marimuthu_portfolio/screens/get_In_touch.dart';
@@ -105,6 +106,11 @@ class _HomeMainState extends State<HomeMain> {
                         width: screenWidth,
                         child: AboutPage(),
                       ),
+                      const SizedBox(height: 5),
+
+                      /// SERVICES
+                      ServicesPage(),
+
                       const SizedBox(height: 5),
 
                       /// Work PROJECTS
