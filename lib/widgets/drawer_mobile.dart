@@ -15,7 +15,7 @@ class DrawerMobile extends StatelessWidget {
   final ThemeController _themeController = Get.find<ThemeController>();
   final DownloadController _downloadController = Get.put(DownloadController());
 
-  static const List<int> _visibleNavIndexes = [0, 1, 2, 3, 4, 5];
+  static const List<int> _visibleNavIndexes = [0, 1, 2, 3, 5];
 
   @override
   Widget build(BuildContext context) {
