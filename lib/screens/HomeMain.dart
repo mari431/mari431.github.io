@@ -73,9 +73,7 @@ class _HomeMainState extends State<HomeMain> {
                   scaffoldKey.currentState?.openEndDrawer();
                 },
               ),
-            Container(
-              width: Get.width,
-              height: Get.height - 70,
+            Expanded(
               child: NotificationListener<ScrollNotification>(
                 onNotification: (scrollNotification) {
                   if (scrollNotification is ScrollUpdateNotification) {
