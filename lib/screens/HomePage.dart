@@ -1,332 +1,342 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:marimuthu_portfolio/constants/appcolors.dart';
-import 'package:marimuthu_portfolio/constants/appfonts.dart';
-import 'package:marimuthu_portfolio/constants/size.dart';
+import 'package:marimuthu_portfolio/controllers/DownloadController.dart';
 import 'package:marimuthu_portfolio/controllers/ThemeController.dart';
 import 'package:marimuthu_portfolio/controllers/UrlController.dart';
-import 'package:marimuthu_portfolio/controllers/homeController.dart';
-import 'package:marimuthu_portfolio/screens/ShowcaseScreen.dart';
-import 'package:marimuthu_portfolio/screens/aboutPage.dart';
 import 'package:marimuthu_portfolio/utils/common_utils.dart';
-import 'package:marimuthu_portfolio/widgets/custom_widget/HoverShadowWidget.dart';
-import 'package:marquee_list/marquee_list.dart';
 
 class HomePage extends StatelessWidget {
-   HomePage({super.key});
+  HomePage({
+    super.key,
+    this.onViewProjects,
+    this.onContactTap,
+  });
 
-  final ThemeController _themeFindController = Get.find<ThemeController>();
+  final VoidCallback? onViewProjects;
+  final VoidCallback? onContactTap;
+  final ThemeController _themeController = Get.find<ThemeController>();
+  final DownloadController _downloadController = Get.put(DownloadController());
 
-
+  static const Color _accent = Color(0xFF7667F8);
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Container(
-        padding: const EdgeInsets.fromLTRB(25, 20, 25, 60),
-        // color: AppColors.homeBgColor(_themeFindController.isDarkMode.value),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              const SizedBox(height: 5),
-              Container(
-                width: Get.width,
-                height: 500,
-                // constraints: const BoxConstraints(
-                //   maxWidth: 700,
-                //   maxHeight: 500,
-                // ),
-                child: LayoutBuilder(
-                  builder: (context, constraints) {
-                    if (constraints.maxWidth >= kMinDesktopWidth) {
-                      return buildHomeImageNPositionDesktop();
-                    }
-          
-                    // else
-                    return buildHomeImageNPositionMobile();
-                  },
-                ),
+    return Obx(() {
+      final isDark = _themeController.isDarkMode.value;
+      final foreground = isDark ? const Color(0xFFF5F4FF) : const Color(0xFF17172A);
+      final muted = isDark ? const Color(0xFFB6B4C8) : const Color(0xFF626176);
+      final panel = isDark ? const Color(0xFF171725) : const Color(0xFFF3F2FA);
+      final border = isDark ? Colors.white.withOpacity(.10) : Colors.black.withOpacity(.08);
+
+      return Container(
+        width: double.infinity,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: isDark
+                ? const [Color(0xFF10101B), Color(0xFF171629), Color(0xFF11121D)]
+                : const [Color(0xFFFCFBFF), Color(0xFFF4F2FF), Color(0xFFFFFFFF)],
+          ),
+        ),
+        child: Center(
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 1200),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 76),
+              child: LayoutBuilder(
+                builder: (context, constraints) {
+                  final isWide = constraints.maxWidth >= 760;
+                  final intro = _buildIntro(context, foreground, muted, isDark);
+                  final portrait = _buildPortrait(context, panel, border, isDark);
+
+                  if (!isWide) {
+                    return Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Center(child: portrait),
+                        const SizedBox(height: 42),
+                        intro,
+                      ],
+                    );
+                  }
+
+                  return Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Expanded(flex: 6, child: intro),
+                      const SizedBox(width: 64),
+                      Expanded(flex: 5, child: Center(child: portrait)),
+                    ],
+                  );
+                },
               ),
-              // const SizedBox(height: 15),
+            ),
+          ),
+        ),
+      );
+    });
+  }
+
+  Widget _buildIntro(
+    BuildContext context,
+    Color foreground,
+    Color muted,
+    bool isDark,
+  ) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Container(
+          padding: const EdgeInsets.symmetric(horizontal: 13, vertical: 8),
+          decoration: BoxDecoration(
+            color: _accent.withOpacity(.12),
+            borderRadius: BorderRadius.circular(30),
+            border: Border.all(color: _accent.withOpacity(.30)),
+          ),
+          child: const Text(
+            'SOFTWARE DEVELOPER  ·  TECHNOLOGY CONSULTANT',
+            style: TextStyle(
+              color: _accent,
+              fontSize: 11,
+              fontWeight: FontWeight.w800,
+              letterSpacing: 1.15,
+            ),
+          ),
+        ),
+        const SizedBox(height: 24),
+        Text(
+          'Hello, I’m',
+          style: TextStyle(
+            color: muted,
+            fontSize: 20,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+        const SizedBox(height: 5),
+        Text(
+          '${AboutUtils.myFName} ${AboutUtils.myLName}',
+          style: TextStyle(
+            color: foreground,
+            fontSize: 42,
+            height: 1.12,
+            fontWeight: FontWeight.w800,
+            letterSpacing: -1.5,
+          ),
+        ),
+        const SizedBox(height: 22),
+        Text.rich(
+          TextSpan(
+            style: TextStyle(
+              color: foreground,
+              fontSize: 38,
+              height: 1.16,
+              fontWeight: FontWeight.w800,
+              letterSpacing: -1.25,
+            ),
+            children: const [
+              TextSpan(text: 'Engineering Modern '),
+              TextSpan(
+                text: 'Mobile, Web',
+                style: TextStyle(color: _accent),
+              ),
+              TextSpan(text: ' & Business Applications.'),
             ],
           ),
         ),
-      ),
-    );
-  }
-
-  Row buildHomeImageNPositionDesktop() {
-    return Row(
-      children: [
-        Expanded(
-          child: Container(
-            width: 500,
-            height: 500,
-            child: Container(
-              width: 120,
-              height: 120,
-              decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  // border: Border.all(color: Colors.lightGreenAccent),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(0.3),
-                      spreadRadius: 2,
-                      blurRadius: 8,
-                      offset: Offset(0, 4), // changes position of shadow
-                    ),
-                  ],
-                ),
-              child: ClipOval(
-                child: Image.asset(AboutUtils.myImageStr,fit: BoxFit.fill),
-              ),
+        const SizedBox(height: 22),
+        ConstrainedBox(
+          constraints: const BoxConstraints(maxWidth: 610),
+          child: Text(
+            'I partner with people and businesses to turn ideas into reliable digital products — from polished Flutter experiences to the APIs, databases and workflows that power them.',
+            style: TextStyle(
+              color: muted,
+              fontSize: 16,
+              height: 1.75,
             ),
           ),
         ),
-        const SizedBox(width: 50),
-        // email
-        Expanded(
-          child: Container(
-            width: 500,
-            height: 500,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                ShowcaseScreen(),
-                // Text(
-                //   "Hi,\nI'm ${AboutUtils.myFName} ${AboutUtils.myLName}\nA ${AboutUtils.aboutPosition}",
-                //   style: TextStyle(
-                //     // color: Colors.white,
-                //     fontSize: 20,
-                //     fontWeight: FontWeight.bold,
-                //   ),
-                // ),
-              ],
+        const SizedBox(height: 24),
+        Wrap(
+          spacing: 9,
+          runSpacing: 9,
+          children: const [
+            _SkillPill(label: 'Flutter'),
+            _SkillPill(label: 'Node.js'),
+            _SkillPill(label: 'Firebase'),
+            _SkillPill(label: 'Microsoft SQL Server'),
+            _SkillPill(label: 'GetX'),
+          ],
+        ),
+        const SizedBox(height: 32),
+        Wrap(
+          spacing: 12,
+          runSpacing: 12,
+          children: [
+            FilledButton.icon(
+              onPressed: onViewProjects,
+              icon: const Icon(Icons.arrow_outward_rounded, size: 18),
+              label: const Text('Explore my work'),
+              style: FilledButton.styleFrom(
+                backgroundColor: _accent,
+                foregroundColor: Colors.white,
+                padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 18),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+              ),
             ),
-          ),
+            OutlinedButton.icon(
+              onPressed: onContactTap ??
+                  () => UrlController.to.openUrl('mailto:marimuthu.k.it@gmail.com'),
+              icon: const Icon(Icons.mail_outline_rounded, size: 18),
+              label: const Text('Let’s discuss a project'),
+              style: OutlinedButton.styleFrom(
+                foregroundColor: foreground,
+                side: BorderSide(
+                  color: isDark ? Colors.white24 : Colors.black26,
+                ),
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 18),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(height: 25),
+        Row(
+          children: [
+            IconButton(
+              tooltip: 'GitHub',
+              onPressed: () => UrlController.to.openUrl('https://github.com/mari431'),
+              icon: const Icon(Icons.code_rounded),
+              color: muted,
+            ),
+            IconButton(
+              tooltip: 'LinkedIn',
+              onPressed: () => UrlController.to.openUrl(
+                'https://www.linkedin.com/in/marimuthu-k-2015it19/',
+              ),
+              icon: const Icon(Icons.business_center_outlined),
+              color: muted,
+            ),
+            const SizedBox(width: 8),
+            TextButton.icon(
+              onPressed: () => _downloadController.downloadAssetsFile(
+                'assets/Marimuthu_Kannayiram_Flutter_developer.pdf',
+                'Marimuthu_Kannayiram_Flutter_developer.pdf',
+              ),
+              icon: const Icon(Icons.download_rounded, size: 17),
+              label: const Text('Download résumé'),
+              style: TextButton.styleFrom(foregroundColor: muted),
+            ),
+          ],
         ),
       ],
     );
   }
 
-  Column buildHomeImageNPositionMobile() {
-    return Column(
-      children: [
-        // name
-        Expanded(
-          child: Container(
-            width: 500,
-            height: 500,
+  Widget _buildPortrait(
+    BuildContext context,
+    Color panel,
+    Color border,
+    bool isDark,
+  ) {
+    return Container(
+      constraints: const BoxConstraints(maxWidth: 390),
+      padding: const EdgeInsets.all(13),
+      decoration: BoxDecoration(
+        color: panel,
+        borderRadius: BorderRadius.circular(30),
+        border: Border.all(color: border),
+        boxShadow: [
+          BoxShadow(
+            color: _accent.withOpacity(isDark ? .16 : .10),
+            blurRadius: 55,
+            spreadRadius: 2,
+            offset: const Offset(0, 22),
+          ),
+        ],
+      ),
+      child: Stack(
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(21),
+            child: AspectRatio(
+              aspectRatio: 4 / 4.7,
+              child: Image.asset(
+                AboutUtils.myImageStr,
+                fit: BoxFit.cover,
+                alignment: Alignment.topCenter,
+                errorBuilder: (context, error, stackTrace) => Container(
+                  color: panel,
+                  child: const Icon(Icons.person_outline, size: 90),
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            left: 14,
+            right: 14,
+            bottom: 14,
             child: Container(
-              width: 120,
-              height: 120,
+              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 13),
               decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                // border: Border.all(color: Colors.lightGreenAccent),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.3),
-                    spreadRadius: 2,
-                    blurRadius: 8,
-                    offset: Offset(0, 4), // changes position of shadow
+                color: const Color(0xE8171725),
+                borderRadius: BorderRadius.circular(15),
+                border: Border.all(color: Colors.white.withOpacity(.12)),
+              ),
+              child: const Row(
+                children: [
+                  Icon(Icons.verified_rounded, color: Color(0xFF8C80FF), size: 19),
+                  SizedBox(width: 9),
+                  Expanded(
+                    child: Text(
+                      'Building thoughtful digital experiences',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
                   ),
                 ],
               ),
-              child: ClipOval(
-                child: Image.asset(AboutUtils.myImageStr,fit: BoxFit.fill),
-              ),
             ),
           ),
-        ),
-        const SizedBox(height: 15),
-        // email
-        Expanded(
-          child: Column(
-            children: [
-              ShowcaseScreen(),
-              // Text(
-              //   "Hi,\nI'm ${AboutUtils.myFName} ${AboutUtils.myLName}\nA ${AboutUtils.aboutPosition}",
-              //   style: TextStyle(
-              //     // color: Colors.white,
-              //     fontSize: 20,
-              //     fontWeight: FontWeight.bold,
-              //   ),
-              // ),
-            ],
-          ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
 
-// class Homepage extends StatelessWidget {
-//   const Homepage({super.key});
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return SingleChildScrollView(
-//         child: Column(
-//       children: [
-//
-//         Row(
-//           mainAxisAlignment: MainAxisAlignment.start,crossAxisAlignment: CrossAxisAlignment.start,
-//
-//           children: [
-//             Expanded(
-//               flex: 12,
-//               child: Container(
-//                 width: 400,
-//                 height: 400,
-//                 child: Image.asset(AboutUtils.myImageStr),
-//               ),
-//             ),
-//             Text('adlkjsf')
-//           ],
-//         ),
-//
-//
-//         Row(
-//           // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//           children: [
-//             Expanded(
-//               flex: 12,
-//               child: Center(
-//                   child: Container(
-//                     width: 415,
-//                     padding: EdgeInsets.all(8),
-//                     decoration: BoxDecoration(
-//                         // color: Colors.black54,
-//                         borderRadius: BorderRadius.all(Radius.circular(10))),
-//                     child: Center(
-//                       child: Column(
-//                         children: [
-//                           Text(
-//                             AboutUtils.myFName + ' ' + AboutUtils.myLName,
-//                             style: TextStyle(
-//                               // color: Colors.white,
-//                               fontSize: 20,
-//                               fontWeight: FontWeight.bold,
-//                             ),
-//                           ),
-//
-//                           SizedBox(
-//                             width: 280,
-//                             height: 25,
-//                             child: MarqueeList(
-//                               scrollDirection: Axis.horizontal,
-//                               scrollDuration: Duration(seconds: 2),
-//                               children: [
-//                                 // Text('alfmaslfk;slgm')
-//                                 for (int i = 0; i < AboutUtils.mySkilles.length; i++)
-//                                   Row(
-//                                     children: [
-//                                       Text(AboutUtils.mySkilles[i]
-//                                       ),
-//                                       Text(','),
-//                                       SizedBox(width: 10,)
-//                                     ],
-//                                   ),
-//
-//                               ],
-//                             ),
-//                           ),
-//
-//
-//                         ],
-//                       ),
-//                     ),
-//                   )),
-//             ),
-//           ],
-//         ),
-//
-//         // Row(
-//         //   children: [
-//         //     Container(
-//         //       height: 100,
-//         //       width: Get.width,
-//         //       child: ListView.builder(
-//         //         scrollDirection: Axis.horizontal,
-//         //         itemCount: AboutUtils.profileicons.length,
-//         //         itemBuilder: (context, index) {
-//         //           final map = AboutUtils.profileicons[index];
-//         //           return Row(
-//         //             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-//         //             children: [
-//         //               InkWell(
-//         //                 onTap: (){
-//         //                   UrlController.to.openUrl(index);
-//         //                 },
-//         //                 child: Container(
-//         //                   width: 120,
-//         //                   height: 30,
-//         //                   padding: EdgeInsets.all(5),
-//         //                   decoration: BoxDecoration(
-//         //                       color: index == 0
-//         //                           ? Colors.lightGreen
-//         //                           : index == 1
-//         //                               ? Colors.orange
-//         //                               : Colors.blue,
-//         //                       borderRadius: BorderRadius.circular(32),
-//         //                       boxShadow: [
-//         //                         BoxShadow(
-//         //                             color: Colors.grey.withOpacity(0.1),
-//         //                             spreadRadius: 1,
-//         //                             blurRadius: 1,
-//         //                             offset: Offset(0, 0))
-//         //                       ]),
-//         //                   child: Center(
-//         //                       child: Row(
-//         //                     children: [
-//         //                       Image.asset(map),
-//         //                       Text(index == 0
-//         //                           ? 'Github'
-//         //                           : index == 1
-//         //                               ? 'Instagram'
-//         //                               : 'LinkedIn')
-//         //                     ],
-//         //                   )),
-//         //                 ),
-//         //               ),
-//         //               SizedBox(
-//         //                 width: 10,
-//         //               )
-//         //             ],
-//         //           );
-//         //           // return ListTile(
-//         //           //   title: Text(map),
-//         //           // );
-//         //         },
-//         //       ),
-//         //     ),
-//         //   ],
-//         // ),
-//
-//         // SizedBox(
-//         //   width: 280,
-//         //   height: 25,
-//         //   child: MarqueeList(
-//         //     scrollDirection: Axis.horizontal,
-//         //     scrollDuration: Duration(seconds: 2),
-//         //     children: [
-//         //       // Text('alfmaslfk;slgm')
-//         //       for (int i = 0; i < AboutUtils.mySkilles.length; i++)
-//         //         Row(
-//         //           children: [
-//         //             Text(AboutUtils.mySkilles[i]
-//         //             ),
-//         //             Text(','),
-//         //             SizedBox(width: 10,)
-//         //           ],
-//         //         ),
-//         //
-//         //     ],
-//         //   ),
-//         // ),
-//         // AboutPage(),
-//       ],
-//     ));
-//   }
-// }
+class _SkillPill extends StatelessWidget {
+  const _SkillPill({required this.label});
+
+  final String label;
+
+  @override
+  Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+      decoration: BoxDecoration(
+        color: isDark ? Colors.white.withOpacity(.06) : Colors.white.withOpacity(.8),
+        borderRadius: BorderRadius.circular(9),
+        border: Border.all(
+          color: isDark ? Colors.white12 : Colors.black.withOpacity(.08),
+        ),
+      ),
+      child: Text(
+        label,
+        style: TextStyle(
+          color: isDark ? const Color(0xFFE2E0F0) : const Color(0xFF45445A),
+          fontSize: 12,
+          fontWeight: FontWeight.w600,
+        ),
+      ),
+    );
+  }
+}
