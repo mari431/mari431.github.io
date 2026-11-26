@@ -24,7 +24,6 @@ import 'package:marimuthu_portfolio/widgets/header_desktop.dart';
 import 'package:marimuthu_portfolio/widgets/header_mobile.dart';
 import 'package:marimuthu_portfolio/widgets/logo/logo.dart';
 import 'package:marimuthu_portfolio/widgets/projects_section.dart';
-import 'package:marimuthu_portfolio/widgets/sample_work_widget/sample_work_section.dart';
 
 import 'certificate/views/CertificateView.dart';
 
@@ -36,6 +35,7 @@ class HomeMain extends StatefulWidget {
 }
 
 class _HomeMainState extends State<HomeMain> {
+  bool _showBackToTop = false;
   final scaffoldKey = GlobalKey<ScaffoldState>();
   final scrollController = ScrollController();
   final ThemeController _themeFindController = Get.find<ThemeController>();
@@ -52,7 +52,46 @@ class _HomeMainState extends State<HomeMain> {
       return Scaffold(
         backgroundColor: AppColors.homeMainBgColor(_themeFindController.isDarkMode.value),
         key: scaffoldKey,
-
+        floatingActionButton: AnimatedScale(
+          scale: _showBackToTop ? 1 : 0,
+          duration: const Duration(milliseconds: 260),
+          curve: Curves.easeOutBack,
+          child: AnimatedOpacity(
+            opacity: _showBackToTop ? 1 : 0,
+            duration: const Duration(milliseconds: 180),
+            child: Padding(
+              padding: const EdgeInsets.only(bottom: 12, right: 8),
+              child: Material(
+                color: Colors.transparent,
+                borderRadius: BorderRadius.circular(18),
+                elevation: 12,
+                shadowColor: const Color(0xFF6D5DFB).withOpacity(.35),
+                child: InkWell(
+                  borderRadius: BorderRadius.circular(18),
+                  onTap: () => scrollController.animateTo(
+                    0,
+                    duration: const Duration(milliseconds: 850),
+                    curve: Curves.easeInOutCubicEmphasized,
+                  ),
+                  child: Ink(
+                    width: 54,
+                    height: 54,
+                    decoration: BoxDecoration(
+                      gradient: const LinearGradient(
+                        colors: [Color(0xFF7C6CFF), Color(0xFF3977F6)],
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                      ),
+                      borderRadius: BorderRadius.circular(18),
+                      border: Border.all(color: Colors.white.withOpacity(.24)),
+                    ),
+                    child: const Icon(Icons.keyboard_double_arrow_up_rounded, color: Colors.white, size: 28),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
         endDrawer: constraints.maxWidth >= kMinDesktopWidth
             ? null
             : DrawerMobile(onNavItemTap: (int navIndex) {
@@ -77,7 +116,12 @@ class _HomeMainState extends State<HomeMain> {
               child: NotificationListener<ScrollNotification>(
                 onNotification: (scrollNotification) {
                   if (scrollNotification is ScrollUpdateNotification) {
-                    showcaseController.onScroll(scrollNotification.metrics.pixels);
+                    final offset = scrollNotification.metrics.pixels;
+                    showcaseController.onScroll(offset);
+                    final shouldShow = offset > 420;
+                    if (shouldShow != _showBackToTop && mounted) {
+                      setState(() => _showBackToTop = shouldShow);
+                    }
                   }
                   return true;
                 },
@@ -129,12 +173,6 @@ class _HomeMainState extends State<HomeMain> {
                       const SizedBox(height: 5),
                 
 
-                      Container(
-                        key: navbarKeys[4],
-                        width: screenWidth,
-                        child: SampleWorkSection(),),
-                      const SizedBox(height: 30),
-                
                       // GetInTouchWithMePage(
                       //   key: navbarKeys[6],
                       // ),
