@@ -68,7 +68,7 @@ class _HomeMainState extends State<HomeMain> {
               })
             else
               HeaderMobile(
-                onLogoTap: () {},
+                onLogoTap: () => scrollToSection(0),
                 onMenuTap: () {
                   scaffoldKey.currentState?.openEndDrawer();
                 },
