@@ -52,7 +52,9 @@ class _HomeMainState extends State<HomeMain> {
       return Scaffold(
         backgroundColor: AppColors.homeMainBgColor(_themeFindController.isDarkMode.value),
         key: scaffoldKey,
-        floatingActionButton: AnimatedScale(
+        floatingActionButton: IgnorePointer(
+          ignoring: !_showBackToTop,
+          child: AnimatedScale(
           scale: _showBackToTop ? 1 : 0,
           duration: const Duration(milliseconds: 260),
           curve: Curves.easeOutBack,
@@ -71,7 +73,7 @@ class _HomeMainState extends State<HomeMain> {
                   onTap: () => scrollController.animateTo(
                     0,
                     duration: const Duration(milliseconds: 850),
-                    curve: Curves.easeInOutCubicEmphasized,
+                    curve: Curves.easeInOutCubic,
                   ),
                   child: Ink(
                     width: 54,
@@ -90,6 +92,7 @@ class _HomeMainState extends State<HomeMain> {
                 ),
               ),
             ),
+          ),
           ),
         ),
         endDrawer: constraints.maxWidth >= kMinDesktopWidth
