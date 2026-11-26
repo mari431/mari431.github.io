@@ -1,216 +1,126 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:marimuthu_portfolio/constants/appcolors.dart';
-import 'package:marimuthu_portfolio/constants/appfonts.dart';
-import 'package:marimuthu_portfolio/constants/size.dart';
 import 'package:marimuthu_portfolio/controllers/ThemeController.dart';
-import 'package:marimuthu_portfolio/widgets/custom_widget/HoverShadowWidget.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../constants/skill_items.dart';
 
-class CompanyIWorked extends StatefulWidget {
-  @override
-  _CompanyIWorkedState createState() => _CompanyIWorkedState();
-}
+class CompanyIWorked extends StatelessWidget {
+  CompanyIWorked({super.key});
 
-// class CompanyIWorked extends StatelessWidget {
-  class _CompanyIWorkedState extends State<CompanyIWorked> {
-  // CompanyIWorked({super.key});
+  final ThemeController _themeController = Get.find<ThemeController>();
 
-  final ThemeController _themeFindController = Get.find<ThemeController>();
-  int? hoveredIndex;
+  static const Color _accent = Color(0xFF7667F8);
 
-  // Function to open the URL
-  _launchURL(String url) async {
-      // final String deepLink ='http://globetextiles.net/';
-      final String deepLink ='$url';
-      final Uri deepLinkUri = Uri.parse(deepLink);
-      if (await canLaunchUrl(deepLinkUri)) {
-        await launchUrl(deepLinkUri);
-      }else{
-            showDialog(
-              context: context,
-              builder: (_) => AlertDialog(
-                title: Text('Error'),
-                content: Text('Failed to launch $deepLink'),
-              ),
-            );
-      }
-
-    // if (await canLaunchUrl(url)) {
-    //   await launch(url);
-    // } else {
-    //   throw 'Could not launch $url';
-    // }
+  Future<void> _openCompany(String url, BuildContext context) async {
+    final uri = Uri.tryParse(url);
+    if (uri == null || !await canLaunchUrl(uri)) {
+      if (!context.mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Unable to open this company website.')),
+      );
+      return;
+    }
+    await launchUrl(uri, mode: LaunchMode.externalApplication);
   }
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      // child:
-        // MouseRegion(
-        // onEnter: (_) {
-        //   setState(() {
-        //     hoveredIndex = 1;  // Set the hovered index
-        //   });
-        // },
-        // onExit: (_) {
-        //   setState(() {
-        //     hoveredIndex = null;  // Reset the hovered index
-        //   });
-        // },
-        child: HoverShadowContainer(
-          child: Container(
-            padding: const EdgeInsets.fromLTRB(25, 20, 25, 60),
-            decoration: BoxDecoration(
-                // color: AppColors.skillBgColor(_themeFindController.isDarkMode.value),
-                boxShadow: [
-                  // if (hoveredIndex == 1)
-                  //   BoxShadow(
-                  //     // color: Colors.black.withOpacity(0.3),
-                  //     color: AppColors.CompanyIWorkedConShadowColor(_themeFindController.isDarkMode.value),
-                  //     spreadRadius: 2,
-                  //     blurRadius: 10,
-                  //   ),
-                ]
-            ),
-            // color: AppColors.skillBgColor(_themeFindController.isDarkMode.value),
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  const SizedBox(height: 5),
-                  ConstrainedBox(
-                    constraints: const BoxConstraints(
-                      maxWidth: 700,
-                      maxHeight: 250,
-                    ),
-                    child: LayoutBuilder(
-                      builder: (context, constraints) {
-                        if (constraints.maxWidth >= kMinDesktopWidth) {
-                          return buildSkillDesktop();
-                        }
-                        // else
-                        return buildSkillMobile();
-                      },
-                    ),
-                  ),
-                  const SizedBox(height: 15),
-                ],
-              ),
-            ),
-          ),
-        ),
-      // ),
-    );
-  }
+    return Obx(() {
+      final isDark = _themeController.isDarkMode.value;
+      final foreground = isDark ? const Color(0xFFF4F2FF) : const Color(0xFF19182A);
+      final muted = isDark ? const Color(0xFFB9B6CB) : const Color(0xFF68677A);
+      final card = isDark ? const Color(0xFF1D1C2D) : Colors.white;
+      final border = isDark ? Colors.white.withOpacity(.10) : const Color(0xFFE8E6F1);
+      final shadow = Colors.black.withOpacity(isDark ? .12 : .045);
 
-  Column buildSkillDesktop() {
-    return Column(
-      children: [
-        const Text(
-          "Company I Worked With",
-          style: TextStyle(
-            fontSize: AppFonts.subHeader,
-            fontWeight: FontWeight.bold,
-            // color: CustomColor.whitePrimary,
-          ),
-        ),
-        Row(
-          children: [
-            // platforms
-            ConstrainedBox(
-              constraints: BoxConstraints(
-                maxWidth: 450,
-              ),
-              child: Wrap(
-                spacing: 5.0,
-                runSpacing: 5.0,
-                children: [
-                  for (int i = 0; i < companyIWorkedWith.length; i++)
-                    GestureDetector(
-                      onTap: (){
-                        _launchURL(companyIWorkedWith[i]["url"]);
-                      },
-                      child: Container(
-                        width: 200,
-                        child: Tooltip(
-                          message: 'Visit Website',
-                          child: ListTile(
-                            contentPadding: const EdgeInsets.symmetric(
-                              horizontal: 10.0,
-                              vertical: 20.0,
+      return Container(
+        width: double.infinity,
+        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 52),
+        color: isDark ? const Color(0xFF151522) : const Color(0xFFF7F6FC),
+        child: Center(
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 1080),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  'MY PROFESSIONAL JOURNEY',
+                  style: TextStyle(color: _accent, fontSize: 11, letterSpacing: 1.8, fontWeight: FontWeight.w800),
+                ),
+                const SizedBox(height: 10),
+                Text(
+                  'Companies I’ve worked with',
+                  style: TextStyle(color: foreground, fontSize: 27, fontWeight: FontWeight.w800, letterSpacing: -.5),
+                ),
+                const SizedBox(height: 9),
+                Text(
+                  'A few of the teams and organizations I’ve had the opportunity to contribute to.',
+                  style: TextStyle(color: muted, fontSize: 14, height: 1.6),
+                ),
+                const SizedBox(height: 26),
+                LayoutBuilder(builder: (context, constraints) {
+                  final columns = constraints.maxWidth >= 850 ? 3 : constraints.maxWidth >= 540 ? 2 : 1;
+                  final itemWidth = (constraints.maxWidth - (columns - 1) * 14) / columns;
+                  return Wrap(
+                    spacing: 14,
+                    runSpacing: 14,
+                    children: [
+                      for (final company in companyIWorkedWith)
+                        SizedBox(
+                          width: itemWidth,
+                          child: Material(
+                            color: card,
+                            borderRadius: BorderRadius.circular(16),
+                            elevation: 0,
+                            child: InkWell(
+                              borderRadius: BorderRadius.circular(16),
+                              onTap: () => _openCompany(company['url'] as String, context),
+                              child: AnimatedContainer(
+                                duration: const Duration(milliseconds: 180),
+                                padding: const EdgeInsets.symmetric(horizontal: 17, vertical: 18),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(16),
+                                  border: Border.all(color: border),
+                                  boxShadow: [BoxShadow(color: shadow, blurRadius: 18, offset: const Offset(0, 6))],
+                                ),
+                                child: Row(
+                                  children: [
+                                    Container(
+                                      width: 48,
+                                      height: 48,
+                                      padding: const EdgeInsets.all(9),
+                                      decoration: BoxDecoration(
+                                        color: isDark ? Colors.white.withOpacity(.07) : const Color(0xFFF4F2FC),
+                                        borderRadius: BorderRadius.circular(12),
+                                      ),
+                                      child: Image.asset(company['img'] as String, fit: BoxFit.contain),
+                                    ),
+                                    const SizedBox(width: 13),
+                                    Expanded(
+                                      child: Text(
+                                        company['title'] as String,
+                                        maxLines: 2,
+                                        overflow: TextOverflow.ellipsis,
+                                        style: TextStyle(color: foreground, fontSize: 13, fontWeight: FontWeight.w700, height: 1.35),
+                                      ),
+                                    ),
+                                    const SizedBox(width: 8),
+                                    Icon(Icons.north_east_rounded, color: muted, size: 17),
+                                  ],
+                                ),
+                              ),
                             ),
-                            leading: Image.asset(
-                              companyIWorkedWith[i]["img"],
-                              width: 26.0,
-                              // color: AppColors.skillIconColor(_themeFindController.isDarkMode.value),
-                            ),
-                            title: Text(companyIWorkedWith[i]["title"],style: TextStyle(color: AppColors.skillTextColor(_themeFindController.isDarkMode.value),fontSize: 12),),
-                            // trailing:  GestureDetector(
-                            //   onTap: () => _launchURL(companyIWorkedWith[i]['url']!),
-                            //   child: Image.asset(
-                            //     'assets/images/web_icon.png'
-                            //   ),
-                            // ),
                           ),
                         ),
-                      ),
-                    ),
-
-                ],
-              ),
-            ),
-          ],
-        ),
-      ],
-    );
-  }
-
-  Column buildSkillMobile() {
-    return Column(
-      children: [
-        const Text(
-          "Company I Worked With",
-          style: TextStyle(
-            fontSize: AppFonts.subHeader,
-            fontWeight: FontWeight.bold,
-            // color: CustomColor.whitePrimary,
-          ),
-        ),
-        for (int i = 0; i < companyIWorkedWith.length; i++)
-          GestureDetector(
-            onTap: () => _launchURL(companyIWorkedWith[i]['url']!),
-            child: Container(
-              margin: const EdgeInsets.only(bottom: 5.0),
-              width: double.maxFinite,
-              decoration: BoxDecoration(
-                  color: AppColors.skillBgColor(_themeFindController.isDarkMode.value),
-                  borderRadius: BorderRadius.circular(32),
-                  boxShadow: [
-                    BoxShadow(
-                        color: Colors.grey.withOpacity(0.5),
-                        spreadRadius: 1,
-                        blurRadius: 1,
-                        offset: Offset(0, 0)
-                    )
-                  ]
-              ),
-              child: ListTile(
-                contentPadding: const EdgeInsets.symmetric(
-                  vertical: 10.0,
-                  horizontal: 20.0,
-                ),
-                leading: Image.asset(
-                  companyIWorkedWith[i]["img"],
-                  width: 26.0,
-                  // color: AppColors.skillIconColor(_themeFindController.isDarkMode.value),
-                ),
-                title: Text(companyIWorkedWith[i]["title"],),
-              ),
+                    ],
+                  );
+                }),
+              ],
             ),
           ),
-      ],
-    );
+        ),
+      );
+    });
   }
 }
