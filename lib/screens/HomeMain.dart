@@ -92,7 +92,10 @@ class _HomeMainState extends State<HomeMain> {
                       // Container(
                       //     decoration: BoxDecoration(image: DecorationImage(image: AssetImage('assets/images/bg_image.webp'))),
                       //     child:
-                          HomePage(),
+                          HomePage(
+                            onViewProjects: () => scrollToSection(3),
+                            onContactTap: () => scrollToSection(6),
+                          ),
                       // ),
 
                       const SizedBox(height: 5),
