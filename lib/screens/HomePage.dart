@@ -84,7 +84,14 @@ class HomePage extends StatelessWidget {
     Color muted,
     bool isDark,
   ) {
-    final viewportWidth = MediaQuery.sizeOf(context).width;\n    final nameSize = viewportWidth < 380 ? 32.0 : viewportWidth < 760 ? 36.0 : 42.0;\n    final headlineSize = viewportWidth < 380 ? 29.0 : viewportWidth < 760 ? 34.0 : 38.0;\n\n    return Column(\n      crossAxisAlignment: CrossAxisAlignment.start,\n      mainAxisSize: MainAxisSize.min,\n      children: [
+    final viewportWidth = MediaQuery.sizeOf(context).width;
+    final nameSize = viewportWidth < 380 ? 32.0 : viewportWidth < 760 ? 36.0 : 42.0;
+    final headlineSize = viewportWidth < 380 ? 29.0 : viewportWidth < 760 ? 34.0 : 38.0;
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisSize: MainAxisSize.min,
+      children: [
         Container(
           padding: const EdgeInsets.symmetric(horizontal: 13, vertical: 8),
           decoration: BoxDecoration(
@@ -116,7 +123,7 @@ class HomePage extends StatelessWidget {
           '${AboutUtils.myFName} ${AboutUtils.myLName}',
           style: TextStyle(
             color: foreground,
-            fontSize: 42,
+            fontSize: nameSize,
             height: 1.12,
             fontWeight: FontWeight.w800,
             letterSpacing: -1.5,
@@ -127,7 +134,7 @@ class HomePage extends StatelessWidget {
           TextSpan(
             style: TextStyle(
               color: foreground,
-              fontSize: 38,
+              fontSize: headlineSize,
               height: 1.16,
               fontWeight: FontWeight.w800,
               letterSpacing: -1.25,
