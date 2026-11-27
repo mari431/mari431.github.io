@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:marimuthu_portfolio/constants/appcolors.dart';
-import 'package:marimuthu_portfolio/constants/appfonts.dart';
 import 'package:marimuthu_portfolio/constants/size.dart';
 import 'package:marimuthu_portfolio/controllers/ShowcaseController.dart';
 import 'package:marimuthu_portfolio/controllers/ThemeController.dart';
-import 'package:marimuthu_portfolio/controllers/UrlController.dart';
 import 'package:marimuthu_portfolio/screens/ContactPage.dart';
 import 'package:marimuthu_portfolio/screens/HomePage.dart';
 import 'package:marimuthu_portfolio/screens/ServicesPage.dart';
@@ -13,16 +11,12 @@ import 'package:marimuthu_portfolio/screens/aboutPage.dart';
 import 'package:marimuthu_portfolio/screens/companyIWorked.dart';
 import 'package:marimuthu_portfolio/screens/get_In_touch.dart';
 import 'package:marimuthu_portfolio/screens/skillsPage.dart';
-import 'package:marimuthu_portfolio/screens/videoPlay/VideoPlayerScreen.dart';
-import 'package:marimuthu_portfolio/utils/common_utils.dart';
 
-import 'dart:js' as js;
 
 import 'package:marimuthu_portfolio/widgets/drawer_mobile.dart';
 import 'package:marimuthu_portfolio/widgets/footer.dart';
 import 'package:marimuthu_portfolio/widgets/header_desktop.dart';
 import 'package:marimuthu_portfolio/widgets/header_mobile.dart';
-import 'package:marimuthu_portfolio/widgets/logo/logo.dart';
 import 'package:marimuthu_portfolio/widgets/projects_section.dart';
 
 import 'certificate/views/CertificateView.dart';
