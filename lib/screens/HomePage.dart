@@ -84,10 +84,7 @@ class HomePage extends StatelessWidget {
     Color muted,
     bool isDark,
   ) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisSize: MainAxisSize.min,
-      children: [
+    final viewportWidth = MediaQuery.sizeOf(context).width;\n    final nameSize = viewportWidth < 380 ? 32.0 : viewportWidth < 760 ? 36.0 : 42.0;\n    final headlineSize = viewportWidth < 380 ? 29.0 : viewportWidth < 760 ? 34.0 : 38.0;\n\n    return Column(\n      crossAxisAlignment: CrossAxisAlignment.start,\n      mainAxisSize: MainAxisSize.min,\n      children: [
         Container(
           padding: const EdgeInsets.symmetric(horizontal: 13, vertical: 8),
           decoration: BoxDecoration(
