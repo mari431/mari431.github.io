@@ -28,37 +28,124 @@
       min-height: 100%;
       background: #11121d;
     }
+
     body {
       min-height: 100vh;
     }
+
     #initial-loader {
       position: fixed;
       inset: 0;
+      z-index: 10;
       display: grid;
       place-items: center;
-      background: #11121d;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse at 50% 42%, rgba(118, 103, 248, .14), transparent 42%),
+        #11121d;
       color: #f5f4ff;
-      font: 500 14px system-ui, sans-serif;
-      letter-spacing: .04em;
-      z-index: 10;
-      transition: opacity .25s ease;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      transition: opacity .35s ease, visibility .35s ease;
     }
-    #initial-loader span {
-      color: #9b91ff;
-      margin-left: 4px;
+
+    .loader-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+      padding: 24px;
+      text-align: center;
+    }
+
+    .loader-mark {
+      display: grid;
+      width: 68px;
+      height: 68px;
+      place-items: center;
+      border: 1px solid rgba(155, 145, 255, .55);
+      border-radius: 20px;
+      background: linear-gradient(145deg, rgba(118, 103, 248, .24), rgba(118, 103, 248, .06));
+      box-shadow: 0 12px 48px rgba(118, 103, 248, .18), inset 0 1px rgba(255, 255, 255, .08);
+      color: #c5bfff;
+      font-size: 22px;
+      font-weight: 750;
+      letter-spacing: -.08em;
+      animation: mark-float 1.8s ease-in-out infinite;
+    }
+
+    .loader-name {
+      color: #f5f4ff;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+    }
+
+    .loader-caption {
+      margin-top: -10px;
+      color: #9291a8;
+      font-size: 12px;
+      letter-spacing: .03em;
+    }
+
+    .loader-track {
+      width: 150px;
+      height: 3px;
+      overflow: hidden;
+      border-radius: 99px;
+      background: rgba(255, 255, 255, .12);
+    }
+
+    .loader-progress {
+      width: 42%;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, #7667f8, #b7adff);
+      box-shadow: 0 0 14px rgba(118, 103, 248, .7);
+      animation: loader-sweep 1.25s ease-in-out infinite;
+    }
+
+    @keyframes loader-sweep {
+      from { transform: translateX(-110%); }
+      to { transform: translateX(250%); }
+    }
+
+    @keyframes mark-float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .loader-mark, .loader-progress {
+        animation: none;
+      }
+      .loader-progress {
+        width: 100%;
+        opacity: .7;
+      }
     }
   </style>
   <script src="flutter.js" defer></script>
   <script src="flutter_bootstrap.js" defer></script>
 </head>
 <body>
-  <div id="initial-loader">Marimuthu<span>·</span></div>
+  <div id="initial-loader" role="status" aria-live="polite" aria-label="Loading portfolio">
+    <div class="loader-content">
+      <div class="loader-mark" aria-hidden="true">MK</div>
+      <div class="loader-name">Marimuthu Kannayiram</div>
+      <div class="loader-caption">Preparing your experience</div>
+      <div class="loader-track" aria-hidden="true">
+        <div class="loader-progress"></div>
+      </div>
+    </div>
+  </div>
   <script>
     window.addEventListener('flutter-first-frame', function () {
       const loader = document.getElementById('initial-loader');
       if (loader) {
         loader.style.opacity = '0';
-        window.setTimeout(() => loader.remove(), 300);
+        loader.style.visibility = 'hidden';
+        window.setTimeout(() => loader.remove(), 400);
       }
     });
   </script>
