@@ -15,7 +15,7 @@ class DrawerMobile extends StatelessWidget {
   final ThemeController _themeController = Get.find<ThemeController>();
   final DownloadController _downloadController = Get.put(DownloadController());
 
-  static const List<int> _visibleNavIndexes = [0, 1, 2, 3, 5];
+  static const List<int> _visibleNavIndexes = [0, 1, 2, 3, 5, 6];
 
   @override
   Widget build(BuildContext context) {
@@ -108,7 +108,7 @@ class DrawerMobile extends StatelessWidget {
                     SizedBox(
                       height: 48,
                       child: OutlinedButton.icon(
-                        onPressed: () => onNavItemTap(6),
+                        onPressed: () => onNavItemTap(5),
                         icon: const Icon(Icons.chat_bubble_outline_rounded, size: 18),
                         label: const Text('Let’s talk', style: TextStyle(fontWeight: FontWeight.w700)),
                         style: OutlinedButton.styleFrom(
