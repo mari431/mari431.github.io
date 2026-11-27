@@ -27,7 +27,7 @@ class ContactScreen extends StatelessWidget {
           child: ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: 1120),
             child: LayoutBuilder(builder: (context, constraints) {
-              final form = _messageForm(surface, border, foreground, muted);
+              final form = _messageForm(context, surface, border, foreground, muted);
               final details = _contactDetails(foreground, muted, surface, border);
               if (constraints.maxWidth < 760) {
                 return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
@@ -62,7 +62,7 @@ class ContactScreen extends StatelessWidget {
     Text('Tell me what you’re planning. I’m open to software development opportunities, collaborations and practical business technology projects.', style: TextStyle(color: muted, fontSize: 15, height: 1.7)),
   ]);
 
-  Widget _messageForm(Color surface, Color border, Color foreground, Color muted) {
+  Widget _messageForm(BuildContext context, Color surface, Color border, Color foreground, Color muted) {
     final controller = Contactcontroller.to;
     return Container(
       padding: const EdgeInsets.all(22),
@@ -91,7 +91,13 @@ class ContactScreen extends StatelessWidget {
         SizedBox(width: double.infinity, child: FilledButton.icon(
           onPressed: () {
             if (controller.nameController.text.trim().isEmpty) {
-              Get.snackbar('Message needed', 'Please add a short message before continuing.');
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  content: Text('Please add a short message before continuing.'),
+                  behavior: SnackBarBehavior.floating,
+                  duration: Duration(seconds: 3),
+                ),
+              );
               return;
             }
             controller.sendMail();
