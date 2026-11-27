@@ -140,7 +140,7 @@ class _HomeMainState extends State<HomeMain> {
                       //     child:
                           HomePage(
                             onViewProjects: () => scrollToSection(3),
-                            onContactTap: () => scrollToSection(6),
+                            onContactTap: () => scrollToSection(5),
                           ),
                       // ),
 
@@ -188,14 +188,6 @@ class _HomeMainState extends State<HomeMain> {
                       ),
                       const SizedBox(height: 30),
 
-                      Text(
-                        "Certificates",
-                        style: TextStyle(
-                          fontSize: AppFonts.subHeader,
-                          fontWeight: FontWeight.bold,
-                          // color: CustomColor.whitePrimary,
-                        ),
-                      ),
                       Container(
                         key: navbarKeys[7],
                         width: screenWidth,
@@ -233,11 +225,15 @@ class _HomeMainState extends State<HomeMain> {
     //   return;
     // }
 
-    final key = navbarKeys[navIndex];
+    // Keep public navigation indexes stable while routing to the actual section keys.
+    final sectionIndex = navIndex == 6 ? 7 : navIndex;
+    if (sectionIndex < 0 || sectionIndex >= navbarKeys.length) return;
+    final targetContext = navbarKeys[sectionIndex].currentContext;
+    if (targetContext == null) return;
     Scrollable.ensureVisible(
-      key.currentContext!,
-      duration: const Duration(milliseconds: 500),
-      curve: Curves.easeInOut,
+      targetContext,
+      duration: const Duration(milliseconds: 650),
+      curve: Curves.easeInOutCubic,
     );
   }
 }
