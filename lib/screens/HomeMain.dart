@@ -146,12 +146,12 @@ class _HomeMainState extends State<HomeMain> {
                         ),
                         ServicesPage(),
                         KeyedSubtree(
-                          key: navbarKeys[3],
-                          child: ProjectsSection(),
-                        ),
-                        KeyedSubtree(
                           key: navbarKeys[2],
                           child: SkillsPage(),
+                        ),
+                        KeyedSubtree(
+                          key: navbarKeys[3],
+                          child: ProjectsSection(),
                         ),
                         // Keep one contact destination; social links live in ContactScreen.
                         KeyedSubtree(
