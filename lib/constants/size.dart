@@ -1,4 +1,5 @@
 const double kMinDesktopWidth = 600.0;
 const double kMedDesktopWidth = 800.0;
 
-const double kMinDesktopNavbarWidth = 730.0;
+// The full desktop navigation needs enough room for the brand, six links and actions.
+const double kMinDesktopNavbarWidth = 1160.0;

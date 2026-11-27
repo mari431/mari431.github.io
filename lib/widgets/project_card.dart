@@ -1,157 +1,160 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:marimuthu_portfolio/constants/appcolors.dart';
-import 'package:marimuthu_portfolio/controllers/ThemeController.dart';
-
-
 import 'dart:js' as js;
 
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:marimuthu_portfolio/controllers/ThemeController.dart';
 import 'package:marimuthu_portfolio/utils/project_utils.dart';
 
 class ProjectCardWidget extends StatelessWidget {
-   ProjectCardWidget({
-    super.key,
-    required this.project,
-  });
-  final ProjectUtils project;
+  ProjectCardWidget({super.key, required this.project});
 
-  final ThemeController _themeFindController = Get.find<ThemeController>();
+  final ProjectUtils project;
+  final ThemeController _themeController = Get.find<ThemeController>();
+
+  static const Color _accent = Color(0xFF7667F8);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      clipBehavior: Clip.antiAlias,
-      height: 310,
-      width: 280,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        // color: Color(0xff424657),
-          color:AppColors.wProjectBgColor(_themeFindController.isDarkMode.value),
-          // color: Colors.lightGreenAccent.withOpacity(0.5),
+    return Obx(() {
+      final isDark = _themeController.isDarkMode.value;
+      final foreground =
+          isDark ? const Color(0xFFF4F2FF) : const Color(0xFF19182A);
+      final muted =
+          isDark ? const Color(0xFFB9B6CB) : const Color(0xFF68677A);
+      final surface = isDark ? const Color(0xFF1B1A2A) : Colors.white;
+      final border =
+          isDark ? Colors.white.withOpacity(.10) : const Color(0xFFE8E6F1);
+      final hasLinks = project.iosLink != null ||
+          project.androidLink != null ||
+          project.webLink != null ||
+          (project.desktop != null && project.desktop!.startsWith('http'));
+
+      return Container(
+        width: double.infinity,
+        clipBehavior: Clip.antiAlias,
+        decoration: BoxDecoration(
+          color: surface,
+          borderRadius: BorderRadius.circular(18),
+          border: Border.all(color: border),
           boxShadow: [
             BoxShadow(
-                color: Colors.grey.withOpacity(0.1),
-                spreadRadius: 1,
-                blurRadius: 1,
-                offset: Offset(0, 0)
-            )
-          ]
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          // project img
-          Container(
-            color: Colors.black.withOpacity(0.5),
-            child: Image.asset(
-              project.image,
-              height: 150,
-              width: 280,
-              fit: BoxFit.fill,
-              // color: Colors.black,
+              color: Colors.black.withOpacity(isDark ? .14 : .045),
+              blurRadius: 22,
+              offset: const Offset(0, 9),
             ),
-          ),
-          // title
-          Padding(
-            padding: const EdgeInsets.fromLTRB(12, 15, 12, 12),
-            child: Text(
-              project.title,
-              style: const TextStyle(
-                fontSize: 22,
-                fontWeight: FontWeight.w900,
-                // color: CustomColor.whitePrimary,
-              ),
-            ),
-          ),
-          // subtitle
-          Padding(
-            padding: const EdgeInsets.fromLTRB(12, 0, 12, 12),
-            child: Text(
-              project.subtitle,
-              style: const TextStyle(
-                fontSize: 12,
-                color: Colors.grey,
-              ),
-            ),
-          ),
-          const Spacer(),
-          // footer
-          Container(
-            // color: CustomColor.bgLight1,
-            padding: const EdgeInsets.symmetric(
-              horizontal: 12,
-              vertical: 10,
-            ),
-            child: Row(
-              children: [
-                const Text(
-                  "Available on:",
-                  style: TextStyle(
-                    // color: Colors.greenAccent,
-                    fontSize: 10,
+          ],
+        ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            AspectRatio(
+              aspectRatio: 16 / 9,
+              child: Image.asset(
+                project.image,
+                width: double.infinity,
+                fit: BoxFit.cover,
+                errorBuilder: (_, __, ___) => Container(
+                  color: isDark
+                      ? const Color(0xFF28263B)
+                      : const Color(0xFFECEAF6),
+                  child: const Center(
+                    child: Icon(
+                      Icons.image_not_supported_outlined,
+                      color: _accent,
+                      size: 36,
+                    ),
                   ),
                 ),
-                const Spacer(),
-                if (project.iosLink != null)
-                  InkWell(
-                    onTap: () {
-                      js.context.callMethod("open", [project.iosLink]);
-                    },
-                    child: Image.asset(
-                      "images/ios_icon.png",
-                      width: 15,
-                      color: AppColors.wProjectIosIconColor(_themeFindController.isDarkMode.value),
-                    ),
-                  ),
-                if (project.androidLink != null)
-                  Padding(
-                    padding: const EdgeInsets.only(left: 6),
-                    child: InkWell(
-                      onTap: () {
-                        js.context.callMethod("open", [project.androidLink]);
-                      },
-                      child: Image.asset(
-                        "images/android_icon.png",
-                        width: 15,
-                        color: AppColors.wProjectAndroidIconColor(_themeFindController.isDarkMode.value),
-                      ),
-                    ),
-                  ),
-                if (project.webLink != null)
-                  Padding(
-                    padding: const EdgeInsets.only(left: 6),
-                    child: InkWell(
-                      onTap: () {
-                        js.context.callMethod("open", [project.webLink]);
-                      },
-                      child: Image.asset(
-                        "images/web_icon.png",
-                        width: 15,
-                        color: AppColors.wProjectWebIconColor(_themeFindController.isDarkMode.value),
-                      ),
-                    ),
-                  ),
-                if (project.desktop != null)
-                  Padding(
-                    padding: const EdgeInsets.only(left: 6),
-                    child: InkWell(
-                      onTap: () {
-                        js.context.callMethod("open", [project.desktop]);
-                      },
-                      child: Icon(Icons.desktop_mac_outlined,color: Colors.red,),
-                      // child: Image.asset(
-                      //   "images/web_icon.png",
-                      //   width: 15,
-                      //   color: AppColors.wProjectWebIconColor(_themeFindController.isDarkMode.value),
-                      // ),
-                    ),
-                  ),
-              ],
+              ),
             ),
-          )
-        ],
-      ),
-    );
+            Padding(
+              padding: const EdgeInsets.fromLTRB(17, 16, 17, 7),
+              child: Text(
+                project.title,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(
+                  color: foreground,
+                  fontSize: 17,
+                  fontWeight: FontWeight.w800,
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(17, 0, 17, 14),
+              child: Text(
+                project.subtitle,
+                maxLines: 4,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(color: muted, fontSize: 12, height: 1.6),
+              ),
+            ),
+            if (hasLinks)
+              Padding(
+                padding: const EdgeInsets.fromLTRB(17, 0, 17, 12),
+                child: Row(
+                  children: [
+                    const Text(
+                      'Explore project',
+                      style: TextStyle(
+                        color: _accent,
+                        fontSize: 11,
+                        fontWeight: FontWeight.w800,
+                      ),
+                    ),
+                    const Spacer(),
+                    if (project.iosLink != null)
+                      _linkIcon(
+                        'images/ios_icon.png',
+                        isDark ? Colors.white : const Color(0xFF20202A),
+                        project.iosLink!,
+                      ),
+                    if (project.androidLink != null)
+                      _linkIcon(
+                        'images/android_icon.png',
+                        const Color(0xFF35A853),
+                        project.androidLink!,
+                      ),
+                    if (project.webLink != null)
+                      _linkIcon(
+                        'images/web_icon.png',
+                        const Color(0xFF3977F6),
+                        project.webLink!,
+                      ),
+                    if (project.desktop != null &&
+                        project.desktop!.startsWith('http'))
+                      IconButton(
+                        tooltip: 'Open project',
+                        onPressed: () =>
+                            js.context.callMethod('open', [project.desktop]),
+                        icon: Icon(
+                          Icons.desktop_mac_outlined,
+                          color: muted,
+                          size: 19,
+                        ),
+                      ),
+                  ],
+                ),
+              ),
+          ],
+        ),
+      );
+    });
   }
+
+  Widget _linkIcon(String asset, Color color, String url) => Padding(
+        padding: const EdgeInsets.only(left: 10),
+        child: Tooltip(
+          message: 'Open project',
+          child: InkWell(
+            borderRadius: BorderRadius.circular(6),
+            onTap: () => js.context.callMethod('open', [url]),
+            child: Padding(
+              padding: const EdgeInsets.all(4),
+              child: Image.asset(asset, width: 18, height: 18, color: color),
+            ),
+          ),
+        ),
+      );
 }
