@@ -17,8 +17,10 @@ class CertificateView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(() {
       final isDark = _themeController.isDarkMode.value;
-      final foreground = isDark ? const Color(0xFFF4F2FF) : const Color(0xFF19182A);
-      final muted = isDark ? const Color(0xFFB9B6CB) : const Color(0xFF68677A);
+      final foreground =
+          isDark ? const Color(0xFFF4F2FF) : const Color(0xFF19182A);
+      final muted =
+          isDark ? const Color(0xFFB9B6CB) : const Color(0xFF68677A);
 
       return Container(
         width: double.infinity,
@@ -32,12 +34,22 @@ class CertificateView extends StatelessWidget {
               children: [
                 const Text(
                   'LEARNING & CREDENTIALS',
-                  style: TextStyle(color: _accent, fontSize: 11, letterSpacing: 1.8, fontWeight: FontWeight.w800),
+                  style: TextStyle(
+                    color: _accent,
+                    fontSize: 11,
+                    letterSpacing: 1.8,
+                    fontWeight: FontWeight.w800,
+                  ),
                 ),
                 const SizedBox(height: 10),
                 Text(
                   'Certificates & achievements',
-                  style: TextStyle(color: foreground, fontSize: 28, fontWeight: FontWeight.w800, letterSpacing: -.5),
+                  style: TextStyle(
+                    color: foreground,
+                    fontSize: 28,
+                    fontWeight: FontWeight.w800,
+                    letterSpacing: -.5,
+                  ),
                 ),
                 const SizedBox(height: 9),
                 Text(
@@ -50,25 +62,37 @@ class CertificateView extends StatelessWidget {
                   if (certificates.isEmpty) {
                     return Padding(
                       padding: const EdgeInsets.symmetric(vertical: 28),
-                      child: Text('Certificates will appear here soon.', style: TextStyle(color: muted)),
+                      child: Text(
+                        'Certificates will appear here soon.',
+                        style: TextStyle(color: muted),
+                      ),
                     );
                   }
-                  return LayoutBuilder(builder: (context, constraints) {
-                    final columns = constraints.maxWidth >= 850 ? 3 : constraints.maxWidth >= 560 ? 2 : 1;
-                    final itemWidth = (constraints.maxWidth - (columns - 1) * 16) / columns;
-                    return Wrap(
-                      spacing: 16,
-                      runSpacing: 16,
-                      children: [
-                        for (final certificate in certificates)
-                          SizedBox(
-                            width: itemWidth,
-                            height: 370,
-                            child: CertificateCard(certificate: certificate),
-                          ),
-                      ],
-                    );
-                  });
+
+                  return LayoutBuilder(
+                    builder: (context, constraints) {
+                      final columns = constraints.maxWidth >= 850
+                          ? 3
+                          : constraints.maxWidth >= 560
+                              ? 2
+                              : 1;
+                      final itemWidth = (constraints.maxWidth -
+                              (columns - 1) * 16) /
+                          columns;
+
+                      return Wrap(
+                        spacing: 16,
+                        runSpacing: 16,
+                        children: [
+                          for (final certificate in certificates)
+                            SizedBox(
+                              width: itemWidth,
+                              child: CertificateCard(certificate: certificate),
+                            ),
+                        ],
+                      );
+                    },
+                  );
                 }),
               ],
             ),
