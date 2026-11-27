@@ -74,8 +74,8 @@ class ContactScreen extends StatelessWidget {
         const SizedBox(height: 18),
         TextField(
           controller: controller.nameController,
-          minLines: 5,
-          maxLines: 7,
+          minLines: 4,
+          maxLines: 6,
           style: TextStyle(color: foreground),
           decoration: InputDecoration(
             hintText: 'What would you like to build or discuss?',
