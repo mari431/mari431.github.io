@@ -15,7 +15,7 @@ class HeaderDesktop extends StatelessWidget {
   final ThemeController _themeController = Get.find<ThemeController>();
   final DownloadController _downloadController = Get.put(DownloadController());
 
-  static const List<int> _primaryNavIndexes = [0, 1, 2, 3, 5];
+  static const List<int> _primaryNavIndexes = [0, 1, 2, 3, 5, 6];
 
   @override
   Widget build(BuildContext context) {
@@ -93,7 +93,7 @@ class HeaderDesktop extends StatelessWidget {
                   Container(width: 1, height: 28, color: border),
                   const SizedBox(width: 12),
                   TextButton.icon(
-                    onPressed: () => onNavMenuTap(6),
+                    onPressed: () => onNavMenuTap(5),
                     style: TextButton.styleFrom(
                       foregroundColor: foreground,
                       padding: const EdgeInsets.symmetric(horizontal: 13, vertical: 13),
