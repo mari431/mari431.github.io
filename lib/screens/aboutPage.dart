@@ -106,7 +106,7 @@ class AboutPage extends StatelessWidget {
 
   Widget _factCard(String value, String label, Color surface, Color border, Color foreground, Color muted) {
     return Container(
-      width: 220,
+      constraints: const BoxConstraints(maxWidth: 220),
       padding: const EdgeInsets.all(18),
       decoration: BoxDecoration(color: surface, borderRadius: BorderRadius.circular(16), border: Border.all(color: border)),
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
